@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-Benz Footer</title>
+</head>
+<body>
+    <footer>
+        <brandhub-footer-navigation>
+            <div class="footernavigation">
+                <div class="footernavigationitem">
+                    <brandhub-footer-navigation-item link-url="https://www.mercedes-benz.com/en/providerprivacy-statement/provider/" link-text="Provider" link-target="_self">
+                        <template shadowrootmode="open">
+                            <style data-v-ce-root="">
+                                .brandhub-footer-navigation-item {
+                                    background: none;
+                                    border: none;
+                                    color: #9f9f9f;
+                                    font: inherit;
+                                    font-size: 1rem;
+                                    line-height: 1.5714285714rem;
+                                    padding: 0;
+                                    text-decoration: none;
+                                    transition: color .4s ease-in-out;
+                                    white-space: nowrap;
+                                }
+                                .brandhub-footer-navigation-item:hover {
+                                    color: var(--text-color);
+                                    cursor: pointer;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible {
+                                    outline: none;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible .brandhub-footer-navigation-item__text {
+                                    position: relative;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible .brandhub-footer-navigation-item__text:after {
+                                    border: 3px solid rgba(0,120,214,.8);
+                                    content: "";
+                                    display: block;
+                                    height: 100%;
+                                    position: absolute;
+                                    width: 100%;
+                                    left: -.5rem;
+                                    padding-right: .5rem;
+                                    top: -.1428571429rem;
+                                }
+                            </style>
+                            <a class="brandhub-footer-navigation-item" href="https://www.mercedes-benz.com/en/providerprivacy-statement/provider/" target="_self">
+                                <span class="brandhub-footer-navigation-item__text">Provider</span>
+                            </a>
+                        </template>
+                        <div slot="navigationItem">
+                            <div class="parsys"></div>
+                        </div>
+                    </brandhub-footer-navigation-item>
+                </div>
+                <div class="footernavigationitem">
+                    <brandhub-footer-navigation-item link-url="https://www.mercedes-benz.com/en/providerprivacy-statement/do-not-sell-or-share-my-personal-information/" link-text="Don&#39;t Sell My Personal Information (CCPA)" link-target="_self">
+                        <template shadowrootmode="open">
+                            <style data-v-ce-root="">
+                                .brandhub-footer-navigation-item {
+                                    background: none;
+                                    border: none;
+                                    color: #9f9f9f;
+                                    font: inherit;
+                                    font-size: 1rem;
+                                    line-height: 1.5714285714rem;
+                                    padding: 0;
+                                    text-decoration: none;
+                                    transition: color .4s ease-in-out;
+                                    white-space: nowrap;
+                                }
+                                .brandhub-footer-navigation-item:hover {
+                                    color: var(--text-color);
+                                    cursor: pointer;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible {
+                                    outline: none;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible .brandhub-footer-navigation-item__text {
+                                    position: relative;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible .brandhub-footer-navigation-item__text:after {
+                                    border: 3px solid rgba(0,120,214,.8);
+                                    content: "";
+                                    display: block;
+                                    height: 100%;
+                                    position: absolute;
+                                    width: 100%;
+                                    left: -.5rem;
+                                    padding-right: .5rem;
+                                    top: -.1428571429rem;
+                                }
+                            </style>
+                            <a class="brandhub-footer-navigation-item" href="https://www.mercedes-benz.com/en/providerprivacy-statement/do-not-sell-or-share-my-personal-information/" target="_self">
+                                <span class="brandhub-footer-navigation-item__text">Don't Sell My Personal Information (CCPA)</span>
+                            </a>
+                        </template>
+                        <div slot="navigationItem">
+                            <div class="parsys"></div>
+                        </div>
+                    </brandhub-footer-navigation-item>
+                </div>
+                <div class="footernavigationitem">
+                    <brandhub-footer-navigation-item link-url="https://www.mercedes-benz.com/en/digital-accessibility/" link-text="Accessibility" link-target="_self">
+                        <template shadowrootmode="open">
+                            <style data-v-ce-root="">
+                                .brandhub-footer-navigation-item {
+                                    background: none;
+                                    border: none;
+                                    color: #9f9f9f;
+                                    font: inherit;
+                                    font-size: 1rem;
+                                    line-height: 1.5714285714rem;
+                                    padding: 0;
+                                    text-decoration: none;
+                                    transition: color .4s ease-in-out;
+                                    white-space: nowrap;
+                                }
+                                .brandhub-footer-navigation-item:hover {
+                                    color: var(--text-color);
+                                    cursor: pointer;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible {
+                                    outline: none;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible .brandhub-footer-navigation-item__text {
+                                    position: relative;
+                                }
+                                .brandhub-footer-navigation-item:focus-visible .brandhub-footer-navigation-item__text:after {
+                                    border: 3px solid rgba(0,120,214,.8);
+                                    content: "";
+                                    display: block;
+                                    height: 100%;
+                                    position: absolute;
+                                    width: 100%;
+                                    left: -.5rem;
+                                    padding-right: .5rem;
+                                    top: -.1428571429rem;
+                                }
+                            </style>
+                            <a class="brandhub-footer-navigation-item" href="https://www.mercedes-benz.com/en/digital-accessibility/" target="_self">
+                                <span class="brandhub-footer-navigation-item__text">Accessibility</span>
+                            </a>
+                        </template>
+                        <div slot="navigationItem">
+                            <div class="parsys"></div>
+                        </div>
+                    </brandhub-footer-navigation-item>
+                </div>
+                <div slot="language-switcher">
+                    <div class="languageswitcher languagenavigation">
+                        <nav id="languageswitcher-4cef9b7e16" class="cmp-languagenavigation" role="navigation">
+                            <brandhub-language-switcher>
+                                <template shadowrootmode="open">
+                                    <style data-v-ce-94="">
+                                        @media (max-width: 1023px) {
+                                            .brandhub-language-switcher {
+                                                display: flex;
+                                                justify-content: center;
+                                                padding: var(--language-switcher-footer-padding, 1.7142857143rem 0);
+                                            }
+                                        }
+                                        .brandhub-language-switcher__items {
+                                            list-style: none;
+                                            margin: 0;
+                                            padding: 0;
+                                        }
+                                        ::slotted(brandhub-language-switcher-item:not(brandhub-language-switcher-item:last-of-type)) {
+                                            display: inline-block;
+                                        }
+                                        ::slotted(brandhub-language-switcher-item:not(brandhub-language-switcher-item:last-of-type)):after {
+                                            background: var(--wb-grey-45);
+                                            content: "";
+                                            display: inline-block;
+                                            height: .7857142857rem;
+                                            margin-left: .9285714286rem;
+                                            margin-right: .9285714286rem;
+                                            position: relative;
+                                            top: 1px;
+                                            width: 1px;
+                                        }
+                                    </style>
+                                    <div class="brandhub-language-switcher">
+                                        <div role="list" class="brandhub-language-switcher__items">
+                                            <slot></slot>
+                                        </div>
+                                    </div>
+                                </template>
+                                <brandhub-language-switcher-item link-ref="/de/" label-desktop="Deutsch" label-mobile="Deutsch">
+                                    <template shadowrootmode="open">
+                                        <style data-v-ce-root="">
+                                            .brandhub-language-switcher-item {
+                                                display: inline-block;
+                                            }
+                                            .brandhub-language-switcher-item__link {
+                                                color: var(--language-switcher-footer-color, var(--wb-grey-45));
+                                                text-decoration: none;
+                                                transition: color .25s;
+                                            }
+                                            .brandhub-language-switcher-item__link:hover {
+                                                color: var(--text-color, var(--wb-white));
+                                                text-decoration: none;
+                                            }
+                                            .brandhub-language-switcher-item__link:focus-visible {
+                                                color: var(--text-color, var(--wb-white));
+                                                outline: none;
+                                            }
+                                            .brandhub-language-switcher-item__link:focus-visible .brandhub-language-switcher-item__label-mobile,
+                                            .brandhub-language-switcher-item__link:focus-visible .brandhub-language-switcher-item__label-desktop {
+                                                position: relative;
+                                            }
+                                            .brandhub-language-switcher-item__link:focus-visible .brandhub-language-switcher-item__label-mobile:after,
+                                            .brandhub-language-switcher-item__link:focus-visible .brandhub-language-switcher-item__label-desktop:after {
+                                                border: 3px solid rgba(0,120,214,.8);
+                                                content: "";
+                                                display: block;
+                                                height: 100%;
+                                                position: absolute;
+                                                width: 100%;
+                                                left: -.5rem;
+                                                padding-right: .5rem;
+                                                top: -.1428571429rem;
+                                            }
+                                            .brandhub-language-switcher-item__link--active {
+                                                color: var(--text-color, var(--wb-white));
+                                                cursor: none;
+                                                pointer-events: none;
+                                            }
+                                            @media (min-width: 768px) {
+                                                .brandhub-language-switcher-item__label-mobile {
+                                                    display: none;
+                                                }
+                                            }
+                                            @media (max-width: 767px) {
+                                                .brandhub-language-switcher-item__label-desktop {
+                                                    display: none;
+                                                }
+                                            }
+                                        </style>
+                                        <div class="brandhub-language-switcher-item">
+                                            <a class="brandhub-language-switcher-item__link" href="https://www.mercedes-benz.com/de/" aria-label="Language Switch - Deutsch" role="listitem">
+                                                <span class="brandhub-language-switcher-item__label-mobile">Deutsch</span>
+                                                <span class="brandhub-language-switcher-item__label-desktop">Deutsch</span>
+                                            </a>
+                                        </div>
+                                    </template>
+                                </brandhub-language-switcher-item>
+                                <brandhub-language-switcher-item is-active="" link-ref="/en/" label-desktop="English" label-mobile="English">
+                                    <template shadowrootmode="open">
+                                        <style data-v-ce-root="">
+                                            .brandhub-language-switcher-item {
+                                                display: inline-block;
+                                            }
+                                            .brandhub-language-switcher-item__link {
+                                                color: var(--language-switcher-footer-color, var(--wb-grey-45));
+                                                text-decoration: none;
+                                                transition: color .25s;
+                                            }
+                                            .brandhub-language-switcher-item__link:hover {
+                                                color: var(--text-color, var(--wb-white));
+                                                text-decoration: none;
+                                            }
+                                            .brandhub-language-switcher-item__link:focus-visible {
+                                                color: var(--text-color, var(--wb-white));
+                                                outline: none;
+                                            }
+                                            .brandhub-language-switcher-item__link:focus-visible .brandhub-language-switcher-item__label-mobile,
+                                            .brandhub-language-switcher-item__link:focus-visible .brandhub-language-switcher-item__label-desktop {
+                                                position: relative;
+                                            }
+                                            .brandhub-language-switcher-item__link:focus-visible .brandhub-language-switcher-item__label-mobile:after,
+                                            .brandhub-language-switcher-item__link:focus-visible .brandhub-language-switcher-item__label-desktop:after {
+                                                border: 3px solid rgba(0,120,214,.8);
+                                                content: "";
+                                                display: block;
+                                                height: 100%;
+                                                position: absolute;
+                                                width: 100%;
+                                                left: -.5rem;
+                                                padding-right: .5rem;
+                                                top: -.1428571429rem;
+                                            }
+                                            .brandhub-language-switcher-item__link--active {
+                                                color: var(--text-color, var(--wb-white));
+                                                cursor: none;
+                                                pointer-events: none;
+                                            }
+                                            @media (min-width: 768px) {
+                                                .brandhub-language-switcher-item__label-mobile {
+                                                    display: none;
+                                                }
+                                            }
+                                            @media (max-width: 767px) {
+                                                .brandhub-language-switcher-item__label-desktop {
+                                                    display: none;
+                                                }
+                                            }
+                                        </style>
+                                        <div class="brandhub-language-switcher-item">
+                                            <a class="brandhub-language-switcher-item__link brandhub-language-switcher-item__link--active" href="https://www.mercedes-benz.com/en/" aria-label="Language Switch - English" role="listitem">
+                                                <span class="brandhub-language-switcher-item__label-mobile">English</span>
+                                                <span class="brandhub-language-switcher-item__label-desktop">English</span>
+                                            </a>
+                                        </div>
+                                    </template>
+                                </brandhub-language-switcher-item>
+                            </brandhub-language-switcher>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="legallayer">
+                <brandhub-legal-layer data-analytics-content-milestone="-1" legal-layer-content-path="/content/experience-fragments/brandhub/mercedes-benz/legal-layer/legal-layer-en.popup.html" foss-overview-content-path="/content/experience-fragments/brandhub/mercedes-benz/legal-layer/legal-layer-en.foss.html">
+                    <template shadowrootmode="open">
+                        <style data-v-ce-34="">
+                            .brandhub-icon path {
+                                fill: var(--icon-color, currentColor);
+                                transition: fill var(--icon-transition, .16s ease-out);
+                            }
+                            .brandhub-icon circle {
+                                fill: var(--icon-circle-color, var(--wb-white));
+                                transition: fill var(--icon-transition, .16s ease-out);
+                            }
+                        </style>
+                        <style data-v-ce-33="">
+                            .brandhub-accordion-item {
+                                display: flex;
+                                flex-direction: column;
+                                position: relative;
+                                padding-left: 1.1428571429rem;
+                                padding-right: 1.1428571429rem;
+                            }
+                            @media (min-width: 768px) {
+                                .brandhub-accordion-item {
+                                    padding-left: 2.2857142857rem;
+                                    padding-right: 2.2857142857rem;
+                                }
+                            }
+                            @media (min-width: 1024px) {
+                                .brandhub-accordion-item {
+                                    padding-left: 6.5714285714rem;
+                                    padding-right: 6.5714285714rem;
+                                }
+                            }
+                            @media (min-width: 1440px) {
+                                .brandhub-accordion-item {
+                                    padding-left: 8.2857142857rem;
+                                    padding-right: 8.2857142857rem;
+                                }
+                            }
+                            @media (min-width: 1920px) {
+                                .brandhub-accordion-item {
+                                    padding-left: 8.5714285714rem;
+                                    padding-right: 8.5714285714rem;
+                                }
+                            }
+                            .brandhub-accordion-item__header {
+                                align-items: center;
+                                background: none;
+                                border: none;
+                                color: var(--text-color);
+                                cursor: pointer;
+                                display: flex;
+                                font-family: MBCorpo Text, sans-serif;
+                                padding: 1.7857142857rem 0;
+                                text-align: start;
+                                z-index: 1;
+                            }
+                            .brandhub-accordion-item__header:focus-visible {
+                                outline: 3px solid rgba(0,120,214,.8);
+                            }
+                            .brandhub-accordion-item__headline {
+                                font-family: MBCorpo Title, sans-serif;
+                                line-height: 1em;
+                                font-size: 2.1428571429rem;
+                                font-weight: 400;
+                                margin: 0;
+                            }
+                            .brandhub-accordion-item__sub-headline {
+                                font-size: 1.2857142857rem;
+                            }
+                            .brandhub-accordion-item__sub-headline p {
+                                margin: 0;
+                            }
+                            .brandhub-accordion-item__text {
+                                display: flex;
+                                flex-direction: column;
+                                font-size: 1.1428571429rem;
+                            }
+                            .brandhub-accordion-item__icon {
+                                justify-self: center;
+                            }
+                            .brandhub-accordion-item__icon--opened {
+                                margin-left: auto;
+                                transform: rotate(180deg);
+                            }
+                            .brandhub-accordion-item__icon--closed {
+                                margin-left: auto;
+                                transform: rotate(0);
+                            }
+                            .brandhub-accordion-item__content {
+                                display: var(--content-display);
+                                flex-wrap: wrap;
+                            }
+                            @media (max-width: 1279px) {
+                                .brandhub-accordion-item__content--variant-12 .brandhub-accordion-item__col--left {
+                                    flex: 0 0 100%;
+                                    max-width: 100%;
+                                }
+                            }
+                            @media (max-width: 1279px) {
+                                .brandhub-accordion-item__content--variant-4-8 .brandhub-accordion-item__col--left {
+                                    flex: 0 0 100%;
+                                    max-width: 100%;
+                                }
+                            }
+                            @media (min-width: 1280px) {
+                                .brandhub-accordion-item__content--variant-4-8 .brandhub-accordion-item__col--left {
+                                    flex: 0 0 33.3333333333%;
+                                    max-width: 33.3333333333%;
+                                }
+                            }
+                            @media (max-width: 1279px) {
+                                .brandhub-accordion-item__content--variant-4-8 .brandhub-accordion-item__col--right {
+                                    flex: 0 0 100%;
+                                    max-width: 100%;
+                                }
+                            }
+                            @media (min-width: 1280px) {
+                                .brandhub-accordion-item__content--variant-4-8 .brandhub-accordion-item__col--right {
+                                    flex: 0 0 66.6666666667%;
+                                    max-width: 66.6666666667%;
+                                }
+                            }
+                            @media (max-width: 1279px) {
+                                .brandhub-accordion-item__content--variant-8-4 .brandhub-accordion-item__col--left {
+                                    flex: 0 0 100%;
+                                    max-width: 100%;
+                                }
+                            }
+                            @media (min-width: 1280px) {
+                                .brandhub-accordion-item__content--variant-8-4 .brandhub-accordion-item__col--left {
+                                    flex: 0 0 66.6666666667%;
+                                    max-width: 66.6666666667%;
+                                }
+                            }
+                            @media (max-width: 1279px) {
+                                .brandhub-accordion-item__content--variant-8-4 .brandhub-accordion-item__col--right {
+                                    flex: 0 0 100%;
+                                    max-width: 100%;
+                                }
+                            }
+                            @media (min-width: 1280px) {
+                                .brandhub-accordion-item__content--variant-8-4 .brandhub-accordion-item__col--right {
+                                    flex: 0 0 33.3333333333%;
+                                    max-width: 33.3333333333%;
+                                }
+                            }
+                            .brandhub-accordion-item__content--slide-enter-active,
+                            .brandhub-accordion-item__content--slide-leave-active {
+                                transition: height .7s ease-in-out, opacity .7s ease-in-out;
+                            }
+                            .brandhub-accordion-item__content--slide-enter-to,
+                            .brandhub-accordion-item__content--slide-leave-from {
+                                height: var(--content-height);
+                                opacity: 1;
+                                overflow: hidden;
+                            }
+                            .brandhub-accordion-item__content--slide-enter-from,
+                            .brandhub-accordion-item__content--slide-leave-to {
+                                height: 0;
+                                opacity: 0;
+                                overflow: hidden;
+                            }
+                            .brandhub-accordion-item__seperation-line {
+                                border-bottom: 1px solid var(--wb-grey-70);
+                                height: 1px;
+                                position: relative;
+                                width: 100%;
+                            }
+                        </style>
+                        <style data-v-ce-32="">
+                            .brandhub-accordion {
+                                --paragraph-padding-right: 2.1428571429rem;
+                                align-items: center;
+                                background-color: var(--background-color);
+                                color: var(--text-color);
+                                display: flex;
+                                flex-direction: column;
+                                height: max-content;
+                                width: 100%;
+                            }
+                            .brandhub-accordion--spacing-below {
+                                padding-bottom: 4.2857142857rem;
+                            }
+                            @media (min-width: 768px) {
+                                .brandhub-accordion--spacing-below {
+                                    padding-bottom: 10.7142857143rem;
+                                }
+                            }
+                            @media (min-width: 1440px) {
+                                .brandhub-accordion--spacing-below {
+                                    padding-bottom: 12.8571428571rem;
+                                }
+                            }
+                            @media (min-width: 1680px) {
+                                .brandhub-accordion--spacing-below {
+                                    padding-bottom: 15.7142857143rem;
+                                }
+                            }
+                            @media (min-width: 1920px) {
+                                .brandhub-accordion--spacing-below {
+                                    padding-bottom: 17.8571428571rem;
+                                }
+                            }
+                            .brandhub-accordion--spacing-above {
+                                padding-top: 4.2857142857rem;
+                            }
+                            @media (min-width: 768px) {
+                                .brandhub-accordion--spacing-above {
+                                    padding-top: 10.7142857143rem;
+                                }
+                            }
+                            @media (min-width: 1440px) {
+                                .brandhub-accordion--spacing-above {
+                                    padding-top: 12.8571428571rem;
+                                }
+                            }
+                            @media (min-width: 1680px) {
+                                .brandhub-accordion--spacing-above {
+                                    padding-top: 15.7142857143rem;
+                                }
+                            }
+                            @media (min-width: 1920px) {
+                                .brandhub-accordion--spacing-above {
+                                    padding-top: 17.8571428571rem;
+                                }
+                            }
+                            .brandhub-accordion--background-black {
+                                --background-color: var(--base-color);
+                                --text-color: var(--text-on-base-color);
+                            }
+                            .brandhub-accordion--background-white {
+                                --background-color: var(--text-on-base-color);
+                                --text-color: var(--base-color);
+                            }
+                            .brandhub-accordion__content {
+                                flex-grow: 1;
+                                position: relative;
+                                width: 100%;
+                            }
+                        </style>
+                        <style data-v-ce-root="">
+                            .brandhub-legal-layer {
+                                background: rgba(0,0,0,.3);
+                                bottom: 0;
+                                left: 0;
+                                max-height: 100%;
+                                overflow-y: auto;
+                                position: fixed;
+                                top: 0;
+                                width: 100%;
+                                z-index: 10100;
+                            }
+                            .brandhub-legal-layer--edit-mode {
+                                left: auto;
+                                position: initial;
+                                top: auto;
+                            }
+                            .brandhub-legal-layer__dialog {
+                                margin: 1.75rem auto;
+                                max-width: 90%;
+                                position: relative;
+                                width: 63.7142857143rem;
+                            }
+                            @media (max-width: 1023px) {
+                                .brandhub-legal-layer__dialog {
+                                    margin: .7142857143rem auto;
+                                    width: 51rem;
+                                }
+                            }
+                            .brandhub-legal-layer__dialog-content {
+                                background: var(--wb-white);
+                                display: flex;
+                                flex-direction: column;
+                            }
+                            .brandhub-legal-layer__content-header {
+                                display: flex;
+                                flex-direction: row;
+                                height: 4.4285714286rem;
+                            }
+                            .brandhub-legal-layer__content-header-icon {
+                                color: var(--wb-black);
+                                cursor: pointer;
+                                height: 1.5714285714rem;
+                                position: absolute;
+                                right: 2.2142857143rem;
+                                top: 2.2142857143rem;
+                                translate: 50% -50%;
+                                width: 1.5714285714rem;
+                                z-index: 10150;
+                            }
+                            .brandhub-legal-layer__content-header-icon:focus-visible {
+                                border: 3px solid rgba(0,120,214,.8);
+                                outline: none;
+                            }
+                            .brandhub-legal-layer__content-body {
+                                flex: 1 1 auto;
+                                padding: 0 2.8571428571rem;
+                                position: relative;
+                            }
+                            .brandhub-legal-layer__content-body--mobile {
+                                padding-bottom: 2.8571428571rem;
+                                padding-left: 0;
+                                padding-right: 0;
+                            }
+                            .brandhub-legal-layer__tab-list {
+                                border-bottom: .0714285714rem solid var(--wb-grey-70);
+                                display: flex;
+                                flex-wrap: wrap;
+                                list-style: none;
+                                margin-bottom: 2.8571428571rem;
+                                margin-top: 0;
+                                padding-left: 0;
+                                white-space: nowrap;
+                                width: 100%;
+                            }
+                            .brandhub-legal-layer__tab-item {
+                                cursor: pointer;
+                                margin-bottom: -.0714285714rem;
+                                vertical-align: initial;
+                            }
+                            .brandhub-legal-layer__tab-name {
+                                background-color: transparent;
+                                border: .0714285714rem solid transparent;
+                                color: var(--wb-grey-20);
+                                display: block;
+                                margin: 0 .0714285714rem;
+                                padding: .6428571429rem 1.3571428571rem;
+                                text-decoration: none;
+                            }
+                            .brandhub-legal-layer__tab-name--selected {
+                                background-color: var(--wb-white);
+                                border: .0714285714rem solid var(--wb-grey-70);
+                                border-bottom-color: var(--wb-white);
+                                color: #0260ab;
+                            }
+                            .brandhub-legal-layer__tab-name:focus-visible {
+                                box-shadow: inset 0 0 0 3px #0078d6cc;
+                                outline: none;
+                            }
+                            .brandhub-legal-layer__foss-tab {
+                                line-height: 1.5714285714rem;
+                            }
+                            .brandhub-legal-layer__content-box {
+                                color: var(--wb-black);
+                                padding-bottom: 2.8571428571rem;
+                                padding-left: 2.8571428571rem;
+                                padding-right: 2.8571428571rem;
+                            }
+                            .brandhub-legal-layer__text {
+                                clear: both;
+                                color: var(--wb-grey-20);
+                                font-family: MBCorpo Text, sans-serif;
+                                font-size: 1rem;
+                                line-height: 1.375;
+                                padding-top: 0;
+                                word-break: break-word;
+                            }
+                            .brandhub-legal-layer__text p {
+                                margin-bottom: 1rem;
+                                margin-top: 0;
+                            }
+                            .brandhub-legal-layer__text a {
+                                color: #0260ab;
+                                text-decoration: none;
+                            }
+                            .brandhub-legal-layer__text a:focus-visible {
+                                border: 3px solid rgba(0,120,214,.8);
+                                outline: none;
+                            }
+                            .brandhub-legal-layer__text h4 {
+                                font-size: 1.375rem;
+                            }
+                            .brandhub-legal-layer__text table {
+                                border: 0 solid transparent;
+                                border-collapse: collapse;
+                                display: block;
+                                overflow-x: auto;
+                                text-indent: initial;
+                            }
+                            .brandhub-legal-layer__text table tbody tr:nth-child(2n) td {
+                                background-color: #ececec;
+                            }
+                            .brandhub-legal-layer__text table tbody tr td {
+                                border-right: .1428571429rem solid var(--wb-white);
+                                display: table-cell;
+                                padding: 1.0714285714rem 1.4285714286rem;
+                                vertical-align: initial;
+                                word-break: keep-all;
+                            }
+                            .brandhub-legal-layer__text table tbody tr td:last-child {
+                                border-right: none;
+                            }
+                            .brandhub-legal-headline {
+                                clear: both;
+                                color: var(--wb-grey-20);
+                                line-height: 1em;
+                                padding-top: 0;
+                                word-break: break-word;
+                            }
+                            .brandhub-legal-headline p {
+                                margin-bottom: 1rem;
+                                margin-top: 0;
+                            }
+                            .brandhub-legal-headline a {
+                                color: #0260ab;
+                                text-decoration: none;
+                            }
+                            .brandhub-legal-text {
+                                clear: both;
+                                color: var(--wb-grey-20);
+                                font-family: MBCorpo Text, sans-serif;
+                                font-size: 1rem;
+                                line-height: 1.375;
+                                padding-top: 0;
+                                width: 100%;
+                                word-break: break-word;
+                            }
+                            .brandhub-legal-text p {
+                                margin-bottom: 1rem;
+                                margin-top: 0;
+                            }
+                            .brandhub-legal-text a {
+                                color: #0260ab;
+                                text-decoration: none;
+                            }
+                        </style>
+                        <div class="brandhub-legal-layer" aria-modal="true" aria-live="polite" aria-labelledby="brandhub-legal-layer" role="dialog" tabindex="-1" dataanalyticscontentmilestone="-1" style="display: none;">
+                            <div class="brandhub-legal-layer__dialog">
+                                <div class="brandhub-legal-layer__dialog-content">
+                                    <div class="brandhub-legal-layer__content-header">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" tabindex="0" class="brandhub-legal-layer__content-header-icon">
+                                            <path fill="currentColor" fill-rule="evenodd" d="m12.581 4.096-3.89 3.889 3.89 3.89-.707.706-3.89-3.89-3.888 3.89-.707-.707 3.888-3.89L3.39 4.097l.707-.707 3.889 3.888 3.89-3.888.706.707Z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="brandhub-legal-layer__content-body">
+                                        <ul class="brandhub-legal-layer__tab-list" role="tablist">
+                                            <li class="brandhub-legal-layer__tab-item" role="presentation">
+                                                <a class="brandhub-legal-layer__tab-name brandhub-legal-layer__tab-name--selected" href="https://www.mercedes-benz.com/en/#provider" role="tab">Provider</a>
+                                            </li>
+                                            <li class="brandhub-legal-layer__tab-item" role="presentation">
+                                                <a class="brandhub-legal-layer__tab-name" href="https://www.mercedes-benz.com/en/#legalNotice" role="tab">Legal Notice</a>
+                                            </li>
+                                            <li class="brandhub-legal-layer__tab-item" role="presentation">
+                                                <a class="brandhub-legal-layer__tab-name" href="https://www.mercedes-benz.com/en/#cookies" role="tab">Settings</a>
+                                            </li>
+                                            <li class="brandhub-legal-layer__tab-item" role="presentation">
+                                                <a class="brandhub-legal-layer__tab-name" href="https://www.mercedes-benz.com/en/#privacyStatement" role="tab">Privacy Statement</a>
+                                            </li>
+                                            <li class="brandhub-legal-layer__tab-item" role="presentation">
+                                                <a class="brandhub-legal-layer__tab-name brandhub-legal-layer__foss-tab" href="https://www.mercedes-benz.com/en/#thirdPartyLicenseNotices" role="tab">Third Party License Notices</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="brandhub-legal-layer__content-box" role="tabpanel">
+                                        <div>
+                                            <div class="brandhub-legal-layer__text"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div slot="cookies">
+                            <cmm-cookie-banner settings-id="QWNbR20bZ" variant="SettingsPage" class="hydrated" data-workbench-version="7-latest">
+                                <template shadowrootmode="open">
+                                    <div data-nosnippet="" dir="ltr" class="cmm-cookie-banner cmm-cookie-banner--SettingsPage">
+                                        <div class="cmm-cookie-banner__settings-page">
+                                            <cmm-heading-section class="hydrated">
+                                                <div class="heading-section">
+                                                    <wb7-heading class="main-title wb-heading hydrated" size="m" tag="div">
+                                                        <template shadowrootmode="open">
+                                                            <div class="tag"><slot></slot></div>
+                                                        </template>
+                                                        Mercedes-Benz AG and Mercedes-Benz Heritage GmbH use cookies for various purposes
+                                                    </wb7-heading>
+                                                    <wb7-text class="main-description wb-text hydrated" size="l" tag="p">
+                                                        <template shadowrootmode="open">
+                                                            <p class="tag"><slot></slot></p>
+                                                        </template>
+                                                        Mercedes-Benz AG would like to enable you to make the best possible use of our website and continuously improve our website. We can also use it to show you usage-based content and advertising and work with selected partners (Google). Through these partners, you will also receive advertising on other websites
+                                                    </wb7-text>
+                                                    <wb7-text class="main-description wb-text hydrated" size="l" tag="p">
+                                                        <template shadowrootmode="open">
+                                                            <p class="tag"><slot></slot></p>
+                                                        </template>
+                                                    </wb7-text>
+                                                    <wb7-text class="main-description wb-text hydrated" size="l" tag="p">
+                                                        <template shadowrootmode="open">
+                                                            <p class="tag"><slot></slot></p>
+                                                        </template>
+                                                        In addition, we share the data collected on the websites of the Mercedes-Benz Community with Mercedes-Benz Heritage GmbH so that they can improve their own offers and show you advertising tailored to you.
+                                                    </wb7-text>
+                                                    <wb7-text class="main-description wb-text hydrated" size="l" tag="p">
+                                                        <template shadowrootmode="open">
+                                                            <p class="tag"><slot></slot></p>
+                                                        </template>
+                                                    </wb7-text>
+                                                    <wb7-text class="main-description wb-text hydrated" size="l" tag="p">
+                                                        <template shadowrootmode="open">
+                                                            <p class="tag"><slot></slot></p>
+                                                        </template>
+                                                        You can revoke your voluntary consent at any time. Please find further information (including data transmissions) and settings options under "Settings" and in our data protection information.
+                                                    </wb7-text>
+                                                </div>
+                                            </cmm-heading-section>
+                                            <cmm-cookie-settings class="hydrated">
+                                                <div id="cookie-settings">
+                                                    <div class="cookie-settings-content">
+                                                        <ul>
+                                                            <li class="select-all-item">
+                                                                <label class="select-all--label cmm-checkbox">
+                                                                    <input type="checkbox" class="cmm-checkbox-input cmm-checkbox-input--category selected-all" data-test="handle-select-all-change">
+                                                                    <div class="cmm-checkbox-fake"></div>
+                                                                    Select all
+                                                                </label>
+                                                            </li>
+                                                            <li class="category-item" data-category-wrapper="Technically required">
+                                                                <div class="category-select-all">
+                                                                    <label class="category-label cmm-checkbox">
+                                                                        <input type="checkbox" class="cmm-checkbox-input cmm-checkbox-input--category selected-all" disabled="" data-category="Technically required" data-test="handle-category-change">
+                                                                        <div class="cmm-checkbox-fake"></div>
+                                                                        Technically required
+                                                                    </label>
+                                                                </div>
+                                                                <wb7-text class="category-description wb-text hydrated" size="m" tag="div">
+                                                                    <template shadowrootmode="open">
+                                                                        <div class="tag"><slot></slot></div>
+                                                                    </template>
+                                                                    Required web technologies and cookies make our website technically accessible to and usable for you. This applies to fundamental base functionalities such as navigation on the website, correct display in your internet browser or requesting your consent. Without these web technologies and cookies our website does not work.
+                                                                </wb7-text>
+                                                                <ul class="consent-list">
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" disabled="" data-test="handle-consent-change" data-template-id="uQiyefbRi" data-category="Technically required">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Akamai</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Akamai">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" disabled="" data-test="handle-consent-change" data-template-id="H1Vl5NidjWX" data-category="Technically required">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Usercentrics Consent Management Platform</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Usercentrics Consent Management Platform">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" disabled="" data-test="handle-consent-change" data-template-id="J39GyuWQq" data-category="Technically required">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Amazon Web Services</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Amazon Web Services">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" disabled="" data-test="handle-consent-change" data-template-id="BJ59EidsWQ" data-category="Technically required">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Google Tag Manager</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Google Tag Manager">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" disabled="" data-test="handle-consent-change" data-template-id="am4ZXwZTO" data-category="Technically required">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">International website of Mercedes-Benz</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="International website of Mercedes-Benz">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" disabled="" data-test="handle-consent-change" data-template-id="PrLTkYnq" data-category="Technically required">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Microsoft Azure</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Microsoft Azure">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" disabled="" data-test="handle-consent-change" data-template-id="C3zZkvA2kq6cBR" data-category="Technically required">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Bettermode</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Bettermode">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="category-item" data-category-wrapper="Analysis and statistics">
+                                                                <div class="category-select-all">
+                                                                    <label class="category-label cmm-checkbox">
+                                                                        <input type="checkbox" class="cmm-checkbox-input cmm-checkbox-input--category selected-all" data-category="Analysis and statistics" data-test="handle-category-change">
+                                                                        <div class="cmm-checkbox-fake"></div>
+                                                                        Analysis and statistics
+                                                                    </label>
+                                                                </div>
+                                                                <wb7-text class="category-description wb-text hydrated" size="m" tag="div">
+                                                                    <template shadowrootmode="open">
+                                                                        <div class="tag"><slot></slot></div>
+                                                                    </template>
+                                                                    We want to constantly improve the user-friendliness and performance of our websites. For this reason we use analysis technologies (including cookies) which pseudonymously measure and evaluate which functions and content of our websites are used, how and how often. On this basis we can improve our websites for users.
+                                                                </wb7-text>
+                                                                <ul class="consent-list">
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" data-test="handle-consent-change" data-template-id="HkocEodjb7" data-category="Analysis and statistics">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Google Analytics</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Google Analytics">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="category-item" data-category-wrapper="Marketing">
+                                                                <div class="category-select-all">
+                                                                    <label class="category-label cmm-checkbox">
+                                                                        <input type="checkbox" class="cmm-checkbox-input cmm-checkbox-input--category selected-all" data-category="Marketing" data-test="handle-category-change">
+                                                                        <div class="cmm-checkbox-fake"></div>
+                                                                        Marketing
+                                                                    </label>
+                                                                </div>
+                                                                <wb7-text class="category-description wb-text hydrated" size="m" tag="div">
+                                                                    <template shadowrootmode="open">
+                                                                        <div class="tag"><slot></slot></div>
+                                                                    </template>
+                                                                    We use web technologies (also cookies) from selected partners in order to be able to show you content and advertising specially tailored to you on websites and social media sites. This content is selected and displayed on the basis of your usage behaviour.
+                                                                </wb7-text>
+                                                                <ul class="consent-list">
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" data-test="handle-consent-change" data-template-id="BJz7qNsdj-7" data-category="Marketing">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">YouTube Video</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="YouTube Video">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" data-test="handle-consent-change" data-template-id="Q1Qu9ob9CK23T6" data-category="Marketing">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">LinkedIn Insight Tag</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="LinkedIn Insight Tag">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" data-test="handle-consent-change" data-template-id="DFMU3uZtX" data-category="Marketing">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Google Marketing Products</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Google Marketing Products">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" data-test="handle-consent-change" data-template-id="ABsocZLBQ" data-category="Marketing">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Google Analytics Advertising</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Google Analytics Advertising">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" data-test="handle-consent-change" data-template-id="40xR6BXD_5Ai1c" data-category="Marketing">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Meta Pixel</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Meta Pixel">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="category-item" data-category-wrapper="Use also by Mercedes-Benz Heritage GmbH">
+                                                                <div class="category-select-all">
+                                                                    <label class="category-label cmm-checkbox">
+                                                                        <input type="checkbox" class="cmm-checkbox-input cmm-checkbox-input--category selected-all" data-category="Use also by Mercedes-Benz Heritage GmbH" data-test="handle-category-change">
+                                                                        <div class="cmm-checkbox-fake"></div>
+                                                                        Use also by Mercedes-Benz Heritage GmbH
+                                                                    </label>
+                                                                </div>
+                                                                <wb7-text class="category-description wb-text hydrated" size="m" tag="div">
+                                                                    <template shadowrootmode="open">
+                                                                        <div class="tag"><slot></slot></div>
+                                                                    </template>
+                                                                    We also pass on the data collected on the basis of your consent to Mercedes-Benz Heritage GmbH, which in turn uses it for the purposes accepted by you. The Mercedes-Benz Community websites are identified by a logo in the navigation bar.
+                                                                </wb7-text>
+                                                                <ul class="consent-list">
+                                                                    <li class="consent-item">
+                                                                        <label class="consent-label cmm-checkbox">
+                                                                            <input type="checkbox" class="cmm-checkbox-input" data-test="handle-consent-change" data-template-id="ODYythrVAmINCP" data-category="Use also by Mercedes-Benz Heritage GmbH">
+                                                                            <div class="cmm-checkbox-fake"></div>
+                                                                            <div class="consent-item__information">
+                                                                                <span class="consent-item__name">Mercedes-Benz Heritage GmbH Data-Sharing</span>
+                                                                                <button type="button" class="consent-item__icon" data-test="toggle-consent-info-modal" aria-label="Mercedes-Benz Heritage GmbH Data-Sharing">
+                                                                                    <cmm-icon class="hydrated">
+                                                                                        <template shadowrootmode="open">
+                                                                                            <div class="cmm-icon">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-.235 2.22a1.75 1.75 0 1 1-1.75 1.75 1.75 1.75 0 0 1 1.75-1.75zm3.75 14h-7v-1.5h2v-6h-2v-1.5h5v7.5h2z"></path>
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </cmm-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </label>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="button-group">
+                                                            <wb7-button class="button button--confirm-selection wb-button hydrated" data-test="handle-confirm-selection-button" variant="primary" size="s" theme="light">
+                                                                <template shadowrootmode="open">
+                                                                    <button class="button" type="button" part="button">
+                                                                        <slot name="icon"></slot>
+                                                                        <slot></slot>
+                                                                    </button>
+                                                                </template>
+                                                                Save settings
+                                                            </wb7-button>
+                                                            <wb7-button class="button button--accept-all wb-button hydrated" data-test="handle-accept-all-button" variant="primary" size="s" theme="light">
+                                                                <template shadowrootmode="open">
+                                                                    <button class="button" type="button" part="button">
+                                                                        <slot name="icon"></slot>
+                                                                        <slot></slot>
+                                                                    </button>
+                                                                </template>
+                                                                Accept all
+                                                            </wb7-button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </cmm-cookie-settings>
+                                        </div>
+                                    </div>
+                                </template>
+                            </cmm-cookie-banner>
+                        </div>
+                    </brandhub-legal-layer>
+                </div>
+                <brandhub-footer-logo logo-path="/content/dam/brandhub/global/logos/MB-logo_white_new.svg" logo-alt="Mercedes-Benz">
+                    <template shadowrootmode="open">
+                        <style data-v-ce-root="">
+                            .footer-logo {
+                                background-color: var(--background-color);
+                                display: flex;
+                                justify-content: center;
+                                margin-left: auto;
+                                margin-right: auto;
+                                width: 100%;
+                            }
+                            .footer-logo__image {
+                                height: 4.9285714286rem;
+                            }
+                        </style>
+                        <div class="footer-logo" style="--background-color: var(--base-color); --text-color: var(--text-on-base-color);">
+                            <img class="footer-logo__image" src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-logo_white_new.svg" alt="Mercedes-Benz">
+                        </div>
+                    </template>
+                </brandhub-footer-logo>
+                <brandhub-back-top-button>
+                    <template shadowrootmode="open">
+                        <style data-v-ce-root="">
+                            .brandhub-back-top-button {
+                                align-items: center;
+                                background-color: var(--background-color);
+                                border: none;
+                                color: var(--wb-white);
+                                cursor: pointer;
+                                display: flex;
+                                flex-flow: column;
+                                font-family: MBCorpo Text, sans-serif;
+                                padding-bottom: 2rem;
+                                padding-top: 6.4285714286rem;
+                                width: 100%;
+                            }
+                            @media (min-width: 1024px) {
+                                .brandhub-back-top-button {
+                                    padding-bottom: 4.5rem;
+                                }
+                            }
+                            .brandhub-back-top-button__icon {
+                                height: 2.1428571429rem;
+                                margin-bottom: -.4285714286rem;
+                                transform: rotate(-90deg);
+                                width: 2.1428571429rem;
+                            }
+                            .brandhub-back-top-button__text {
+                                font-size: 1rem;
+                            }
+                        </style>
+                        <button class="brandhub-back-top-button" style="--background-color: var(--base-color); --text-color: var(--text-on-base-color);">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="brandhub-back-top-button__icon">
+                                <path fill="currentColor" fill-rule="evenodd" d="m9.121 19.728-.707-.707 7.07-7.071-7.07-7.071.707-.707 7.07 7.07h.001l.707.708-7.778 7.778Z"></path>
+                            </svg>
+                            <span class="brandhub-back-top-button__text">Top</span>
+                        </button>
+                    </template>
+                </brandhub-back-top-button>
+            </footer>
+            <script async src="./Mercedes-Benz Brand Experience_files/clientlib-base.lc-d41d8cd98f00b204e9800998ecf8427e-lc.min.js"></script>
+            <noscript>
+                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCKZ3Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            </noscript>
+            <script type="module" src="./Mercedes-Benz Brand Experience_files/vue.min.js"></script>
+            <script type="module" src="./Mercedes-Benz Brand Experience_files/index.js"></script>
+            <script type="text/javascript">
+                (function(){
+                    window.addEventListener("message", function(c){
+                        var b = google_tag_manager["rm"]["2802471"](24), d = google_tag_manager["rm"]["2802471"](25);
+                        try {
+                            var a = JSON.parse(c.data);
+                        } catch(e) {
+                            b && console.log("TrakkFrame Receiver:", e, "received data:", c);
+                            return;
+                        }
+                        if (a.type && "trakkFrame" === a.type) {
+                            window.dataLayer_dag = window.dataLayer_dag || [];
+                            window.dataLayer_dag.push(a);
+                            b && console.log("TrakkFrame Receiver:", d, a);
+                        } else {
+                            b && console.log("TrakkFrame Receiver: received message wrong format", d, a);
+                        }
+                    });
+                })();
+            </script>
+            <script type="text/javascript">
+                var trakkHTML5VideoConfig = {
+                    every: 25,
+                    steps: [10],
+                    gtmEvent: "trakkVideoEvent",
+                    dlName: "dataLayer_dag",
+                    eventCategory: "video",
+                    eventNamePlay: "initial start",
+                    eventNameResume: "resume",
+                    eventNameComplete: "complete",
+                    eventNamePause: "pause",
+                    eventNameSeek: "seek",
+                    eventNameProgress: "progress"
+                };
+                !function(t){
+                    function h(c){
+                        if(p[c]) return p[c].exports;
+                        var d = p[c] = {i: c, l: !1, exports: {}};
+                        return t[c].call(d.exports, d, d.exports, h), d.l = !0, d.exports;
+                    }
+                    var p = {};
+                    h.m = t;
+                    h.c = p;
+                    h.d = function(c, d, k){
+                        h.o(c, d) || Object.defineProperty(c, d, {enumerable: !0, get: k});
+                    };
+                    h.r = function(c){
+                        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(c, Symbol.toStringTag, {value: "Module"});
+                        Object.defineProperty(c, "__esModule", {value: !0});
+                    };
+                    h.t = function(c, d){
+                        if (1 & d && (c = h(c)), 8 & d) return c;
+                        if (4 & d && "object" == typeof c && c && c.__esModule) return c;
+                        var k = Object.create(null);
+                        if (h.r(k), Object.defineProperty(k, "default", {enumerable: !0, value: c}), 2 & d && "string" != typeof c)
+                            for (var q in c) h.d(k, q, function(r){return c[r]}.bind(null, q));
+                        return k;
+                    };
+                    h.n = function(c){
+                        var d = c && c.__esModule ? function(){return c["default"]} : function(){return c};
+                        return h.d(d, "a", d), d;
+                    };
+                    h.o = function(c, d){
+                        return Object.prototype.hasOwnProperty.call(c, d);
+                    };
+                    h.p = "";
+                    h(h.s = 0);
+                }([function(t, h){
+                    !function(p, c, d){
+                        function k(a){
+                            function g(m){
+                                m = {
+                                    event: w,
+                                    eventCategory: x,
+                                    eventAction: decodeURIComponent(a.target.currentSrc.split("/")[a.target.currentSrc.split("/").length - 1]),
+                                    eventLabel: m,
+                                    eventValue: 0,
+                                    duration: b[a.target.id]._duration,
+                                    player: "HTML5",
+                                    playPosition: b[a.target.id].current,
+                                    muted: !1 === a.target.muted ? -1 : 0
+                                };
+                                c[y].push(m);
+                            }
+                            var e = Math.floor(100 * b[a.target.id].current / a.target.duration), n = b[a.target.id]._playerPercent;
+                            switch(a.type){
+                                case "timeupdate":
+                                    b[a.target.id].current = Math.round(a.target.currentTime);
+                                    for(var f = 0; f < n.length; f += 1){
+                                        if(!0 === b[a.target.id]._playerPercent[f][1] && e >= n[f][0]){
+                                            if(!("seeking" === b[a.target.id]._lastEvent && e > b[a.target.id]._playerPercent[f][1])){
+                                                g("progress ".concat(b[a.target.id]._playerPercent[f][0], "%"));
+                                                b[a.target.id]._playerPercent[f][1] = !1;
+                                                break;
+                                            }
+                                            b[a.target.id]._playerPercent[f][1] = !1;
+                                        }
+                                    }
+                                    b[a.target.id]._lastEvent = a.type;
+                                    break;
+                                case "play":
+                                    !0 === b[a.target.id]._initialPlay ? (
+                                        b[a.target.id]._lastEvent = a.type,
+                                        b[a.target.id]._initialPlay = !1,
+                                        g(z)
+                                    ) : 1 !== a.target.readyState && "seeking" !== b[a.target.id]._lastEvent && (
+                                        g(A),
+                                        b[a.target.id]._lastEvent = a.type
+                                    );
+                                    break;
+                                case "seeking":
+                                    if(!0 === b[a.target.id]._initialPlay || b[a.target.id]._lastEvent === a.type) break;
+                                    for(f = 0; f < n.length; f += 1){
+                                        !1 === b[a.target.id]._playerPercent[f][1] && e <= n[f][0] && (b[a.target.id]._playerPercent[f][1] = !0);
+                                    }
+                                    b[a.target.id]._lastEvent = a.type;
+                                    g(B);
+                                    break;
+                                case "pause":
+                                    if(b[a.target.id]._lastEvent = a.type, 1 === a.target.readyState || 98.5 < e) break;
+                                    g(C);
+                                    break;
+                                case "ended":
+                                    for(b[a.target.id]._initialPlay = !0, b[a.target.id]._lastEvent = a.type, b[a.target.id].current = 0, g(D), e = 0; e < n.length; e += 1){
+                                        b[a.target.id]._playerPercent[e][1] = !0;
+                                    }
+                            }
+                        }
+                        function q(){
+                            for(var a = p.getElementsByTagName("video"), g = 0; g < a.length; g += 1){
+                                var e = void 0;
+                                a[g].getAttribute("id") ? e = a[g].getAttribute("id") : (
+                                    e = "html5_video_".concat(Math.random().toString(36).slice(2)),
+                                    a[g].setAttribute("id", e)
+                                );
+                                if(void 0 === b[e]){
+                                    b[e] = {};
+                                    b[e]._initialPlay = !0;
+                                    b[e]._lastEvent = "";
+                                    var n = b[e];
+                                    var f = [];
+                                    for(var m = !1, l = 1; l < 100 / r; l += 1){
+                                        f.push([r * l, !0]);
+                                    }
+                                    for(l = 0; l < u.length; l += 1){
+                                        for(var v = 0; v < f.length; v += 1){
+                                            if(u[l] === f[v][0]){
+                                                m = !0;
+                                                break;
+                                            }
+                                        }
+                                        m || f.push([u[l], !0]);
+                                        m = !1;
+                                    }
+                                    n._playerPercent = f;
+                                    b[e]._duration = a[g].duration;
+                                    b[e]._id = e;
+                                    b[e].current = 0;
+                                    a[g].addEventListener("seeking", k, !1);
+                                    a[g].addEventListener("play", k, !1);
+                                    a[g].addEventListener("pause", k, !1);
+                                    a[g].addEventListener("ended", k, !1);
+                                    a[g].addEventListener("timeupdate", k, !1);
+                                }
+                            }
+                        }
+                        var r = d.every || 20, b = {}, u = d.steps || [], y = d.dlName || "dataLayer", w = d.gtmEvent || "trakkVideoEvent", x = d.eventCategory || "Video", z = d.eventNamePlay || "Play", A = d.eventNameResume || "Resume", D = d

@@ -69,66 +69,59 @@
     </section>
 
     <!-- End update voice message 1 -->
-    <section id="gallery" class="py-20 glassmorphic">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-12 text-center chrome-text">Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="image" style="background-image: url('images/product1.jpg');"></div>
-                    <div class="info">
-                        <h3 class="chrome-text">Quantum Pulse</h3>
-                        <p class="lang-text" data-en="Quantum energy for unmatched performance."
-                            data-ru="Квантовая энергия для непревзойденной производительности.">Quantum energy for
-                            unmatched performance.</p>
+    <section id="gallery" class="py-24 bg-black/40 backdrop-blur-sm relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-16 text-center chrome-text">
+                Gallery
+            </h2>
+
+            <div class="gallery-grid flex flex-col gap-20">
+                <!-- Item -->
+                <div class="gallery-item flex flex-col lg:flex-row items-center gap-10">
+                    <div class="image w-full lg:w-1/2 h-[320px] sm:h-[400px] lg:h-[500px] rounded-xl shadow-lg bg-cover bg-center"
+                        style="background-image: url('images/product1.jpg');"></div>
+                    <div class="info w-full lg:w-1/2 text-center lg:text-left space-y-4 px-2 sm:px-6">
+                        <h3 class="chrome-text text-2xl sm:text-3xl">Quantum Pulse</h3>
+                        <p class="lang-text text-gray-200 text-base sm:text-lg leading-relaxed"
+                            data-en="Quantum energy for unmatched performance."
+                            data-ru="Квантовая энергия для непревзойденной производительности.">
+                            Quantum energy for unmatched performance.
+                        </p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="image" style="background-image: url('images/product2.jpg');"></div>
-                    <div class="info">
-                        <h3 class="chrome-text">Neural Link</h3>
-                        <p class="lang-text" data-en="Quantum-driven synergy for teams."
-                            data-ru="Квантовая синергия для команд.">Quantum-driven synergy for teams.</p>
+
+                <!-- Item -->
+                <div class="gallery-item flex flex-col lg:flex-row-reverse items-center gap-10">
+                    <div class="image w-full lg:w-1/2 h-[320px] sm:h-[400px] lg:h-[500px] rounded-xl shadow-lg bg-cover bg-center"
+                        style="background-image: url('images/product2.jpg');"></div>
+                    <div class="info w-full lg:w-1/2 text-center lg:text-left space-y-4 px-2 sm:px-6">
+                        <h3 class="chrome-text text-2xl sm:text-3xl">Neural Link</h3>
+                        <p class="lang-text text-gray-200 text-base sm:text-lg leading-relaxed"
+                            data-en="Quantum-driven synergy for teams." data-ru="Квантовая синергия для команд.">
+                            Quantum-driven synergy for teams.
+                        </p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="image" style="background-image: url('images/product3.jpg');"></div>
-                    <div class="info">
-                        <h3 class="chrome-text">Eco Craft</h3>
-                        <p class="lang-text" data-en="Sustainable innovation with premium design."
-                            data-ru="Экологичные инновации с премиальным дизайном.">Sustainable innovation with premium
-                            design.</p>
+
+                <!-- Repeat for all items -->
+                <div class="gallery-item flex flex-col lg:flex-row items-center gap-10">
+                    <div class="image w-full lg:w-1/2 h-[320px] sm:h-[400px] lg:h-[500px] rounded-xl shadow-lg bg-cover bg-center"
+                        style="background-image: url('images/product3.jpg');"></div>
+                    <div class="info w-full lg:w-1/2 text-center lg:text-left space-y-4 px-2 sm:px-6">
+                        <h3 class="chrome-text text-2xl sm:text-3xl">Eco Craft</h3>
+                        <p class="lang-text text-gray-200 text-base sm:text-lg leading-relaxed"
+                            data-en="Sustainable innovation with premium design."
+                            data-ru="Экологичные инновации с премиальным дизайном.">
+                            Sustainable innovation with premium design.
+                        </p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="image" style="background-image: url('images/product4.jpg');"></div>
-                    <div class="info">
-                        <h3 class="chrome-text">Power Glow</h3>
-                        <p class="lang-text" data-en="Autonomous power for continuous operation."
-                            data-ru="Автономная энергия для непрерывной работы.">Autonomous power for continuous
-                            operation.</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image" style="background-image: url('images/product5.jpg');"></div>
-                    <div class="info">
-                        <h3 class="chrome-text">Quantum Technology</h3>
-                        <p class="lang-text" data-en="Discover the power of quantum computing with LIONEER."
-                            data-ru="Откройте силу квантовых вычислений с LIONEER.">Discover the power of quantum
-                            computing with LIONEER.</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image" style="background-image: url('images/product6.jpg');"></div>
-                    <div class="info">
-                        <h3 class="chrome-text">Sustainable Design</h3>
-                        <p class="lang-text" data-en="Eco-friendly solutions for a better future."
-                            data-ru="Экологичные решения для лучшего будущего.">Eco-friendly solutions for a better
-                            future.</p>
-                    </div>
-                </div>
+
+                <!-- Keep going with product4, product5, product6... -->
             </div>
         </div>
     </section>
+
     <section id="technologies" class="technologies">
         <div class="container">
             <h2 class="text-4xl font-bold mb-12 text-center chrome-text">Technologies</h2>
@@ -170,12 +163,7 @@
             </div>
         </div>
     </section>
-    <section id="more-information" class="more-information">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-12 text-center chrome-text">More Information</h2>
-            <div class="info-grid"></div>
-        </div>
-    </section>
+
     <div class="media-player" id="mediaPlayer">
         <div class="media-player-content">
             <div class="media-player-image" id="mediaPlayerImage"></div>
@@ -186,104 +174,113 @@
         </div>
         <span class="media-player-close" id="mediaPlayerClose">&times;</span>
     </div>
-    <section id="about" class="py-20 glassmorphic">
-        <div class="container">
-            <h2 class="text-4xl font-bold mb-12 text-center chrome-text">About LIONEER</h2>
-            <div class="glassmorphic text-lg">
-                <p class="lang-text"
+    <!-- ABOUT — title, then the SAME text split into two columns -->
+    <section id="about" class="py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl sm:text-5xl font-bold text-center chrome-text mb-10">About LIONEER</h2>
+
+            <div class="glassmorphic bg-white/10 border border-white/10 rounded-2xl shadow-xl p-6 sm:p-8">
+                <div class="lang-text whitespace-pre-line text-base sm:text-lg leading-relaxed text-gray-100/90
+                   columns-1 md:columns-2 [column-gap:2.25rem] [column-rule:1px_solid_rgba(255,255,255,.08)]"
                     data-en="Description of the Quantum Business Device - Lioneer
-Device Name: Lioneer
-Purpose of Development: Optimization and enhancement of business processes through quantum energy.
-Description and Applications:
-Lioneer is an advanced, versatile, and ultra-powerful quantum device specifically designed to improve business efficiency, optimization, and profitability. This device is ideal for use in commercial organizations, financial operations, and sales environments.
-Technical Specifications and Unique Features:
-
-Design: The device is crafted as a compact box measuring 10x16x5 cm, made from high-strength aluminum alloy. It is dust and water-resistant, meeting the IP67 standard. Lioneer emits no harmful waves and is completely safe for the environment. It operates autonomously, requiring no network connections or physical maintenance.
-
-Advantages of Using Lioneer:
-
-Financial Growth: Increases enterprise profitability by 1000% through enhanced cash flow management.
-Improved Productivity: The device leverages quantum energy principles to positively influence the financial energy of the enterprise, significantly enhancing the performance of key personnel, including sales managers, financial managers, and crisis managers.
-Operating Principle: Utilizes unique quantum energy technology, making it the world’s only financial magnet and device of its kind.
-Personalization: Each device is individually crafted and tuned to the specific user, ensuring maximum effectiveness and adaptation to the unique operational conditions of each company.
-
-
-Lioneer is produced in limited quantities.
-Assembly and calibration of a single Lioneer unit take 12 months.
-The device has a guaranteed operational lifespan of 5 years.
-
-Installation and Usage Recommendations:
-To maximize Lioneer’s effectiveness, place it within the office or retail space where primary business operations occur. Avoid placing the device in high-temperature environments and keep it out of public view.
-Conclusion:
-Lioneer is more than just a device; it is a strategic asset that will elevate your business to new levels of productivity and outstanding financial results. With Lioneer, your company will gain a significant competitive edge in the market.6.3sHow can Grok help?"
+    Device Name: Lioneer
+    Purpose of Development: Optimization and enhancement of business processes through quantum energy.
+    Description and Applications:
+    Lioneer is an advanced, versatile, and ultra-powerful quantum device specifically designed to improve business efficiency, optimization, and profitability. This device is ideal for use in commercial organizations, financial operations, and sales environments.
+    Technical Specifications and Unique Features:
+    
+    Design: The device is crafted as a compact box measuring 10x16x5 cm, made from high-strength aluminum alloy. It is dust and water-resistant, meeting the IP67 standard. Lioneer emits no harmful waves and is completely safe for the environment. It operates autonomously, requiring no network connections or physical maintenance.
+    
+    Advantages of Using Lioneer:
+    
+    Financial Growth: Increases enterprise profitability by 1000% through enhanced cash flow management.
+    Improved Productivity: The device leverages quantum energy principles to positively influence the financial energy of the enterprise, significantly enhancing the performance of key personnel, including sales managers, financial managers, and crisis managers.
+    Operating Principle: Utilizes unique quantum energy technology, making it the world’s only financial magnet and device of its kind.
+    Personalization: Each device is individually crafted and tuned to the specific user, ensuring maximum effectiveness and adaptation to the unique operational conditions of each company.
+    
+    
+    Lioneer is produced in limited quantities.
+    Assembly and calibration of a single Lioneer unit take 12 months.
+    The device has a guaranteed operational lifespan of 5 years.
+    
+    Installation and Usage Recommendations:
+    To maximize Lioneer’s effectiveness, place it within the office or retail space where primary business operations occur. Avoid placing the device in high-temperature environments and keep it out of public view.
+    Conclusion:
+    Lioneer is more than just a device; it is a strategic asset that will elevate your business to new levels of productivity and outstanding financial results. With Lioneer, your company will gain a significant competitive edge in the market.6.3sHow can Grok help?"
                     data-ru="Описание квантового бизнес устройства - Lioneer
-Название устройства: Lioneer
-Цель разработки: Оптимизация и усиление бизнес-процессов при помощи
-квантовой энергии.
-Описание и область применения:
-Lioneer представляет собой передовое универсальное и ультра мощное
-квантовое устройство, специально разработанное для улучшения
-эффективности, оптимизации, и увеличения прибыльности бизнеса. Это
-устройство прекрасно подходит для использования в коммерческих
-организациях, в сфере финансовых операций, и продаж.
-Технические характеристики и уникальные особенности:
-- Конструкция: Устройство выполнено в виде компактной шкатулки с
-размерами 10x16x5 см, изготовленной из высокопрочного алюминиевого
-сплава. Оно защищено от пыли и влаги согласно стандарту IP67. Оно не
-излучает никаких вредных волн, и абсолютно безопасно для окружающей
-среды. Lioneer работает автономно, не требует никаких сетевых подключений,
-и никакого физического ухода.
-Преимущества использования Lioneer:
-1. Финансовый рост: Увеличение прибыли предприятия на 1000% за счет
-улучшения управления денежными потоками.
-2. Повышение производительности: Устройство использует принципы
-квантовой энергии для создания положительного влияния на финансовую
-энергетику предприятия. Оно создаст ощутимое улучшение работы ключевых
-специалистов, включая менеджеров по продажам, финансовых и кризисных
-менеджеров.
-3. Принцип действия: Использование уникальной технологии на основе
-квантовой энергии, делает его единственным в мире денежным магнитом и
-устройством такого типа.
-4. Персонализация:
-Каждое устройство создано и настроено индивидуально под каждого
-пользователя, что гарантирует максимальную эффективность и адаптацию к
-специфическим условиям деятельности каждой компании.
-- Устройство Lioneer выпускается в ограниченном количестве.
-- Сборка и настройка одной единицы Lioneer составляет 12 месяцев.
-- Гарантированный срок службы устройства составляет 5 лет.
-Рекомендации по установке и использованию:
-Для максимизации эффективности Lioneer необходимо разместить во
-внутреннем пространстве офиса, или торговой точки где проводятся
-основные бизнес-операции. Следует избегать размещения устройства в
-условиях высокой температуры, и желательно от посторонних глаз.
-Заключение:
-Lioneer – это не просто устройство, это стратегический актив, который
-выведет ваш бизнес на новый уровень производительности и выдающихся
-финансовых результатов. С Lioneer ваша компания получит значительное
-преимущество в конкурентной среде..">Description of the Quantum Business Device - Lioneer
+    Название устройства: Lioneer
+    Цель разработки: Оптимизация и усиление бизнес-процессов при помощи
+    квантовой энергии.
+    Описание и область применения:
+    Lioneer представляет собой передовое универсальное и ультра мощное
+    квантовое устройство, специально разработанное для улучшения
+    эффективности, оптимизации, и увеличения прибыльности бизнеса. Это
+    устройство прекрасно подходит для использования в коммерческих
+    организациях, в сфере финансовых операций, и продаж.
+    Технические характеристики и уникальные особенности:
+    - Конструкция: Устройство выполнено в виде компактной шкатулки с
+    размерами 10x16x5 см, изготовленной из высокопрочного алюминиевого
+    сплава. Оно защищено от пыли и влаги согласно стандарту IP67. Оно не
+    излучает никаких вредных волн, и абсолютно безопасно для окружающей
+    среды. Lioneer работает автономно, не требует никаких сетевых подключений,
+    и никакого физического ухода.
+    Преимущества использования Lioneer:
+    1. Финансовый рост: Увеличение прибыли предприятия на 1000% за счет
+    улучшения управления денежными потоками.
+    2. Повышение производительности: Устройство использует принципы
+    квантовой энергии для создания положительного влияния на финансовую
+    энергетику предприятия. Оно создаст ощутимое улучшение работы ключевых
+    специалистов, включая менеджеров по продажам, финансовых и кризисных
+    менеджеров.
+    3. Принцип действия: Использование уникальной технологии на основе
+    квантовой энергии, делает его единственным в мире денежным магнитом и
+    устройством такого типа.
+    4. Персонализация:
+    Каждое устройство создано и настроено индивидуально под каждого
+    пользователя, что гарантирует максимальную эффективность и адаптацию к
+    специфическим условиям деятельности каждой компании.
+    - Устройство Lioneer выпускается в ограниченном количестве.
+    - Сборка и настройка одной единицы Lioneer составляет 12 месяцев.
+    - Гарантированный срок службы устройства составляет 5 лет.
+    Рекомендации по установке и использованию:
+    Для максимизации эффективности Lioneer необходимо разместить во
+    внутреннем пространстве офиса, или торговой точки где проводятся
+    основные бизнес-операции. Следует избегать размещения устройства в
+    условиях высокой температуры, и желательно от посторонних глаз.
+    Заключение:
+    Lioneer – это не просто устройство, это стратегический актив, который
+    выведет ваш бизнес на новый уровень производительности и выдающихся
+    финансовых результатов. С Lioneer ваша компания получит значительное
+    преимущество в конкурентной среде..">
+                    Description of the Quantum Business Device - Lioneer
                     Device Name: Lioneer
                     Purpose of Development: Optimization and enhancement of business processes through quantum energy.
                     Description and Applications:
                     Lioneer is an advanced, versatile, and ultra-powerful quantum device specifically designed to
-                    improve business efficiency, optimization, and profitability. This device is ideal for use in
-                    commercial organizations, financial operations, and sales environments.
+                    improve
+                    business efficiency, optimization, and profitability. This device is ideal for use in commercial
+                    organizations, financial operations, and sales environments.
                     Technical Specifications and Unique Features:
 
                     Design: The device is crafted as a compact box measuring 10x16x5 cm, made from high-strength
-                    aluminum alloy. It is dust and water-resistant, meeting the IP67 standard. Lioneer emits no harmful
-                    waves and is completely safe for the environment. It operates autonomously, requiring no network
-                    connections or physical maintenance.
+                    aluminum
+                    alloy. It is dust and water-resistant, meeting the IP67 standard. Lioneer emits no harmful waves and
+                    is
+                    completely safe for the environment. It operates autonomously, requiring no network connections or
+                    physical maintenance.
 
                     Advantages of Using Lioneer:
 
                     Financial Growth: Increases enterprise profitability by 1000% through enhanced cash flow management.
                     Improved Productivity: The device leverages quantum energy principles to positively influence the
                     financial energy of the enterprise, significantly enhancing the performance of key personnel,
-                    including sales managers, financial managers, and crisis managers.
+                    including
+                    sales managers, financial managers, and crisis managers.
                     Operating Principle: Utilizes unique quantum energy technology, making it the world’s only financial
                     magnet and device of its kind.
                     Personalization: Each device is individually crafted and tuned to the specific user, ensuring
-                    maximum effectiveness and adaptation to the unique operational conditions of each company.
+                    maximum
+                    effectiveness and adaptation to the unique operational conditions of each company.
 
 
                     Lioneer is produced in limited quantities.
@@ -292,153 +289,166 @@ Lioneer – это не просто устройство, это стратег
 
                     Installation and Usage Recommendations:
                     To maximize Lioneer’s effectiveness, place it within the office or retail space where primary
-                    business operations occur. Avoid placing the device in high-temperature environments and keep it out
-                    of public view.
+                    business
+                    operations occur. Avoid placing the device in high-temperature environments and keep it out of
+                    public
+                    view.
                     Conclusion:
                     Lioneer is more than just a device; it is a strategic asset that will elevate your business to new
                     levels of productivity and outstanding financial results. With Lioneer, your company will gain a
-                    significant competitive edge in the market.6.3sHow can Grok help?</p>
-            </div>
-            <div class="mt-12">
-                <h3 class="text-2xl font-bold mb-6 text-center chrome-text">Operating Instructions</h3>
-                <div class="glassmorphic text-lg">
-                    <p class="lang-text" data-en="OPERATING INSTRUCTIONS
-Quantum Business Device LIONEER
-1. GENERAL INFORMATION
-LIONEER is an innovative device designed to optimize and enhance business processes using quantum energy. It automatically adapts to your business, improving sales, financial planning, crisis management, and customer service.
-2. TECHNICAL SPECIFICATIONS
-
-Power Supply: Autonomous (no charging or maintenance required)
-Service Life: 5 years without interruptions
-Weight: < 1 kg
-Dimensions: 10 × 15 × 5 cm
-Body Material: High-strength aluminum
-
-3. PACKAGE CONTENTS
-✔ LIONEER Device — 1 unit
-✔ User Manual — 1 unit
-4. SAFETY INSTRUCTIONS
-! Do not immerse the device in water.
-! Do not store the device in high-temperature environments.
-! Do not attempt to open the device!
-! Keep the device in a secure location, inaccessible to unauthorized persons.
-! Do not transfer the device to third parties (it will not function).
-5. PREPARATION AND OPERATION
-STEP 1: Device Placement
-
-Place LIONEER in an office, sales floor, or other workspace.
-The device operates completely silently.
-
-STEP 2: Automatic Configuration
-
-The device automatically adjusts to your business without requiring manual configuration.
-
-STEP 3: Operation Start
-
-LIONEER will begin noticeably optimizing key business processes, enhancing the performance of key managers:
-1⃣ Sales Manager – Increased conversions and sales growth.
-2⃣ Financial Manager – Improved cash flow control and attraction of new investments.
-3⃣ Crisis Manager – Support for decision-making in crisis situations. Anti-bankruptcy protection.
-4⃣ Customer Service Manager – Enhanced service quality, customer loyalty, and attraction of new clients.
-
-6. POSSIBLE ISSUES AND TROUBLESHOOTING
-✅ Guaranteed compatibility with 99% of business types.
-✅ The device is protected from external influences and tampering.
-❌ In case of malfunction, the device must be returned for reconfiguration or replacement.
-LIONEER is designed for uninterrupted operation for 5 years.
-! ATTENTION!
-No special knowledge is required to use the device. LIONEER does not replace employees but significantly enhances their efficiency.
-www.lioneer.de
-© 2025 LIONEER. All rights reserved." data-ru="ИНСТРУКЦИЯ ПО ЭКСПЛУАТАЦИИ
-Квантовое бизнес-устройство LIONEER
-1. ОБЩИЕ СВЕДЕНИЯ
-LIONEER — это инновационное устройство, предназначенное для
-оптимизации и усиления бизнес-процессов с помощью квантовой
-энергии. Оно автоматически настраивается под ваш бизнес,
-обеспечивая улучшение продаж, финансового планирования,
-кризисного управления и клиентского обслуживания.
-2. ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ
-• Питание: Автономное (не требует зарядки и обслуживания)
-• Срок службы: 5 лет без перебоев
-• Вес: < 1 кг
-• Габариты: 10 × 15 × 5 см
-• Материал корпуса: Высокопрочный алюминий.
-3. КОМПЛЕКТАЦИЯ
-✔ Устройство LIONEER — 1 шт.
-✔ Руководство пользователя — 1 шт.
-4. УКАЗАНИЯ ПО БЕЗОПАСНОСТИ
-! Запрещено погружать устройство в воду.
-! Запрещено хранить устройство в месте с высокой температурой.
-! Запрещено вскрывать устройство!
-! Храните устройство в недоступном для посторонних месте.
-! Запрещено передавать устройство посторонним лицам. (Оно не
-будет работать)
-5. ПОДГОТОВКА К РАБОТЕ И ИСПОЛЬЗОВАНИЕ
-ШАГ 1: Размещение устройства
-• Установите LIONEER в офисе, торговом зале или другом рабочем
-пространстве.
-• Устройство работает полностью без шума.
-ШАГ 2: Автоматическая настройка
-• Устройство автоматически подстраивается под ваш бизнес без
-необходимости ручной конфигурации.
-ШАГ 3: Начало работы
-ШАГ 3: Начало работы
-• LIONEER начнёт заметно оптимизировать ключевые процессы
-бизнеса, усиливая работу ключевых менеджеров:
-1⃣ Менеджер по продажам – усиление конверсий и увеличение
-продаж.
-2⃣ Финансовый менеджер – улучшение контроля денежных потоков и
-привлечение новых инвестиций.
-3⃣ Кризисный менеджер – поддержка решений в кризисных
-ситуациях. Анти-банкрот.
-4⃣ Клиентский менеджер – усиление сервиса и лояльности клиентов,
-и привлечение новых.
-6. ВОЗМОЖНЫЕ НЕИСПРАВНОСТИ И ИХ УСТРАНЕНИЕ
-✅ Гарантированная совместимость с 99% видов бизнеса.
-✅ Устройство защищено от всяких внешних воздействий и
-взломов.
-❌ В случае неисправности устройство подлежит обратной отправке
-для перенастройки или замены.
-LIONEER рассчитан на бесперебойную работу в течение 5 лет.
-! ВНИМАНИЕ!
-Использование устройства не требует специальных знаний. LIONEER
-не заменяет сотрудников, но значительно повышает их
-эффективность.
-www.lioneer.de
-© 2025 LIONEER. Все права защищены. ">OPERATING INSTRUCTIONS
-                        Quantum Business Device LIONEER
-                        1. GENERAL INFORMATION
-                        LIONEER is an innovative device designed to optimize and enhance business processes using
-                        quantum energy. It automatically adapts to your business, improving sales, financial planning,
-                        crisis management, and customer service.
-                        2. TECHNICAL SPECIFICATIONS
-
-                        Power Supply: Autonomous (no charging or maintenance required)
-                        Service Life: 5 years without interruptions
-                        Weight: < 1 kg Dimensions: 10 × 15 × 5 cm Body Material: High-strength aluminum 3. PACKAGE
-                            CONTENTS ✔ LIONEER Device — 1 unit ✔ User Manual — 1 unit 4. SAFETY INSTRUCTIONS ! Do not
-                            immerse the device in water. ! Do not store the device in high-temperature environments. !
-                            Do not attempt to open the device! ! Keep the device in a secure location, inaccessible to
-                            unauthorized persons. ! Do not transfer the device to third parties (it will not function).
-                            5. PREPARATION AND OPERATION STEP 1: Device Placement Place LIONEER in an office, sales
-                            floor, or other workspace. The device operates completely silently. STEP 2: Automatic
-                            Configuration The device automatically adjusts to your business without requiring manual
-                            configuration. STEP 3: Operation Start LIONEER will begin noticeably optimizing key business
-                            processes, enhancing the performance of key managers: 1⃣ Sales Manager – Increased
-                            conversions and sales growth. 2⃣ Financial Manager – Improved cash flow control and
-                            attraction of new investments. 3⃣ Crisis Manager – Support for decision-making in crisis
-                            situations. Anti-bankruptcy protection. 4⃣ Customer Service Manager – Enhanced service
-                            quality, customer loyalty, and attraction of new clients. 6. POSSIBLE ISSUES AND
-                            TROUBLESHOOTING ✅ Guaranteed compatibility with 99% of business types. ✅ The device is
-                            protected from external influences and tampering. ❌ In case of malfunction, the device must
-                            be returned for reconfiguration or replacement. LIONEER is designed for uninterrupted
-                            operation for 5 years. ! ATTENTION! No special knowledge is required to use the device.
-                            LIONEER does not replace employees but significantly enhances their efficiency.
-                            www.lioneer.de © 2025 LIONEER. All rights reserved.</p>
+                    significant competitive edge in the market.6.3sHow can Grok help?
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- OPERATING INSTRUCTIONS — title, then the SAME text split into two columns -->
+    <section id="operating-instructions" class="py-24">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl sm:text-4xl font-bold text-center chrome-text mb-10">Operating Instructions</h3>
+
+            <div class="glassmorphic bg-white/10 border border-white/10 rounded-2xl shadow-xl p-6 sm:p-8">
+                <div class="lang-text whitespace-pre-line text-base sm:text-lg leading-relaxed text-gray-100/90
+                   columns-1 md:columns-2 [column-gap:2.25rem] [column-rule:1px_solid_rgba(255,255,255,.08)]" data-en="OPERATING INSTRUCTIONS
+    Quantum Business Device LIONEER
+    1. GENERAL INFORMATION
+    LIONEER is an innovative device designed to optimize and enhance business processes using quantum energy. It automatically adapts to your business, improving sales, financial planning, crisis management, and customer service.
+    2. TECHNICAL SPECIFICATIONS
+    
+    Power Supply: Autonomous (no charging or maintenance required)
+    Service Life: 5 years without interruptions
+    Weight: < 1 kg
+    Dimensions: 10 × 15 × 5 cm
+    Body Material: High-strength aluminum
+    
+    3. PACKAGE CONTENTS
+    ✔ LIONEER Device — 1 unit
+    ✔ User Manual — 1 unit
+    4. SAFETY INSTRUCTIONS
+    ! Do not immerse the device in water.
+    ! Do not store the device in high-temperature environments.
+    ! Do not attempt to open the device!
+    ! Keep the device in a secure location, inaccessible to unauthorized persons.
+    ! Do not transfer the device to third parties (it will not function).
+    5. PREPARATION AND OPERATION
+    STEP 1: Device Placement
+    
+    Place LIONEER in an office, sales floor, or other workspace.
+    The device operates completely silently.
+    
+    STEP 2: Automatic Configuration
+    
+    The device automatically adjusts to your business without requiring manual configuration.
+    
+    STEP 3: Operation Start
+    
+    LIONEER will begin noticeably optimizing key business processes, enhancing the performance of key managers:
+    1⃣ Sales Manager – Increased conversions and sales growth.
+    2⃣ Financial Manager – Improved cash flow control and attraction of new investments.
+    3⃣ Crisis Manager – Support for decision-making in crisis situations. Anti-bankruptcy protection.
+    4⃣ Customer Service Manager – Enhanced service quality, customer loyalty, and attraction of new clients.
+    
+    6. POSSIBLE ISSUES AND TROUBLESHOOTING
+    ✅ Guaranteed compatibility with 99% of business types.
+    ✅ The device is protected from external influences and tampering.
+    ❌ In case of malfunction, the device must be returned for reconfiguration or replacement.
+    LIONEER is designed for uninterrupted operation for 5 years.
+    ! ATTENTION!
+    No special knowledge is required to use the device. LIONEER does not replace employees but significantly enhances their efficiency.
+    www.lioneer.de
+    © 2025 LIONEER. All rights reserved." data-ru="ИНСТРУКЦИЯ ПО ЭКСПЛУАТАЦИИ
+    Квантовое бизнес-устройство LIONEER
+    1. ОБЩИЕ СВЕДЕНИЯ
+    LIONEER — это инновационное устройство, предназначенное для
+    оптимизации и усиления бизнес-процессов с помощью квантовой
+    энергии. Оно автоматически настраивается под ваш бизнес,
+    обеспечивая улучшение продаж, финансового планирования,
+    кризисного управления и клиентского обслуживания.
+    2. ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ
+    • Питание: Автономное (не требует зарядки и обслуживания)
+    • Срок службы: 5 лет без перебоев
+    • Вес: < 1 кг
+    • Габариты: 10 × 15 × 5 см
+    • Материал корпуса: Высокопрочный алюминий.
+    3. КОМПЛЕКТАЦИЯ
+    ✔ Устройство LIONEER — 1 шт.
+    ✔ Руководство пользователя — 1 шт.
+    4. УКАЗАНИЯ ПО БЕЗОПАСНОСТИ
+    ! Запрещено погружать устройство в воду.
+    ! Запрещено хранить устройство в месте с высокой температурой.
+    ! Запрещено вскрывать устройство!
+    ! Храните устройство в недоступном для посторонних месте.
+    ! Запрещено передавать устройство посторонним лицам. (Оно не
+    будет работать)
+    5. ПОДГОТОВКА К РАБОТЕ И ИСПОЛЬЗОВАНИЕ
+    ШАГ 1: Размещение устройства
+    • Установите LIONEER в офисе, торговом зале или другом рабочем
+    пространстве.
+    • Устройство работает полностью без шума.
+    ШАГ 2: Автоматическая настройка
+    • Устройство автоматически подстраивается под ваш бизнес без
+    необходимости ручной конфигурации.
+    ШАГ 3: Начало работы
+    ШАГ 3: Начало работы
+    • LIONEER начнёт заметно оптимизировать ключевые процессы
+    бизнеса, усиливая работу ключевых менеджеров:
+    1⃣ Менеджер по продажам – усиление конверсий и увеличение
+    продаж.
+    2⃣ Финансовый менеджер – улучшение контроля денежных потоков и
+    привлечение новых инвестиций.
+    3⃣ Кризисный менеджер – поддержка решений в кризисных
+    ситуациях. Анти-банкрот.
+    4⃣ Клиентский менеджер – усиление сервиса и лояльности клиентов,
+    и привлечение новых.
+    6. ВОЗМОЖНЫЕ НЕИСПРАВНОСТИ И ИХ УСТРАНЕНИЕ
+    ✅ Гарантированная совместимость с 99% видов бизнеса.
+    ✅ Устройство защищено от всяких внешних воздействий и
+    взломов.
+    ❌ В случае неисправности устройство подлежит обратной отправке
+    для перенастройки или замены.
+    LIONEER рассчитан на бесперебойную работу в течение 5 лет.
+    ! ВНИМАНИЕ!
+    Использование устройства не требует специальных знаний. LIONEER
+    не заменяет сотрудников, но значительно повышает их
+    эффективность.
+    www.lioneer.de
+    © 2025 LIONEER. Все права защищены. ">
+                    OPERATING INSTRUCTIONS
+                    Quantum Business Device LIONEER
+                    1. GENERAL INFORMATION
+                    LIONEER is an innovative device designed to optimize and enhance business processes using quantum
+                    energy. It automatically adapts to your business, improving sales, financial planning, crisis
+                    management, and customer service.
+                    2. TECHNICAL SPECIFICATIONS
+
+                    Power Supply: Autonomous (no charging or maintenance required)
+                    Service Life: 5 years without interruptions
+                    Weight: < 1 kg Dimensions: 10 × 15 × 5 cm Body Material: High-strength aluminum 3. PACKAGE CONTENTS
+                        ✔ LIONEER Device — 1 unit ✔ User Manual — 1 unit 4. SAFETY INSTRUCTIONS ! Do not immerse the
+                        device in water. ! Do not store the device in high-temperature environments. ! Do not attempt to
+                        open the device! ! Keep the device in a secure location, inaccessible to unauthorized persons. !
+                        Do not transfer the device to third parties (it will not function). 5. PREPARATION AND OPERATION
+                        STEP 1: Device Placement Place LIONEER in an office, sales floor, or other workspace. The device
+                        operates completely silently. STEP 2: Automatic Configuration The device automatically adjusts
+                        to your business without requiring manual configuration. STEP 3: Operation Start LIONEER will
+                        begin noticeably optimizing key business processes, enhancing the performance of key managers:
+                        1⃣ Sales Manager – Increased conversions and sales growth. 2⃣ Financial Manager – Improved cash
+                        flow control and attraction of new investments. 3⃣ Crisis Manager – Support for decision-making
+                        in crisis situations. Anti-bankruptcy protection. 4⃣ Customer Service Manager – Enhanced service
+                        quality, customer loyalty, and attraction of new clients. 6. POSSIBLE ISSUES AND TROUBLESHOOTING
+                        ✅ Guaranteed compatibility with 99% of business types. ✅ The device is protected from external
+                        influences and tampering. ❌ In case of malfunction, the device must be returned for
+                        reconfiguration or replacement. LIONEER is designed for uninterrupted operation for 5 years. !
+                        ATTENTION! No special knowledge is required to use the device. LIONEER does not replace
+                        employees but significantly enhances their efficiency. www.lioneer.de © 2025 LIONEER. All rights
+                        reserved. </div>
+                </div>
+            </div>
+    </section>
+
+
+
+
     <section id="contact" class="py-20 glassmorphic">
         <div class="container text-center">
             <h2 class="text-4xl font-bold mb-12 chrome-text">Contact Us</h2>

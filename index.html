@@ -38,38 +38,34 @@
         <!-- Background / flag -->
         <div class="flag-container pointer-events-none" aria-hidden="true">
             <picture>
-
                 <source srcset="images/logo.png" type="image/png" />
-                <img id="heroFlag" src="images/logo.png" alt="" loading="eager" decoding="async" class="absolute inset-0 m-auto object-contain
-                   max-w-[85vw] max-h-[55vh]
-                   sm:max-w-[80vw] sm:max-h-[60vh]
-                   md:max-w-[75vw] md:max-h-[65vh]
-                   lg:max-w-[70vw] lg:max-h-[70vh]
-                   opacity-70" />
             </picture>
         </div>
 
         <!-- Foreground / hero -->
         <section class="hero relative z-[2]">
-            <div class="hero-content max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl px-4 sm:px-6 md:px-8">
-                <img src="images/lioneer.png" alt="LIONEER Logo"
-                    class="hero-logo w-56 sm:w-72 md:w-96 h-auto opacity-90" />
+            <div class="hero-content w-full px-4">
+                <img src="images/hero.png" alt="LIONEER Logo"
+                    class="hero-logo mx-auto w-full max-w-[844px] h-auto sm:scale-100 md:scale-90 lg:scale-90 opacity-90" />
 
-                <p class="lang-text mt-6 text-base sm:text-lg md:text-xl leading-relaxed max-w-prose"
+                <p class="lang-text mt-6 text-base sm:text-lg md:text-xl leading-relaxed max-w-prose mx-auto text-center"
                     data-en="Experience quantum excellence in your business."
                     data-ru="Испытайте квантовое совершенство в вашем бизнесе.">
                     Experience quantum excellence in your business.
                 </p>
 
-                <a href="#contact" class="cta-button inline-block mt-8" data-en="Discover More" data-ru="Узнать больше">
-                    Discover More
-                </a>
+                <div class="flex justify-center mt-8">
+                    <a href="#contact" class="cta-button inline-block" data-en="Discover More" data-ru="Узнать больше">
+                        Discover More
+                    </a>
+                </div>
             </div>
         </section>
     </section>
 
+
     <!-- End update voice message 1 -->
-    <section id="gallery" class="py-24 bg-black/40 backdrop-blur-sm relative">
+    <section id="gallery" class="pt-12 pb-24 bg-black/40 backdrop-blur-sm relative">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl sm:text-5xl font-bold mb-16 text-center chrome-text">
                 Gallery
@@ -78,8 +74,9 @@
             <div class="gallery-grid flex flex-col gap-20">
                 <!-- Item -->
                 <div class="gallery-item flex flex-col lg:flex-row items-center gap-10">
-                    <div class="image w-full lg:w-1/2 h-[320px] sm:h-[400px] lg:h-[500px] rounded-xl shadow-lg bg-cover bg-center"
-                        style="background-image: url('images/product1.jpg');"></div>
+                    <div class="image portrait-image w-full lg:w-1/2 h-[500px] rounded-xl shadow-lg"
+                        style="background-image: url('images/product1.jpg');">
+                    </div>
                     <div class="info w-full lg:w-1/2 text-center lg:text-left space-y-4 px-2 sm:px-6">
                         <h3 class="chrome-text text-2xl sm:text-3xl">Quantum Pulse</h3>
                         <p class="lang-text text-gray-200 text-base sm:text-lg leading-relaxed"

@@ -301,9 +301,18 @@ body {
     transition: opacity 1.5s ease-out, transform 1.5s ease-out;
     cursor: pointer;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(00);
 }
 
+.portrait-centered {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .gallery-item.visible {
     opacity: 1;
     transform: translateY(0);
@@ -323,7 +332,7 @@ body {
 
 .gallery-item .image {
     width: 50%;
-    height: 500px;
+    height: 450px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

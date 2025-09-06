@@ -85,6 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.textContent = topbarNav.classList.contains('active') ? '×' : '☰';
     });
 
+    function scrollToCenter(element) {
+        const offset = element.getBoundingClientRect().top + window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const elementHeight = element.offsetHeight;
+        const scrollTarget = offset - (viewportHeight / 2) + (elementHeight / 2);
+
+        window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+    }
+
     // Parallax Effect for Gallery
     function updateParallax() {
         galleryItems.forEach(item => {
@@ -95,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const info = item.querySelector('.info');
                 const offset = (window.innerHeight - rect.top) / window.innerHeight;
                 const parallaxOffset = offset * 0.4 * 100;
-                image.style.backgroundPositionY = `${100 - parallaxOffset}%`;
+                image.style.backgroundPositionY = `${70 - parallaxOffset}%`;
                 info.style.transform = `translateY(${(1 - offset) * 3}px)`;
             }
         });

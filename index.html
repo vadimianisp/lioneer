@@ -1,1314 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIONEER - Quantum Excellence</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @font-face {
-            font-family: 'Girassol';
-            src: url('fonts/Girassol-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-        body {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background: transparent;
-            color: #FFFFFF;
-            position: relative;
-            font-weight: normal;
-        }
-        .chrome-text {
-            background: linear-gradient(45deg, #A0A0A0, #FFFFFF, #C0C0C0, #333333);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(255, 255, 255, 0.2);
-            animation: chromeShine 4s infinite ease-in-out;
-        }
-        @keyframes chromeShine {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 200% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .toplogo-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 56px;
-            background: linear-gradient(180deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.8));
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0.5rem 0;
-            z-index: 1200;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
-        }
-        .toplogo-container img {
-            height: 48px;
-            width: auto;
-            transition: transform 0.3s ease-in-out;
-        }
-        .toplogo-container img:hover {
-            transform: scale(1.05);
-        }
-        .topbar {
-            position: fixed;
-            top: 56px;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(180deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.8));
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1100;
-            padding: 0.75rem 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
-            transition: transform 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            opacity: 0;
-            transform: translateY(-100%);
-        }
-        .topbar.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .topbar.hidden {
-            opacity: 0;
-            transform: translateY(-100%);
-        }
-        .topbar-nav {
-            display: flex;
-            align-items: center;
-        }
-        .topbar-nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            justify-content: center;
-        }
-        .topbar-nav a {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 0.95rem;
-            font-weight: normal;
-            color: #E0E0E0;
-            text-decoration: none;
-            text-transform: uppercase;
-            position: relative;
-            transition: color 0.5s ease-in-out, transform 0.3s ease-in-out;
-        }
-        .topbar-nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background: #C0C0C0;
-            transition: width 0.5s ease-in-out;
-        }
-        .topbar-nav a:hover::after {
-            width: 100%;
-        }
-        .topbar-nav a:hover {
-            color: #FFFFFF;
-            transform: scale(1.1);
-        }
-        .hamburger {
-            display: none;
-            font-size: 1.5rem;
-            color: #E0E0E0;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        .language-switcher {
-            display: flex;
-            gap: 0.5rem;
-        }
-        .language-button {
-            background: transparent;
-            border: none;
-            color: #E0E0E0;
-            font-family: Helvetica, sans-serif;
-            font-size: 0.8rem;
-            font-weight: normal;
-            cursor: pointer;
-            padding: 0.3rem 0.6rem;
-            transition: color 0.3s ease-in-out;
-        }
-        .language-button:hover {
-            color: #C0C0C0;
-        }
-        .language-button.active {
-            color: #C0C0C0;
-            border-bottom: 1px solid #C0C0C0;
-        }
-        .flag-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-            background: transparent;
-        }
-        .flag-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 50%, rgba(0, 0, 0, 0.7));
-            z-index: 1;
-        }
-        .flag-container img {
-            width: 70vw;
-            height: 70vh;
-            object-fit: contain;
-            transform: translateX(40%) translateY(0%);
-            filter: contrast(1.2) brightness(1.1);
-            opacity: 1;
-            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-        }
-        .flag-container img.lang-ru {
-            transform: translateX(90%);
-            opacity: 1;
-        }
-        .hero {
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            text-align: left;
-            position: relative;
-            z-index: 2;
-            color: #FFFFFF;
-            padding-left: 2rem;
-            margin-top: 88px;
-            background: transparent;
-        }
-        .hero-content h1 {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 6rem;
-            font-weight: normal;
-            text-transform: uppercase;
-            animation: fadeInUp 1.5s ease-in-out;
-        }
-        .hero-content p {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 1.5rem;
-            max-width: 600px;
-            margin: 2rem 0;
-            color: #E0E0E0;
-            font-weight: normal;
-        }
-        .hero-content .cta-button {
-            background: linear-gradient(45deg, #A0A0A0, #FFFFFF, #C0C0C0);
-            color: #333333;
-            padding: 1rem 3rem;
-            font-size: 1.1rem;
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-weight: normal;
-            border-radius: 50px;
-            border: none;
-            text-transform: uppercase;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(255, 255, 255, 0.2);
-            filter: brightness(1.1);
-        }
-        #canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            opacity: 0.8;
-        }
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        .glassmorphic {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 0;
-            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-            z-index: 1;
-            opacity: 1;
-        }
-        .glassmorphic.visible {
-            opacity: 1;
-        }
-        .gallery-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 6rem;
-            padding: 6rem 0;
-            background: rgba(255, 255, 255, 0.2);
-            z-index: 1;
-        }
-        .gallery-item {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            position: relative;
-            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-            cursor: pointer;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .gallery-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .gallery-item:hover .image {
-            transform: scale(1.02);
-        }
-        .gallery-item:nth-child(odd) {
-            flex-direction: row;
-        }
-        .gallery-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        .gallery-item .image {
-            width: 50%;
-            height: 500px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            clip-path: inset(100% 0 0 0);
-            transition: clip-path 1.5s ease-in-out, background-position-y 1.5s ease-in-out, transform 0.3s ease-in-out;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        .gallery-item.visible .image {
-            clip-path: inset(0 0 0 0);
-        }
-        .gallery-item .image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent);
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-        .gallery-item.visible .image::after {
-            opacity: 1;
-        }
-        .gallery-item .info {
-            width: 50%;
-            padding: 3rem;
-            text-align: left;
-        }
-        .gallery-item .info h3 {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 2.4rem;
-            font-weight: normal;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        .gallery-item .info p {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 1.1rem;
-            color: #E0E0E0;
-            font-weight: normal;
-        }
-        .technologies {
-            background: linear-gradient(180deg, rgba(20, 20, 20, 0.7), rgba(40, 40, 40, 0.6));
-            padding: 6rem 0;
-            backdrop-filter: blur(12px);
-            z-index: 1;
-            transition: opacity 1.5s ease-out;
-            opacity: 1;
-        }
-        .technologies.visible {
-            opacity: 1;
-        }
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            justify-items: center;
-        }
-        .tech-card {
-            padding: 3rem;
-            text-align: center;
-            background: rgba(26, 26, 26, 0.7);
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease-in-out;
-            opacity: 1;
-            transform: translateY(0);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 1;
-        }
-        .tech-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .tech-card:hover {
-            transform: scale(1.02);
-            background: linear-gradient(180deg, rgba(26, 26, 26, 0.8), rgba(51, 51, 51, 0.8));
-            box-shadow: 0 6px 24px rgba(255, 255, 255, 0.2);
-        }
-        .tech-card h3 {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 1.8rem;
-            font-weight: normal;
-            text-transform: uppercase;
-        }
-        .tech-card p {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 1rem;
-            color: #E0E0E0;
-            font-weight: normal;
-        }
-        .more-information {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 6rem 0;
-            backdrop-filter: blur(12px);
-            z-index: 1;
-            transition: opacity 1.5s ease-out;
-            opacity: 1;
-        }
-        .more-information.visible {
-            opacity: 1;
-        }
-        .media-player {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            transition: opacity 0.6s ease-out;
-        }
-        .media-player.active {
-            display: flex;
-            opacity: 1;
-        }
-        .media-player-content {
-            width: 90%;
-            max-width: 1400px;
-            height: 85vh;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.8));
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            display: flex;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        .media-player.active .media-player-content {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .media-player-image {
-            width: 70%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: transform 0.5s ease-in-out;
-        }
-        .media-player-image:hover {
-            transform: scale(1.05);
-        }
-        .media-player-info {
-            width: 30%;
-            padding: 3rem;
-            color: #000000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .media-player-info h3 {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 2rem;
-            font-weight: normal;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        .media-player-info p {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 1rem;
-            font-weight: normal;
-        }
-        .media-player-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            color: #000000;
-            cursor: pointer;
-            transition: color 0.3s ease-in-out;
-        }
-        .media-player-close:hover {
-            color: #C0C0C0;
-        }
-        #contact {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(12px);
-            z-index: 1;
-            transition: opacity 1.5s ease-out;
-            opacity: 1;
-        }
-        #contact.visible {
-            opacity: 1;
-        }
-        .footer {
-            background: linear-gradient(180deg, rgba(20, 20, 20, 0.7), rgba(40, 40, 40, 0.6));
-            padding: 6rem 0;
-            color: #FFFFFF;
-            backdrop-filter: blur(12px);
-            z-index: 1;
-            transition: opacity 1.5s ease-out;
-            opacity: 1;
-        }
-        .footer.visible {
-            opacity: 1;
-        }
-        .footer .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            justify-items: center;
-        }
-        .footer h3 {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 1.2rem;
-            font-weight: normal;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        .footer ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        .footer ul li {
-            margin-bottom: 0.5rem;
-        }
-        .footer a {
-            color: #E0E0E0;
-            text-decoration: none;
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 1rem;
-            font-weight: normal;
-            transition: color 0.3s ease-in-out;
-        }
-        .footer a:hover {
-            color: #C0C0C0;
-        }
-        .legal-text {
-            font-family: 'Girassol', Helvetica, sans-serif;
-            font-size: 0.9rem;
-            color: #E0E0E0;
-            margin-top: 2rem;
-            text-align: center;
-            font-weight: normal;
-        }
-        .footer-logo {
-            display: flex;
-            justify-content: center;
-        }
-        .footer-logo img {
-            height: 48px;
-            width: auto;
-            transition: transform 0.3s ease-in-out;
-        }
-        .footer-logo img:hover {
-            transform: scale(1.05);
-        }
-        .error-message {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 0, 0, 0.8);
-            color: #FFFFFF;
-            padding: 1rem;
-            border-radius: 8px;
-            z-index: 3000;
-            display: none;
-        }
-        .error-message.active {
-            display: block;
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 1024px) {
-            .flag-container {
-                width: 100vw;
-                height: 80vh;
-            }
-            .flag-container img {
-                width: 50vw;
-                height: 37vh;
-                transform: translateX(75%);
-            }
-            .hero-content h1 {
-                font-size: 4.8rem;
-            }
-            .hero-content p {
-                font-size: 1.3rem;
-            }
-            .gallery-item .image {
-                height: 450px;
-            }
-            .gallery-item .info {
-                padding: 2rem;
-            }
-            .gallery-item .info h3 {
-                font-size: 2rem;
-            }
-            .tech-card h3 {
-                font-size: 1.6rem;
-            }
-            .footer h3 {
-                font-size: 1.1rem;
-            }
-        }
-        @media (max-width: 768px) {
-            .toplogo-container {
-                height: 48px;
-            }
-            .toplogo-container img {
-                height: 40px;
-            }
-            .topbar {
-                top: 48px;
-                padding: 0.4rem 0.8rem;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .hamburger {
-                display: block;
-                font-size: 1.3rem;
-                padding: 0.3rem;
-            }
-            .topbar-nav {
-                width: 100%;
-                display: none;
-            }
-            .topbar-nav.active {
-                display: block;
-            }
-            .topbar-nav ul {
-                flex-direction: column;
-                gap: 0.8rem;
-                width: 100%;
-                padding: 0.8rem 0;
-            }
-            .topbar-nav a {
-                font-size: 0.85rem;
-                padding: 0.4rem 0;
-            }
-            .language-switcher {
-                margin-top: 0.4rem;
-                gap: 0.3rem;
-            }
-            .language-button {
-                font-size: 0.7rem;
-                padding: 0.15rem 0.4rem;
-            }
-            .flag-container {
-                width: 100vw;
-                height: 70vh;
-            }
-            .flag-container img {
-                width: 60vw;
-                height: 30vh;
-                transform: translateX(50%);
-            }
-            .hero {
-                height: 60vh;
-                padding-left: 1rem;
-                margin-top: 80px;
-            }
-            .hero-content h1 {
-                font-size: 3.5rem;
-            }
-            .hero-content p {
-                font-size: 1.1rem;
-                max-width: 90%;
-            }
-            .hero-content .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 0.95rem;
-            }
-            .gallery-item {
-                flex-direction: column !important;
-                width: 100%;
-            }
-            .gallery-item .image {
-                width: 100%;
-                height: 350px;
-                background-position: center center;
-            }
-            .gallery-item .info {
-                width: 100%;
-                text-align: center;
-                padding: 1.5rem;
-            }
-            .gallery-item .info h3 {
-                font-size: 1.8rem;
-            }
-            .gallery-item .info p {
-                font-size: 0.95rem;
-            }
-            .tech-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-            .tech-card {
-                padding: 1.5rem;
-            }
-            .tech-card h3 {
-                font-size: 1.5rem;
-            }
-            .tech-card p {
-                font-size: 0.9rem;
-            }
-            .media-player-content {
-                flex-direction: column;
-                height: 90vh;
-            }
-            .media-player-image {
-                width: 100%;
-                height: 55%;
-            }
-            .media-player-info {
-                width: 100%;
-                height: 45%;
-                padding: 1.5rem;
-            }
-            .media-player-info h3 {
-                font-size: 1.6rem;
-            }
-            .media-player-info p {
-                font-size: 0.9rem;
-            }
-            .footer .container {
-                grid-template-columns: 1fr;
-                justify-items: center;
-                text-align: center;
-            }
-            .footer h3 {
-                font-size: 1rem;
-            }
-            .footer a {
-                font-size: 0.85rem;
-            }
-            .legal-text {
-                font-size: 0.8rem;
-            }
-            .footer-logo img {
-                height: 40px;
-            }
-        }
-        @media (max-width: 480px) {
-            .toplogo-container {
-                height: 40px;
-            }
-            .toplogo-container img {
-                height: 36px;
-            }
-            .topbar {
-                top: 40px;
-                padding: 0.3rem 0.6rem;
-            }
-            .hamburger {
-                font-size: 1.2rem;
-                padding: 0.2rem;
-            }
-            .topbar-nav a {
-                font-size: 0.75rem;
-                padding: 0.3rem 0;
-            }
-            .language-button {
-                font-size: 0.65rem;
-                padding: 0.1rem 0.3rem;
-            }
-            .flag-container {
-                width: 100vw;
-                height: 60vh;
-            }
-            .flag-container img {
-                width: 70vw;
-                height: 28vh;
-                transform: translateX(45%);
-            }
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .hero-content .cta-button {
-                padding: 0.7rem 1.8rem;
-                font-size: 0.85rem;
-            }
-            .gallery-item .image {
-                height: 300px;
-            }
-            .gallery-item .info h3 {
-                font-size: 1.5rem;
-            }
-            .gallery-item .info p {
-                font-size: 0.85rem;
-            }
-            .tech-card h3 {
-                font-size: 1.4rem;
-            }
-            .media-player-info h3 {
-                font-size: 1.4rem;
-            }
-        }
-        .hero-logo {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            animation: fadeInUp 1.5s ease-in-out;
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Debug Font Loading
-            const testFont = new FontFace('Girassol', "url('fonts/Girassol-Regular.ttf')");
-            testFont.load().then(() => {
-                console.log('Fontul Girassol s-a încărcat cu succes.');
-                document.fonts.add(testFont);
-            }).catch((e) => {
-                console.error('Eroare la încărcarea fontului Girassol:', e);
-                showError('Eroare: Fontul Girassol nu s-a încărcat.');
-            });
-
-            // Debug Logo
-            const toplogo = document.querySelector('.toplogo-container img');
-            toplogo.addEventListener('error', () => {
-                console.error('Eroare la încărcarea toplogo.png. Verifică calea: images/toplogo.png');
-                toplogo.src = 'https://picsum.photos/200/48?random=1';
-                showError('Eroare: Logo toplogo.png nu s-a încărcat.');
-            });
-            toplogo.addEventListener('load', () => {
-                console.log('Logo toplogo.png încărcat cu succes.');
-            });
-
-            // Debug Hero Image
-            const heroImage = document.querySelector('.flag-container img');
-            if (!heroImage) {
-                console.error('Imaginea logo.png nu a fost găsită. Verifică selectorul .flag-container img.');
-                showError('Eroare: Imaginea logo.png nu a fost găsită.');
-            } else {
-                heroImage.addEventListener('error', () => {
-                    console.error('Eroare la încărcarea logo.png. Verifică calea: images/logo.png');
-                    heroImage.src = 'https://picsum.photos/1200/600?random=0';
-                    showError('Eroare: Imaginea logo.png nu s-a încărcat.');
-                });
-                heroImage.addEventListener('load', () => {
-                    console.log('Imagine logo.png încărcată cu succes.');
-                });
-            }
-
-            // Debug Gallery Images
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            if (galleryItems.length === 0) {
-                console.error('Secțiunea gallery nu conține elemente. Verifică dacă .gallery-grid există și este populată.');
-                showError('Eroare: Galeria nu conține elemente.');
-            }
-            galleryItems.forEach((item, index) => {
-                const img = item.querySelector('.image');
-                const bgImage = img.style.backgroundImage.slice(5, -2);
-                const tempImg = new Image();
-                tempImg.src = bgImage;
-                tempImg.onerror = () => {
-                    console.error(`Imaginea product${index + 1}.jpg nu s-a încărcat. Verifică calea: ${bgImage}`);
-                    img.style.backgroundImage = 'url(https://picsum.photos/600/500?random=' + (index + 1) + ')';
-                    showError(`Eroare: Imaginea product${index + 1}.jpg nu s-a încărcat.`);
-                };
-                tempImg.onload = () => {
-                    console.log(`Imaginea product${index + 1}.jpg încărcată cu succes: ${bgImage}`);
-                };
-            });
-
-            // Hamburger Menu
-            const hamburger = document.querySelector('.hamburger');
-            const topbarNav = document.querySelector('.topbar-nav');
-            hamburger.addEventListener('click', () => {
-                topbarNav.classList.toggle('active');
-                hamburger.textContent = topbarNav.classList.contains('active') ? '×' : '☰';
-            });
-
-            // Parallax Effect for Gallery
-            function updateParallax() {
-                galleryItems.forEach(item => {
-                    const rect = item.getBoundingClientRect();
-                    const scrollY = window.pageYOffset;
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const image = item.querySelector('.image');
-                        const info = item.querySelector('.info');
-                        const offset = (window.innerHeight - rect.top) / window.innerHeight;
-                        const parallaxOffset = offset * 0.4 * 100;
-                        image.style.backgroundPositionY = `${100 - parallaxOffset}%`;
-                        info.style.transform = `translateY(${(1 - offset) * 3}px)`;
-                    }
-                });
-            }
-            window.addEventListener('scroll', updateParallax);
-
-            // Intersection Observer for Fade In Animation
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.2
-            };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        console.log(`Secțiunea ${entry.target.id || entry.target.className} este vizibilă.`);
-                        observer.unobserve(entry.target);
-                    } else {
-                        console.log(`Secțiunea ${entry.target.id || entry.target.className} nu este vizibilă.`);
-                    }
-                });
-            }, observerOptions);
-            galleryItems.forEach(item => observer.observe(item));
-            document.querySelectorAll('.tech-card').forEach( card => observer.observe(card));
-            document.querySelectorAll('.glassmorphic, .technologies, .more-information, #contact, .footer').forEach(section => observer.observe(section));
-
-            // Topbar Scroll Behavior
-            let lastScrollTop = 0;
-            const topbar = document.querySelector('.topbar');
-            topbar.classList.add('visible'); // Show topbar on load
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if (scrollTop > lastScrollTop && scrollTop > 56) {
-                    topbar.classList.remove('visible');
-                    topbar.classList.add('hidden');
-                    topbarNav.classList.remove('active');
-                    hamburger.textContent = '☰';
-                } else if (scrollTop < lastScrollTop || scrollTop <= 56) {
-                    topbar.classList.remove('hidden');
-                    topbar.classList.add('visible');
-                }
-                lastScrollTop = scrollTop;
-            });
-
-            // Language Switcher
-            const languageButtons = document.querySelectorAll('.language-button');
-            languageButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    languageButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    const lang = button.getAttribute('data-lang');
-                    setLanguage(lang);
-                    if (heroImage) {
-                        heroImage.classList.toggle('lang-ru', lang === 'ru');
-                    }
-                });
-            });
-
-            function setLanguage(lang) {
-                try {
-                    document.querySelectorAll('.lang-text').forEach(element => {
-                        const text = element.getAttribute(`data-${lang}`);
-                        if (text) {
-                            element.innerHTML = text;
-                        } else {
-                            console.warn(`Atributul data-${lang} lipsește pentru element:`, element);
-                        }
-                    });
-                    document.querySelectorAll('.language-button').forEach(btn => {
-                        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-                    });
-                } catch (e) {
-                    console.error('Eroare în setLanguage:', e);
-                    showError('Eroare la schimbarea limbii.');
-                }
-            }
-
-            // Error Message Display
-            function showError(message) {
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message active';
-                errorDiv.textContent = message;
-                document.body.appendChild(errorDiv);
-                setTimeout(() => {
-                    errorDiv.classList.remove('active');
-                    setTimeout(() => errorDiv.remove(), 500);
-                }, 5000);
-            }
-
-            // Media Player
-            const mediaPlayer = document.getElementById('mediaPlayer');
-            const mediaPlayerImage = document.getElementById('mediaPlayerImage');
-            const mediaPlayerTitle = document.getElementById('mediaPlayerTitle');
-            const mediaPlayerDescription = document.getElementById('mediaPlayerDescription');
-            const mediaPlayerClose = document.getElementById('mediaPlayerClose');
-            let currentImageIndex = 0;
-
-            function updateMediaPlayer(index) {
-                try {
-                    const item = galleryItems[index];
-                    const imageUrl = item.querySelector('.image').style.backgroundImage.slice(5, -2);
-                    const title = item.querySelector('.info h3').textContent;
-                    const description = item.querySelector('.info p');
-                    mediaPlayerImage.style.backgroundImage = `url('${imageUrl}')`;
-                    mediaPlayerTitle.textContent = title;
-                    mediaPlayerDescription.setAttribute('data-en', description.getAttribute('data-en'));
-                    mediaPlayerDescription.setAttribute('data-ru', description.getAttribute('data-ru'));
-                    mediaPlayerDescription.innerHTML = description.innerHTML;
-                    setLanguage(document.querySelector('.language-button.active')?.getAttribute('data-lang') || 'en');
-                    currentImageIndex = index;
-                    console.log(`Media player actualizat cu imaginea ${imageUrl}`);
-                } catch (e) {
-                    console.error('Eroare la actualizarea media player:', e);
-                    showError('Eroare la actualizarea media player.');
-                }
-            }
-
-            galleryItems.forEach((item, index) => {
-                const image = item.querySelector('.image');
-                image.addEventListener('click', () => {
-                    updateMediaPlayer(index);
-                    mediaPlayer.classList.add('active');
-                });
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (mediaPlayer.classList.contains('active')) {
-                    if (e.key === 'ArrowLeft') {
-                        currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
-                        updateMediaPlayer(currentImageIndex);
-                    } else if (e.key === 'ArrowRight') {
-                        currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
-                        updateMediaPlayer(currentImageIndex);
-                    } else if (e.key === 'Escape') {
-                        mediaPlayer.classList.remove('active');
-                    }
-                }
-            });
-
-            mediaPlayerClose.addEventListener('click', () => {
-                mediaPlayer.classList.remove('active');
-            });
-
-            mediaPlayer.addEventListener('click', (e) => {
-                if (e.target === mediaPlayer) {
-                    mediaPlayer.classList.remove('active');
-                }
-            });
-
-            // Smooth Scroll
-            document.querySelectorAll('.topbar-nav a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                        if (window.innerWidth <= 768) {
-                            topbarNav.classList.remove('active');
-                            hamburger.textContent = '☰';
-                        }
-                    } else {
-                        console.error(`Secțiunea ${this.getAttribute('href')} nu a fost găsită.`);
-                        showError(`Secțiunea ${this.getAttribute('href')} nu a fost găsită.`);
-                    }
-                });
-            });
-
-            // Canvas Animation
-            const canvas = document.getElementById('canvas');
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                console.error('Canvas context nu este disponibil.');
-                showError('Eroare: Canvas-ul neuronal nu este disponibil.');
-                return;
-            }
-            let width = canvas.width = window.innerWidth;
-            let height = canvas.height = window.innerHeight;
-
-            let mouseX = width / 2;
-            let mouseY = height / 2;
-
-            let points = [];
-            const maxPoints = 150;
-            const lineLength = 100;
-            let hue = 51;
-            const minLineWidth = 0.2;
-            const maxLineWidth = 1.2;
-            let frameCounter = 0;
-            const framesPerPoint = 2;
-            const separationDistance = 30;
-            const alignmentDistance = 50;
-            const cohesionDistance = 50;
-            const maxForce = 0.05;
-            const maxSpeed = 2;
-
-            class Point {
-                constructor(x, y) {
-                    this.x = x;
-                    this.y = y;
-                    this.vx = (Math.random() - 0.5) * 2;
-                    this.vy = (Math.random() - 0.5) * 2;
-                    this.ax = 0;
-                    this.ay = 0;
-                    this.age = 0;
-                    this.maxAge = Math.random() * 300 + 200;
-                    this.isWhite = Math.random() < 0.1;
-                }
-
-                update(points) {
-                    this.flock(points);
-                    this.applyFriction();
-                    this.move();
-                    this.bounce();
-                    this.age++;
-                }
-
-                flock(points) {
-                    let separation = { x: 0, y: 0 };
-                    let alignment = { x: 0, y: 0 };
-                    let cohesion = { x: 0, y: 0 };
-                    let totalSeparation = 0;
-                    let totalAlignment = 0;
-                    let totalCohesion = 0;
-
-                    for (let other of points) {
-                        if (other === this) continue;
-                        let dx = other.x - this.x;
-                        let dy = other.y - this.y;
-                        let distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < separationDistance && distance > 0) {
-                            separation.x -= (dx / distance);
-                            separation.y -= (dy / distance);
-                            totalSeparation++;
-                        }
-
-                        if (distance < alignmentDistance) {
-                            alignment.x += other.vx;
-                            alignment.y += other.vy;
-                            totalAlignment++;
-                        }
-
-                        if (distance < cohesionDistance) {
-                            cohesion.x += other.x;
-                            cohesion.y += other.y;
-                            totalCohesion++;
-                        }
-                    }
-
-                    if (totalSeparation > 0) {
-                        separation.x /= totalSeparation;
-                        separation.y /= totalSeparation;
-                        separation = this.limitForce(separation, maxForce);
-                        this.ax += separation.x;
-                        this.ay += separation.y;
-                    }
-
-                    if (totalAlignment > 0) {
-                        alignment.x /= totalAlignment;
-                        alignment.y /= totalAlignment;
-                        let alignmentMag = Math.sqrt(alignment.x * alignment.x + alignment.y * alignment.y);
-                        if (alignmentMag > 0) {
-                            alignment.x = (alignment.x / alignmentMag) * maxSpeed;
-                            alignment.y = (alignment.y / alignmentMag) * maxSpeed;
-                        }
-                        alignment.x -= this.vx;
-                        alignment.y -= this.vy;
-                        alignment = this.limitForce(alignment, maxForce);
-                        this.ax += alignment.x;
-                        this.ay += alignment.y;
-                    }
-
-                    if (totalCohesion > 0) {
-                        cohesion.x /= totalCohesion;
-                        cohesion.y /= totalCohesion;
-                        cohesion.x -= this.x;
-                        cohesion.y -= this.y;
-                        let cohesionMag = Math.sqrt(cohesion.x * cohesion.x + cohesion.y * cohesion.y);
-                        if (cohesionMag > 0) {
-                            cohesion.x = (cohesion.x / cohesionMag) * maxSpeed;
-                            cohesion.y = (cohesion.y / cohesionMag) * maxSpeed;
-                        }
-                        cohesion.x -= this.vx;
-                        cohesion.y -= this.vy;
-                        cohesion = this.limitForce(cohesion, maxForce);
-                        this.ax += cohesion.x;
-                        this.ay += cohesion.y;
-                    }
-                }
-
-                applyFriction() {
-                    this.vx *= 0.98;
-                    this.vy *= 0.98;
-                }
-
-                move() {
-                    this.vx += this.ax;
-                    this.vy += this.ay;
-                    let speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-                    if (speed > maxSpeed) {
-                        this.vx = (this.vx / speed) * maxSpeed;
-                        this.vy = (this.vy / speed) * maxSpeed;
-                    }
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    this.ax = 0;
-                    this.ay = 0;
-                }
-
-                bounce() {
-                    if (this.x <= 0) {
-                        this.x = 0;
-                        this.vx *= -1;
-                    }
-                    if (this.x >= width) {
-                        this.x = width;
-                        this.vx *= -1;
-                    }
-                    if (this.y <= 0) {
-                        this.y = 0;
-                        this.vy *= -1;
-                    }
-                    if (this.y >= height) {
-                        this.y = height;
-                        this.vy *= -1;
-                    }
-                }
-
-                limitForce(force, max) {
-                    let mag = Math.sqrt(force.x * force.x + force.y * force.y);
-                    if (mag > max) {
-                        return {
-                            x: (force.x / mag) * max,
-                            y: (force.y / mag) * max
-                        };
-                    }
-                    return force;
-                }
-
-                isDead() {
-                    return this.age > this.maxAge;
-                }
-            }
-
-            function createPoint() {
-                const x = Math.random() * width;
-                const y = Math.random() * height;
-                points.push(new Point(x, y));
-                if (points.length > maxPoints) {
-                    points.shift();
-                }
-            }
-
-            function drawNeuronalWeb() {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, width, height);
-
-                for (let i = 0; i < points.length; i++) {
-                    const p1 = points[i];
-                    p1.update(points);
-
-                    if (p1.isDead()) {
-                        points.splice(i, 1);
-                        i--;
-                        continue;
-                    }
-
-                    let connections = 0;
-                    const maxConnections = 3;
-
-                    for (let j = i + 1; j < points.length; j++) {
-                        const p2 = points[j];
-                        const dx = p2.x - p1.x;
-                        const dy = p2.y - p1.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < lineLength) {
-                            if (connections >= maxConnections) break;
-                            connections++;
-
-                            const alpha = 1 - (distance / lineLength);
-                            const lineWidth = minLineWidth + (maxLineWidth - minLineWidth) * alpha;
-
-                            ctx.beginPath();
-                            ctx.moveTo(p1.x, p1.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.lineWidth = lineWidth;
-
-                            if (p1.isWhite || p2.isWhite) {
-                                ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 1.0})`;
-                            } else {
-                                ctx.strokeStyle = `hsla(${hue}, 100%, 50%, ${alpha * 1.0})`;
-                            }
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-
-            function animate() {
-                frameCounter++;
-                if (frameCounter % framesPerPoint === 0) {
-                    createPoint();
-                }
-                drawNeuronalWeb();
-                requestAnimationFrame(animate);
-            }
-
-            canvas.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            window.addEventListener('resize', () => {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            });
-
-            animate();
-        });
-    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
 </head>
+
 <body>
     <div class="error-message"></div>
     <div class="toplogo-container">
-        <img src="images/toplogo.png" alt="LIONEER Logo">
+        <img src="images/logo.png" alt="LIONEER Logo">
     </div>
     <div class="topbar">
         <button class="hamburger">☰</button>
         <nav class="topbar-nav">
             <ul>
                 <li><a href="#gallery" class="lang-text" data-en="Gallery" data-ru="Галерея">Gallery</a></li>
-                <li><a href="#technologies" class="lang-text" data-en="Technologies" data-ru="Технологии">Technologies</a></li>
-                <li><a href="#more-information" class="lang-text" data-en="More Information" data-ru="Больше информации">More Information</a></li>
+                <li><a href="#technologies" class="lang-text" data-en="Technologies"
+                        data-ru="Технологии">Technologies</a></li>
+                <li><a href="#more-information" class="lang-text" data-en="More Information"
+                        data-ru="Больше информации">More Information</a></li>
                 <li><a href="#about" class="lang-text" data-en="About" data-ru="О нас">About</a></li>
                 <li><a href="#contact" class="lang-text" data-en="Contact" data-ru="Контакты">Contact</a></li>
             </ul>
@@ -1318,16 +33,42 @@
             <button class="language-button" data-lang="ru">Русский</button>
         </div>
     </div>
-    <div class="flag-container">
-        <img src="images/logo.png" alt="Hero Image">
-    </div>
-    <section class="hero">
-        <div class="hero-content">
-            <img src="images/lioneer.png" alt="LIONEER Logo" class="hero-logo">
-            <p class="lang-text" data-en="Experience quantum excellence in your business." data-ru="Испытайте квантовое совершенство в вашем бизнесе.">Experience quantum excellence in your business.</p>
-            <a href="#contact" class="cta-button lang-text" data-en="Discover More" data-ru="Узнать больше">Discover More</a>
+
+    <section class="relative isolate">
+        <!-- Background / flag -->
+        <div class="flag-container pointer-events-none" aria-hidden="true">
+            <picture>
+
+                <source srcset="images/logo.png" type="image/png" />
+                <img id="heroFlag" src="images/logo.png" alt="" loading="eager" decoding="async" class="absolute inset-0 m-auto object-contain
+                   max-w-[85vw] max-h-[55vh]
+                   sm:max-w-[80vw] sm:max-h-[60vh]
+                   md:max-w-[75vw] md:max-h-[65vh]
+                   lg:max-w-[70vw] lg:max-h-[70vh]
+                   opacity-70" />
+            </picture>
         </div>
+
+        <!-- Foreground / hero -->
+        <section class="hero relative z-[2]">
+            <div class="hero-content max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl px-4 sm:px-6 md:px-8">
+                <img src="images/lioneer.png" alt="LIONEER Logo"
+                    class="hero-logo w-56 sm:w-72 md:w-96 h-auto opacity-90" />
+
+                <p class="lang-text mt-6 text-base sm:text-lg md:text-xl leading-relaxed max-w-prose"
+                    data-en="Experience quantum excellence in your business."
+                    data-ru="Испытайте квантовое совершенство в вашем бизнесе.">
+                    Experience quantum excellence in your business.
+                </p>
+
+                <a href="#contact" class="cta-button inline-block mt-8" data-en="Discover More" data-ru="Узнать больше">
+                    Discover More
+                </a>
+            </div>
+        </section>
     </section>
+
+    <!-- End update voice message 1 -->
     <section id="gallery" class="py-20 glassmorphic">
         <div class="container">
             <h2 class="text-4xl font-bold mb-12 text-center chrome-text">Gallery</h2>
@@ -1336,42 +77,53 @@
                     <div class="image" style="background-image: url('images/product1.jpg');"></div>
                     <div class="info">
                         <h3 class="chrome-text">Quantum Pulse</h3>
-                        <p class="lang-text" data-en="Quantum energy for unmatched performance." data-ru="Квантовая энергия для непревзойденной производительности.">Quantum energy for unmatched performance.</p>
+                        <p class="lang-text" data-en="Quantum energy for unmatched performance."
+                            data-ru="Квантовая энергия для непревзойденной производительности.">Quantum energy for
+                            unmatched performance.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image" style="background-image: url('images/product2.jpg');"></div>
                     <div class="info">
                         <h3 class="chrome-text">Neural Link</h3>
-                        <p class="lang-text" data-en="Quantum-driven synergy for teams." data-ru="Квантовая синергия для команд.">Quantum-driven synergy for teams.</p>
+                        <p class="lang-text" data-en="Quantum-driven synergy for teams."
+                            data-ru="Квантовая синергия для команд.">Quantum-driven synergy for teams.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image" style="background-image: url('images/product3.jpg');"></div>
                     <div class="info">
                         <h3 class="chrome-text">Eco Craft</h3>
-                        <p class="lang-text" data-en="Sustainable innovation with premium design." data-ru="Экологичные инновации с премиальным дизайном.">Sustainable innovation with premium design.</p>
+                        <p class="lang-text" data-en="Sustainable innovation with premium design."
+                            data-ru="Экологичные инновации с премиальным дизайном.">Sustainable innovation with premium
+                            design.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image" style="background-image: url('images/product4.jpg');"></div>
                     <div class="info">
                         <h3 class="chrome-text">Power Glow</h3>
-                        <p class="lang-text" data-en="Autonomous power for continuous operation." data-ru="Автономная энергия для непрерывной работы.">Autonomous power for continuous operation.</p>
+                        <p class="lang-text" data-en="Autonomous power for continuous operation."
+                            data-ru="Автономная энергия для непрерывной работы.">Autonomous power for continuous
+                            operation.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image" style="background-image: url('images/product5.jpg');"></div>
                     <div class="info">
                         <h3 class="chrome-text">Quantum Technology</h3>
-                        <p class="lang-text" data-en="Discover the power of quantum computing with LIONEER." data-ru="Откройте силу квантовых вычислений с LIONEER.">Discover the power of quantum computing with LIONEER.</p>
+                        <p class="lang-text" data-en="Discover the power of quantum computing with LIONEER."
+                            data-ru="Откройте силу квантовых вычислений с LIONEER.">Discover the power of quantum
+                            computing with LIONEER.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image" style="background-image: url('images/product6.jpg');"></div>
                     <div class="info">
                         <h3 class="chrome-text">Sustainable Design</h3>
-                        <p class="lang-text" data-en="Eco-friendly solutions for a better future." data-ru="Экологичные решения для лучшего будущего.">Eco-friendly solutions for a better future.</p>
+                        <p class="lang-text" data-en="Eco-friendly solutions for a better future."
+                            data-ru="Экологичные решения для лучшего будущего.">Eco-friendly solutions for a better
+                            future.</p>
                     </div>
                 </div>
             </div>
@@ -1383,27 +135,37 @@
             <div class="tech-grid">
                 <div class="tech-card">
                     <h3 class="chrome-text">Quantum Core</h3>
-                    <p class="lang-text" data-en="Unmatched subatomic processing efficiency." data-ru="Непревзойденная эффективность субатомной обработки.">Unmatched subatomic processing efficiency.</p>
+                    <p class="lang-text" data-en="Unmatched subatomic processing efficiency."
+                        data-ru="Непревзойденная эффективность субатомной обработки.">Unmatched subatomic processing
+                        efficiency.</p>
                 </div>
                 <div class="tech-card">
                     <h3 class="chrome-text">AI Sync</h3>
-                    <p class="lang-text" data-en="Seamless neural integration for collaboration." data-ru="Бесшовная нейронная интеграция для взаимодействия.">Seamless neural integration for collaboration.</p>
+                    <p class="lang-text" data-en="Seamless neural integration for collaboration."
+                        data-ru="Бесшовная нейронная интеграция для взаимодействия.">Seamless neural integration for
+                        collaboration.</p>
                 </div>
                 <div class="tech-card">
                     <h3 class="chrome-text">Eco Alloy</h3>
-                    <p class="lang-text" data-en="Sustainable design with premium durability." data-ru="Экологичный дизайн с премиальной прочностью.">Sustainable design with premium durability.</p>
+                    <p class="lang-text" data-en="Sustainable design with premium durability."
+                        data-ru="Экологичный дизайн с премиальной прочностью.">Sustainable design with premium
+                        durability.</p>
                 </div>
                 <div class="tech-card">
                     <h3 class="chrome-text">Auto Power</h3>
-                    <p class="lang-text" data-en="5-year autonomous performance." data-ru="5-летняя автономная производительность.">5-year autonomous performance.</p>
+                    <p class="lang-text" data-en="5-year autonomous performance."
+                        data-ru="5-летняя автономная производительность.">5-year autonomous performance.</p>
                 </div>
                 <div class="tech-card">
                     <h3 class="chrome-text">Adaptive UI</h3>
-                    <p class="lang-text" data-en="Customizable interface for productivity." data-ru="Настраиваемый интерфейс для производительности.">Customizable interface for productivity.</p>
+                    <p class="lang-text" data-en="Customizable interface for productivity."
+                        data-ru="Настраиваемый интерфейс для производительности.">Customizable interface for
+                        productivity.</p>
                 </div>
                 <div class="tech-card">
                     <h3 class="chrome-text">Quantum Guard</h3>
-                    <p class="lang-text" data-en="Advanced protection for data integrity." data-ru="Передовая защита целостности данных.">Advanced protection for data integrity.</p>
+                    <p class="lang-text" data-en="Advanced protection for data integrity."
+                        data-ru="Передовая защита целостности данных.">Advanced protection for data integrity.</p>
                 </div>
             </div>
         </div>
@@ -1428,7 +190,8 @@
         <div class="container">
             <h2 class="text-4xl font-bold mb-12 text-center chrome-text">About LIONEER</h2>
             <div class="glassmorphic text-lg">
-                <p class="lang-text" data-en="Description of the Quantum Business Device - Lioneer
+                <p class="lang-text"
+                    data-en="Description of the Quantum Business Device - Lioneer
 Device Name: Lioneer
 Purpose of Development: Optimization and enhancement of business processes through quantum energy.
 Description and Applications:
@@ -1452,7 +215,8 @@ The device has a guaranteed operational lifespan of 5 years.
 Installation and Usage Recommendations:
 To maximize Lioneer’s effectiveness, place it within the office or retail space where primary business operations occur. Avoid placing the device in high-temperature environments and keep it out of public view.
 Conclusion:
-Lioneer is more than just a device; it is a strategic asset that will elevate your business to new levels of productivity and outstanding financial results. With Lioneer, your company will gain a significant competitive edge in the market.6.3sHow can Grok help?" data-ru="Описание квантового бизнес устройства - Lioneer
+Lioneer is more than just a device; it is a strategic asset that will elevate your business to new levels of productivity and outstanding financial results. With Lioneer, your company will gain a significant competitive edge in the market.6.3sHow can Grok help?"
+                    data-ru="Описание квантового бизнес устройства - Lioneer
 Название устройства: Lioneer
 Цель разработки: Оптимизация и усиление бизнес-процессов при помощи
 квантовой энергии.
@@ -1497,30 +261,43 @@ Lioneer – это не просто устройство, это стратег
 выведет ваш бизнес на новый уровень производительности и выдающихся
 финансовых результатов. С Lioneer ваша компания получит значительное
 преимущество в конкурентной среде..">Description of the Quantum Business Device - Lioneer
-Device Name: Lioneer
-Purpose of Development: Optimization and enhancement of business processes through quantum energy.
-Description and Applications:
-Lioneer is an advanced, versatile, and ultra-powerful quantum device specifically designed to improve business efficiency, optimization, and profitability. This device is ideal for use in commercial organizations, financial operations, and sales environments.
-Technical Specifications and Unique Features:
+                    Device Name: Lioneer
+                    Purpose of Development: Optimization and enhancement of business processes through quantum energy.
+                    Description and Applications:
+                    Lioneer is an advanced, versatile, and ultra-powerful quantum device specifically designed to
+                    improve business efficiency, optimization, and profitability. This device is ideal for use in
+                    commercial organizations, financial operations, and sales environments.
+                    Technical Specifications and Unique Features:
 
-Design: The device is crafted as a compact box measuring 10x16x5 cm, made from high-strength aluminum alloy. It is dust and water-resistant, meeting the IP67 standard. Lioneer emits no harmful waves and is completely safe for the environment. It operates autonomously, requiring no network connections or physical maintenance.
+                    Design: The device is crafted as a compact box measuring 10x16x5 cm, made from high-strength
+                    aluminum alloy. It is dust and water-resistant, meeting the IP67 standard. Lioneer emits no harmful
+                    waves and is completely safe for the environment. It operates autonomously, requiring no network
+                    connections or physical maintenance.
 
-Advantages of Using Lioneer:
+                    Advantages of Using Lioneer:
 
-Financial Growth: Increases enterprise profitability by 1000% through enhanced cash flow management.
-Improved Productivity: The device leverages quantum energy principles to positively influence the financial energy of the enterprise, significantly enhancing the performance of key personnel, including sales managers, financial managers, and crisis managers.
-Operating Principle: Utilizes unique quantum energy technology, making it the world’s only financial magnet and device of its kind.
-Personalization: Each device is individually crafted and tuned to the specific user, ensuring maximum effectiveness and adaptation to the unique operational conditions of each company.
+                    Financial Growth: Increases enterprise profitability by 1000% through enhanced cash flow management.
+                    Improved Productivity: The device leverages quantum energy principles to positively influence the
+                    financial energy of the enterprise, significantly enhancing the performance of key personnel,
+                    including sales managers, financial managers, and crisis managers.
+                    Operating Principle: Utilizes unique quantum energy technology, making it the world’s only financial
+                    magnet and device of its kind.
+                    Personalization: Each device is individually crafted and tuned to the specific user, ensuring
+                    maximum effectiveness and adaptation to the unique operational conditions of each company.
 
 
-Lioneer is produced in limited quantities.
-Assembly and calibration of a single Lioneer unit take 12 months.
-The device has a guaranteed operational lifespan of 5 years.
+                    Lioneer is produced in limited quantities.
+                    Assembly and calibration of a single Lioneer unit take 12 months.
+                    The device has a guaranteed operational lifespan of 5 years.
 
-Installation and Usage Recommendations:
-To maximize Lioneer’s effectiveness, place it within the office or retail space where primary business operations occur. Avoid placing the device in high-temperature environments and keep it out of public view.
-Conclusion:
-Lioneer is more than just a device; it is a strategic asset that will elevate your business to new levels of productivity and outstanding financial results. With Lioneer, your company will gain a significant competitive edge in the market.6.3sHow can Grok help?</p>
+                    Installation and Usage Recommendations:
+                    To maximize Lioneer’s effectiveness, place it within the office or retail space where primary
+                    business operations occur. Avoid placing the device in high-temperature environments and keep it out
+                    of public view.
+                    Conclusion:
+                    Lioneer is more than just a device; it is a strategic asset that will elevate your business to new
+                    levels of productivity and outstanding financial results. With Lioneer, your company will gain a
+                    significant competitive edge in the market.6.3sHow can Grok help?</p>
             </div>
             <div class="mt-12">
                 <h3 class="text-2xl font-bold mb-6 text-center chrome-text">Operating Instructions</h3>
@@ -1629,53 +406,35 @@ LIONEER рассчитан на бесперебойную работу в те�
 эффективность.
 www.lioneer.de
 © 2025 LIONEER. Все права защищены. ">OPERATING INSTRUCTIONS
-Quantum Business Device LIONEER
-1. GENERAL INFORMATION
-LIONEER is an innovative device designed to optimize and enhance business processes using quantum energy. It automatically adapts to your business, improving sales, financial planning, crisis management, and customer service.
-2. TECHNICAL SPECIFICATIONS
+                        Quantum Business Device LIONEER
+                        1. GENERAL INFORMATION
+                        LIONEER is an innovative device designed to optimize and enhance business processes using
+                        quantum energy. It automatically adapts to your business, improving sales, financial planning,
+                        crisis management, and customer service.
+                        2. TECHNICAL SPECIFICATIONS
 
-Power Supply: Autonomous (no charging or maintenance required)
-Service Life: 5 years without interruptions
-Weight: < 1 kg
-Dimensions: 10 × 15 × 5 cm
-Body Material: High-strength aluminum
-
-3. PACKAGE CONTENTS
-✔ LIONEER Device — 1 unit
-✔ User Manual — 1 unit
-4. SAFETY INSTRUCTIONS
-! Do not immerse the device in water.
-! Do not store the device in high-temperature environments.
-! Do not attempt to open the device!
-! Keep the device in a secure location, inaccessible to unauthorized persons.
-! Do not transfer the device to third parties (it will not function).
-5. PREPARATION AND OPERATION
-STEP 1: Device Placement
-
-Place LIONEER in an office, sales floor, or other workspace.
-The device operates completely silently.
-
-STEP 2: Automatic Configuration
-
-The device automatically adjusts to your business without requiring manual configuration.
-
-STEP 3: Operation Start
-
-LIONEER will begin noticeably optimizing key business processes, enhancing the performance of key managers:
-1⃣ Sales Manager – Increased conversions and sales growth.
-2⃣ Financial Manager – Improved cash flow control and attraction of new investments.
-3⃣ Crisis Manager – Support for decision-making in crisis situations. Anti-bankruptcy protection.
-4⃣ Customer Service Manager – Enhanced service quality, customer loyalty, and attraction of new clients.
-
-6. POSSIBLE ISSUES AND TROUBLESHOOTING
-✅ Guaranteed compatibility with 99% of business types.
-✅ The device is protected from external influences and tampering.
-❌ In case of malfunction, the device must be returned for reconfiguration or replacement.
-LIONEER is designed for uninterrupted operation for 5 years.
-! ATTENTION!
-No special knowledge is required to use the device. LIONEER does not replace employees but significantly enhances their efficiency.
-www.lioneer.de
-© 2025 LIONEER. All rights reserved.</p>
+                        Power Supply: Autonomous (no charging or maintenance required)
+                        Service Life: 5 years without interruptions
+                        Weight: < 1 kg Dimensions: 10 × 15 × 5 cm Body Material: High-strength aluminum 3. PACKAGE
+                            CONTENTS ✔ LIONEER Device — 1 unit ✔ User Manual — 1 unit 4. SAFETY INSTRUCTIONS ! Do not
+                            immerse the device in water. ! Do not store the device in high-temperature environments. !
+                            Do not attempt to open the device! ! Keep the device in a secure location, inaccessible to
+                            unauthorized persons. ! Do not transfer the device to third parties (it will not function).
+                            5. PREPARATION AND OPERATION STEP 1: Device Placement Place LIONEER in an office, sales
+                            floor, or other workspace. The device operates completely silently. STEP 2: Automatic
+                            Configuration The device automatically adjusts to your business without requiring manual
+                            configuration. STEP 3: Operation Start LIONEER will begin noticeably optimizing key business
+                            processes, enhancing the performance of key managers: 1⃣ Sales Manager – Increased
+                            conversions and sales growth. 2⃣ Financial Manager – Improved cash flow control and
+                            attraction of new investments. 3⃣ Crisis Manager – Support for decision-making in crisis
+                            situations. Anti-bankruptcy protection. 4⃣ Customer Service Manager – Enhanced service
+                            quality, customer loyalty, and attraction of new clients. 6. POSSIBLE ISSUES AND
+                            TROUBLESHOOTING ✅ Guaranteed compatibility with 99% of business types. ✅ The device is
+                            protected from external influences and tampering. ❌ In case of malfunction, the device must
+                            be returned for reconfiguration or replacement. LIONEER is designed for uninterrupted
+                            operation for 5 years. ! ATTENTION! No special knowledge is required to use the device.
+                            LIONEER does not replace employees but significantly enhances their efficiency.
+                            www.lioneer.de © 2025 LIONEER. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -1683,8 +442,11 @@ www.lioneer.de
     <section id="contact" class="py-20 glassmorphic">
         <div class="container text-center">
             <h2 class="text-4xl font-bold mb-12 chrome-text">Contact Us</h2>
-            <p class="text-lg mb-8 lang-text" data-en="Get in touch to explore LIONEER solutions." data-ru="Свяжитесь с нами, чтобы изучить решения LIONEER.">Get in touch to explore LIONEER solutions.</p>
-            <a href="mailto:contact@lioneer.com" class="cta-button lang-text" data-en="Email Us" data-ru="Напишите нам">Email Us</a>
+            <p class="text-lg mb-8 lang-text" data-en="Get in touch to explore LIONEER solutions."
+                data-ru="Свяжитесь с нами, чтобы изучить решения LIONEER.">Get in touch to explore LIONEER solutions.
+            </p>
+            <a href="mailto:contact@lioneer.com" class="cta-button lang-text" data-en="Email Us"
+                data-ru="Напишите нам">Email Us</a>
         </div>
     </section>
     <footer class="footer bg-black text-white py-16">
@@ -1692,42 +454,70 @@ www.lioneer.de
             <div>
                 <h3 class="chrome-text">Purchase</h3>
                 <ul class="list-none p-0">
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Quantum Solutions" data-ru="Квантовые решения">Quantum Solutions</a></li>
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Accessories" data-ru="Аксессуары">Accessories</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Quantum Solutions" data-ru="Квантовые решения">Quantum Solutions</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Accessories" data-ru="Аксессуары">Accessories</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="chrome-text">Services</h3>
                 <ul class="list-none p-0">
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Digital Extras" data-ru="Цифровые дополнения">Digital Extras</a></li>
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Service & Parts" data-ru="Сервис и запчасти">Service & Parts</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Digital Extras" data-ru="Цифровые дополнения">Digital Extras</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Service & Parts" data-ru="Сервис и запчасти">Service & Parts</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="chrome-text">Company</h3>
                 <ul class="list-none p-0">
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Overview" data-ru="Обзор">Overview</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Overview" data-ru="Обзор">Overview</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="chrome-text">Knowledge</h3>
                 <ul class="list-none p-0">
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Dedicated to Detail" data-ru="Посвящено деталям">Dedicated to Detail</a></li>
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Our History" data-ru="Наша история">Our History</a></li>
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Quantum Innovations" data-ru="Квантовые инновации">Quantum Innovations</a></li>
-                    <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white text-base transition-colors lang-text" data-en="Business Services" data-ru="Бизнес-услуги">Business Services</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Dedicated to Detail" data-ru="Посвящено деталям">Dedicated to Detail</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Our History" data-ru="Наша история">Our History</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Quantum Innovations" data-ru="Квантовые инновации">Quantum Innovations</a></li>
+                    <li class="mb-2"><a href="#"
+                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
+                            data-en="Business Services" data-ru="Бизнес-услуги">Business Services</a></li>
                 </ul>
             </div>
             <div class="col-span-1 md:col-span-4 legal-text">
-                <p class="lang-text" data-en="The stated values were determined in accordance with the prescribed quantum performance standards. The efficiency and performance of a quantum system depend not only on the efficient use of resources by the system, but also on usage patterns and other non-technical factors." data-ru="Заявленные значения были определены в соответствии с предписанными стандартами квантовой производительности. Эффективность и производительность квантовой системы зависят не только от эффективного использования ресурсов системой, но также от моделей использования и других нетехнических факторов.">The stated values were determined in accordance with the prescribed quantum performance standards. The efficiency and performance of a quantum system depend not only on the efficient use of resources by the system, but also on usage patterns and other non-technical factors.</p>
-                <p class="mt-4 lang-text" data-en="Provider | Legal Notice | Settings | Privacy | Contact | Third Party License Notices | Don't Sell My Personal Information (CCPA) | Accessibility" data-ru="Поставщик | Юридическое уведомление | Настройки | Конфиденциальность | Контакты | Уведомления о лицензиях третьих сторон | Не продавайте мою личную информацию (CCPA) | Доступность">Provider | Legal Notice | Settings | Privacy | Contact | Third Party License Notices | Don't Sell My Personal Information (CCPA) | Accessibility</p>
+                <p class="lang-text"
+                    data-en="The stated values were determined in accordance with the prescribed quantum performance standards. The efficiency and performance of a quantum system depend not only on the efficient use of resources by the system, but also on usage patterns and other non-technical factors."
+                    data-ru="Заявленные значения были определены в соответствии с предписанными стандартами квантовой производительности. Эффективность и производительность квантовой системы зависят не только от эффективного использования ресурсов системой, но также от моделей использования и других нетехнических факторов.">
+                    The stated values were determined in accordance with the prescribed quantum performance standards.
+                    The efficiency and performance of a quantum system depend not only on the efficient use of resources
+                    by the system, but also on usage patterns and other non-technical factors.</p>
+                <p class="mt-4 lang-text"
+                    data-en="Provider | Legal Notice | Settings | Privacy | Contact | Third Party License Notices | Don't Sell My Personal Information (CCPA) | Accessibility"
+                    data-ru="Поставщик | Юридическое уведомление | Настройки | Конфиденциальность | Контакты | Уведомления о лицензиях третьих сторон | Не продавайте мою личную информацию (CCPA) | Доступность">
+                    Provider | Legal Notice | Settings | Privacy | Contact | Third Party License Notices | Don't Sell My
+                    Personal Information (CCPA) | Accessibility</p>
                 <p class="mt-4">English | Русский</p>
             </div>
             <div class="col-span-1 md:col-span-4 footer-logo mt-8 flex justify-center">
-                <img src="images/toplogo.png" alt="LIONEER Logo">
+                <img src="images/logo.png" alt="LIONEER Logo">
             </div>
         </div>
     </footer>
     <canvas id="canvas"></canvas>
 </body>
+
 </html>

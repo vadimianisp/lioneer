@@ -1,5 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
     // Debug Font Loading
     const testFont = new FontFace('Girassol', "url('fonts/Girassol-Regular.ttf')");
     testFont.load().then(() => {
@@ -9,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Eroare la încărcarea fontului Girassol:', e);
         showError('Eroare: Fontul Girassol nu s-a încărcat.');
     });
+
+    const langElements = document.querySelectorAll('.lang-text');
+    const lang = 'en'; // or 'ru'
+
+    langElements.forEach(el => {
+        el.textContent = el.dataset[lang];
+    });
+
 
     // Debug Logo
     const toplogo = document.querySelector('.toplogo-container img');

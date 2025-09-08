@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const info = item.querySelector('.info');
                 const offset = (window.innerHeight - rect.top) / window.innerHeight;
                 const parallaxOffset = offset * 0.4 * 100;
-                image.style.backgroundPositionY = `${70 - parallaxOffset}%`;
+                image.style.transform = `translateY(${(parallaxOffset - 70) / 2}px)`;
                 info.style.transform = `translateY(${(1 - offset) * 3}px)`;
             }
         });

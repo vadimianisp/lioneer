@@ -340,6 +340,9 @@ body {
     clip-path: inset(100% 0 0 0);
     /* transition: clip-path 1.5s ease-in-out, background-position-y 1.5s ease-in-out, transform 0.3s ease-in-out; */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .gallery-item.visible .image {

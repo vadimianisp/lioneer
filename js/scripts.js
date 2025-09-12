@@ -246,6 +246,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
 
     function updateMediaPlayer(index) {
+
+        return null;
         try {
             const item = galleryItems[index];
             const imageUrl = item.querySelector('.image').style.backgroundImage.slice(5, -2);
@@ -258,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mediaPlayerDescription.innerHTML = description.innerHTML;
             setLanguage(document.querySelector('.language-button.active')?.getAttribute('data-lang') || 'en');
             currentImageIndex = index;
-            console.log(`Media player actualizat cu imaginea ${imageUrl}`);
+            // console.log(`Media player actualizat cu imaginea ${imageUrl}`);
         } catch (e) {
             console.error('Eroare la actualizarea media player:', e);
             showError('Eroare la actualizarea media player.');
@@ -269,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const image = item.querySelector('.image');
         image.addEventListener('click', () => {
             updateMediaPlayer(index);
-            mediaPlayer.classList.add('active');
+            // mediaPlayer.classList.add('active');
         });
     });
 

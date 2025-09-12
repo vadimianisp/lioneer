@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
+
     // Debug Font Loading
     const testFont = new FontFace('Girassol', "url('fonts/Girassol-Regular.ttf')");
     testFont.load().then(() => {
@@ -86,6 +87,36 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`Imaginea product${index + 1}.jpg încărcată cu succes: ${bgImage}`);
         };
     });
+
+    function setupAccordion(contentId, toggleId) {
+        const content = document.getElementById(contentId);
+        const toggle = document.getElementById(toggleId);
+        let expanded = false;
+
+        toggle.textContent = toggle.dataset.en || 'Discover More';
+
+        toggle.addEventListener('click', e => {
+            e.preventDefault();
+            expanded = !expanded;
+
+            if (expanded) {
+                // remove old inline height to get a fresh scrollHeight
+                content.style.maxHeight = 'none';
+                const fullHeight = content.scrollHeight + 'px';
+                // force reflow so the next assignment animates
+                void content.offsetHeight;
+                content.style.maxHeight = fullHeight;
+                toggle.textContent = toggle.dataset.enClose || 'Close';
+            } else {
+                content.style.maxHeight = '100px';
+                toggle.textContent = toggle.dataset.en || 'Discover More';
+            }
+        });
+    }
+
+    setupAccordion('aboutContent', 'aboutToggle');
+    setupAccordion('instructionsContent', 'instructionsToggle');
+
 
     // Hamburger Menu
     const hamburger = document.querySelector('.hamburger');

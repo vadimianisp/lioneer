@@ -235,8 +235,8 @@ body {
 
 .hero-content p {
     font-family: 'Girassol', Helvetica, sans-serif;
-    font-size: 1.5rem;
-    max-width: 600px;
+    font-size: 2.1rem;
+    max-width: 700px;
     margin: 2rem 0;
     color: #E0E0E0;
     font-weight: normal;
@@ -341,7 +341,7 @@ body {
     /* transition: clip-path 1.5s ease-in-out, background-position-y 1.5s ease-in-out, transform 0.3s ease-in-out; */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     will-change: transform;
-    backface-visibility: hidden;
+        backface-visibility: hidden;
     transform: translateZ(0);
 }
 
@@ -489,7 +489,7 @@ body {
     width: 90%;
     max-width: 1400px;
     height: 85vh;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.8));
+    background: linear-gradient(180deg, rgba(96, 158, 209, 0.9), rgba(68, 123, 150, 0.8));
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     display: flex;
     position: relative;

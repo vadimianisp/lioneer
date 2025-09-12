@@ -7,9 +7,40 @@
     <title>LIONEER - Quantum Excellence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js" defer></script>
+
 
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap&subset=cyrillic" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="js/scripts.js" defer></script>
+    <style>
+        @font-face {
+            font-family: 'Girassol';
+            src: url('fonts/Girassol-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        body:lang(ru) {
+            font-family: 'Amatic SC', sans-serif;
+        }
+
+
+        body {
+            font-family: 'Girassol', 'Amatic SC', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: transparent;
+            color: #FFFFFF;
+            position: relative;
+            font-weight: normal;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,21 +77,16 @@
 
         <!-- Foreground / hero -->
         <section class="hero relative z-[2]">
-            <div class="hero-content w-full px-4">
+            <div class="hero-content w-full px-0">
                 <img src="images/hero.png" alt="LIONEER Logo"
                     class="hero-logo mx-auto w-full max-w-[844px] h-auto sm:scale-100 md:scale-100 lg:scale-100 opacity-90" />
 
                 <p class="lang-text mt-6 text-base sm:text-lg md:text-xl leading-relaxed max-w-prose mx-auto text-center"
-                    data-en="Experience quantum excellence in your business."
+                    data-en="Explore quantum excellence in your business."
                     data-ru="Испытайте квантовое совершенство в вашем бизнесе.">
-                    Experience quantum excellence in your business.
+                    Explore quantum excellence in your business.
                 </p>
 
-                <div class="flex justify-center mt-8">
-                    <a href="#contact" class="cta-button inline-block" data-en="Discover More" data-ru="Узнать больше">
-                        Discover More
-                    </a>
-                </div>
             </div>
         </section>
     </section>
@@ -211,13 +237,13 @@
         <span class="media-player-close" id="mediaPlayerClose">&times;</span>
     </div>
     <!-- ABOUT — title, then the SAME text split into two columns -->
+    <!-- ABOUT SECTION with accordion -->
     <section id="about" class="py-24">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl sm:text-5xl font-bold text-center chrome-text mb-10">About LIONEER</h2>
-
             <div class="glassmorphic bg-white/10 border border-white/10 rounded-2xl shadow-xl p-6 sm:p-8">
-                <div class="lang-text whitespace-pre-line text-base sm:text-lg leading-relaxed text-gray-100/90
-            columns-1 md:columns-2 [column-gap:2.25rem] [column-rule:1px_solid_rgba(255,255,255,.08)]"
+                <div id="aboutContent"
+                    class="lang-text whitespace-pre-line text-base sm:text-lg leading-relaxed text-gray-100/90 columns-1 md:columns-2 [column-gap:2.25rem] [column-rule:1px_solid_rgba(255,255,255,.08)] overflow-hidden transition-all duration-500 max-h-[100px]"
                     data-en="Description of the Quantum Business Device - LIONEER
     
     Device Name: LIONEER
@@ -307,6 +333,13 @@
     LIONEER — это не просто устройство, а стратегический актив, способный вывести ваш бизнес на новый уровень продуктивности и финансовых достижений.">
                     <!-- Fallback visible content will be injected from JS or shown as default -->
                 </div>
+                <div class="flex justify-center mt-8">
+                    <button id="aboutToggle" href="#" class="cta-button inline-block" data-en="Discover More"
+                        data-en-close="Close" data-ru="Узнать больше" data-ru-close="Закрыть">
+                        Discover More
+                    </button>
+
+                </div>
             </div>
         </div>
     </section>
@@ -316,10 +349,10 @@
     <section id="operating-instructions" class="py-24">
         <div class="container mx-auto px-4">
             <h3 class="text-3xl sm:text-4xl font-bold text-center chrome-text mb-10">Operating Instructions</h3>
-
             <div class="glassmorphic bg-white/10 border border-white/10 rounded-2xl shadow-xl p-6 sm:p-8">
-                <div class="lang-text whitespace-pre-line text-base sm:text-lg leading-relaxed text-gray-100/90
-            columns-1 md:columns-2 [column-gap:2.25rem] [column-rule:1px_solid_rgba(255,255,255,.08)]" data-en="OPERATING INSTRUCTIONS
+                <div id="instructionsContent"
+                    class="lang-text whitespace-pre-line text-base sm:text-lg leading-relaxed text-gray-100/90 columns-1 md:columns-2 [column-gap:2.25rem] [column-rule:1px_solid_rgba(255,255,255,.08)] overflow-hidden transition-all duration-500 max-h-[100px]"
+                    data-en="OPERATING INSTRUCTIONS
     Quantum Business Device — LIONEER
     
     1. GENERAL INFORMATION
@@ -426,10 +459,15 @@
     © 2025 LIONEER. Все права защищены.">
                     <!-- Content will be injected dynamically depending on language -->
                 </div>
+                <div class="text-center mt-6">
+                    <button id="instructionsToggle" href="#" class="cta-button inline-block" data-en="Discover More"
+                        data-en-close="Close" data-ru="Узнать больше" data-ru-close="Закрыть">
+                        Discover More
+                    </button>
+                </div>
             </div>
         </div>
     </section>
-
 
 
 

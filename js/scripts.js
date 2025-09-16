@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 content.style.maxHeight = fullHeight;
                 toggle.textContent = toggle.dataset.enClose || 'Close';
             } else {
-                content.style.maxHeight = '100px';
+                content.style.maxHeight = '0px';
                 toggle.textContent = toggle.dataset.en || 'Discover More';
             }
         });

@@ -401,32 +401,39 @@ body {
 
 .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* equal sizing */
+    grid-template-columns: repeat(1, 1fr);
+    /* Mobile default: 1 card */
     gap: 2rem;
     justify-items: center;
-    /* center content horizontally */
+}
+
+@media (min-width: 640px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Tablets: 2 cards per row */
+    }
+}
+
+@media (min-width: 1024px) {
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* Desktop: 3 cards per row */
+    }
 }
 
 .tech-card {
     width: 100%;
-    /* stretch within grid column */
-    max-width: 300px;
-    /* keep consistent width */
+    max-width: 400px;
     min-height: 280px;
-    /* ensure equal height */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* center vertically */
     align-items: center;
-    /* center horizontally */
     text-align: center;
 
     background: rgba(255, 255, 255, 0.08);
-    /* lighter look */
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgba(108, 63, 63, 0.25);
 
     padding: 2rem;
     border-radius: 10px;
@@ -439,12 +446,11 @@ body {
     font-weight: normal;
     text-transform: uppercase;
     margin-bottom: 1rem;
+    color: #EAEAEA;
 }
 
-.tech-card h3,
 .tech-card p {
     color: #EAEAEA;
-    /* lighter text */
     font-weight: normal;
 }
 

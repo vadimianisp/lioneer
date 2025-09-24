@@ -11,10 +11,27 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background: transparent;
+    /* background: transparent; */
     color: #FFFFFF;
     position: relative;
     font-weight: normal;
+    /* background: linear-gradient(120deg, #0f2027, #203a43, #2c5364); */
+    /* background-size: 600% 600%; */
+    /* animation: gradientShift 20s ease infinite; */
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .chrome-text {
@@ -338,11 +355,15 @@ body {
     background-repeat: no-repeat;
     position: relative;
     clip-path: inset(100% 0 0 0);
-    /* transition: clip-path 1.5s ease-in-out, background-position-y 1.5s ease-in-out, transform 0.3s ease-in-out; */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     will-change: transform;
-        backface-visibility: hidden;
+    backface-visibility: hidden;
     transform: translateZ(0);
+
+    /* Add proper rounded corners */
+    border-radius: 12px;
+    overflow: hidden;
+    /* This prevents background from bleeding outside corners */
 }
 
 .gallery-item.visible .image {
@@ -479,11 +500,10 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.95);
-    display: none;
+    display: none; /* Hidden by default */
     align-items: center;
     justify-content: center;
     z-index: 2000;
-    transition: opacity 0.6s ease-out;
 }
 
 .media-player.active {
@@ -813,6 +833,7 @@ body {
         width: 100%;
         height: 350px;
         background-position: center center;
+        overflow: hidden;
     }
 
     .gallery-item .info {
@@ -947,6 +968,7 @@ body {
 
     .gallery-item .image {
         height: 300px;
+        overflow: hidden;
     }
 
     .gallery-item .info h3 {

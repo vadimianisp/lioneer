@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupAccordion('aboutContent', 'aboutToggle');
     setupAccordion('instructionsContent', 'instructionsToggle');
+    setupAccordion('contactContent', 'contactToggle');
 
     // Hamburger Menu
     const hamburger = document.querySelector('.hamburger');

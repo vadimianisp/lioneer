@@ -1009,3 +1009,17 @@ p {
         font-size: 0.85rem;
     }
 }
+
+#aboutContent {
+    font-size: 1.25rem;
+    /* ~20px */
+    line-height: 1.8;
+    /* keep readability */
+}
+
+#instructionsContent {
+    font-size: 1.25rem;
+    /* ~20px */
+    line-height: 1.8;
+    /* keep readability */
+}

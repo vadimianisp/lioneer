@@ -1,7 +1,4 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-
-
 
     // Debug Font Loading
     const testFont = new FontFace('Girassol', "url('fonts/Girassol-Regular.ttf')");
@@ -15,11 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const langElements = document.querySelectorAll('.lang-text');
     const lang = 'en'; // or 'ru'
-
     langElements.forEach(el => {
         el.textContent = el.dataset[lang];
     });
-
 
     // Debug Logo
     const toplogo = document.querySelector('.toplogo-container img');
@@ -32,11 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Logo toplogo.png încărcat cu succes.');
     });
 
+    // Make hero image accessible later too
+    let heroImageEl = null;
+
     // Debug Hero Image (works with <picture> or plain <img>)
     (() => {
         const heroImage =
             document.getElementById('heroFlag') ||
             document.querySelector('.flag-container picture img, .flag-container img');
+
+        heroImageEl = heroImage || null;
 
         if (!heroImage) {
             console.error('Hero image not found in .flag-container');
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Handle cached or already-attempted loads
         if (heroImage.complete) {
             heroImage.naturalWidth > 0 ? onLoad() : onError();
         } else {
@@ -65,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
             heroImage.addEventListener('error', onError, { once: true });
         }
     })();
-
 
     // Debug Gallery Images
     const galleryItems = document.querySelectorAll('.gallery-item');
@@ -100,11 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
             expanded = !expanded;
 
             if (expanded) {
-                // remove old inline height to get a fresh scrollHeight
                 content.style.maxHeight = 'none';
                 const fullHeight = content.scrollHeight + 'px';
-                // force reflow so the next assignment animates
-                void content.offsetHeight;
+                void content.offsetHeight; // force reflow
                 content.style.maxHeight = fullHeight;
                 toggle.textContent = toggle.dataset.enClose || 'Close';
             } else {
@@ -116,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupAccordion('aboutContent', 'aboutToggle');
     setupAccordion('instructionsContent', 'instructionsToggle');
-
 
     // Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
@@ -131,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const viewportHeight = window.innerHeight;
         const elementHeight = element.offsetHeight;
         const scrollTarget = offset - (viewportHeight / 2) + (elementHeight / 2);
-
         window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
     }
 
@@ -139,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateParallax() {
         galleryItems.forEach(item => {
             const rect = item.getBoundingClientRect();
-            const scrollY = window.pageYOffset;
             if (rect.top < window.innerHeight && rect.bottom > 0) {
                 const image = item.querySelector('.image');
                 const info = item.querySelector('.info');
@@ -153,11 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateParallax);
 
     // Intersection Observer for Fade In Animation
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-    };
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -200,8 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
             button.classList.add('active');
             const lang = button.getAttribute('data-lang');
             setLanguage(lang);
-            if (heroImage) {
-                heroImage.classList.toggle('lang-ru', lang === 'ru');
+            if (heroImageEl) {
+                heroImageEl.classList.toggle('lang-ru', lang === 'ru');
             }
         });
     });
@@ -246,8 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
 
     function updateMediaPlayer(index) {
-
-        return null;
+        return null; // left intact as in your current status
         try {
             const item = galleryItems[index];
             const imageUrl = item.querySelector('.image').style.backgroundImage.slice(5, -2);
@@ -260,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mediaPlayerDescription.innerHTML = description.innerHTML;
             setLanguage(document.querySelector('.language-button.active')?.getAttribute('data-lang') || 'en');
             currentImageIndex = index;
-            // console.log(`Media player actualizat cu imaginea ${imageUrl}`);
         } catch (e) {
             console.error('Eroare la actualizarea media player:', e);
             showError('Eroare la actualizarea media player.');
@@ -317,7 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Canvas Animation
+    // =========================
+    // Canvas Animation (Neuronal Net)
+    // =========================
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     if (!ctx) {
@@ -325,25 +314,65 @@ document.addEventListener('DOMContentLoaded', () => {
         showError('Eroare: Canvas-ul neuronal nu este disponibil.');
         return;
     }
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+
+    // Retina-friendly sizing
+    function sizeCanvas() {
+        const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        width = w;
+        height = h;
+
+        // repaint background once so first frame isn't black
+        ctx.fillStyle = '#111';
+        ctx.fillRect(0, 0, width, height);
+    }
+
+    let width = 0, height = 0;
+    sizeCanvas();
 
     let mouseX = width / 2;
     let mouseY = height / 2;
 
     let points = [];
     const maxPoints = 150;
-    const lineLength = 100;
-    let hue = 51;
+    const lineLength = 120; // a bit longer for a stronger net
+    let hue = 210; // not used for color now, but kept intact
     const minLineWidth = 0.2;
-    const maxLineWidth = 1.2;
+    const maxLineWidth = 1.4;
     let frameCounter = 0;
-    const framesPerPoint = 2;
+    const framesPerPoint = 1; // spawn faster to keep the net lively
+
+    // Boids params (tuned for faster motion)
     const separationDistance = 30;
-    const alignmentDistance = 50;
-    const cohesionDistance = 50;
-    const maxForce = 0.05;
-    const maxSpeed = 2;
+    const alignmentDistance = 60;
+    const cohesionDistance = 60;
+    const maxForce = 0.09; // more agile
+    const maxSpeed = 3.8;  // faster movement
+    const friction = 0.993; // less damping than 0.98
+
+    // Visuals
+    const bgFade = 'rgba(10, 10, 10, 0.08)'; // smoother trails
+    const lineColor = (a) => `hsla(210, 100%, 60%, ${a})`; // neon blue
+    const glowColor = 'rgba(0, 200, 255, 0.9)';
+
+    // Node (neuron) visuals
+    const nodeRadius = 1.2;
+    const nodeGlow = 6;
+    const nodeFill = 'rgba(150, 230, 255, 0.35)';
+
+    // Pulses (“action potentials”) traveling along edges
+    let pulses = [];
+    const maxPulses = 120;
+    const pulseMinSpeed = 0.02;
+    const pulseMaxSpeed = 0.06;
+    const pulsesPerFrame = 3; // how many new pulses we try to spawn per frame
+    const pulseRadius = 1.6;
 
     class Point {
         constructor(x, y) {
@@ -355,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.ay = 0;
             this.age = 0;
             this.maxAge = Math.random() * 300 + 200;
-            this.isWhite = Math.random() < 0.1;
+            this.isWhite = Math.random() < 0.1; // kept for compatibility
         }
 
         update(points) {
@@ -441,8 +470,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         applyFriction() {
-            this.vx *= 0.98;
-            this.vy *= 0.98;
+            this.vx *= friction;
+            this.vy *= friction;
         }
 
         move() {
@@ -461,30 +490,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         bounce() {
             if (this.x <= 0) {
-                this.x = 0;
-                this.vx *= -1;
+                this.x = 0; this.vx *= -1;
             }
             if (this.x >= width) {
-                this.x = width;
-                this.vx *= -1;
+                this.x = width; this.vx *= -1;
             }
             if (this.y <= 0) {
-                this.y = 0;
-                this.vy *= -1;
+                this.y = 0; this.vy *= -1;
             }
             if (this.y >= height) {
-                this.y = height;
-                this.vy *= -1;
+                this.y = height; this.vy *= -1;
             }
         }
 
         limitForce(force, max) {
             let mag = Math.sqrt(force.x * force.x + force.y * force.y);
             if (mag > max) {
-                return {
-                    x: (force.x / mag) * max,
-                    y: (force.y / mag) * max
-                };
+                return { x: (force.x / mag) * max, y: (force.y / mag) * max };
             }
             return force;
         }
@@ -503,10 +525,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Helpers for drawing with glow, without leaking shadows across draws
+    function strokeWithGlow(drawFn, glow = 8) {
+        ctx.save();
+        ctx.shadowColor = glowColor;
+        ctx.shadowBlur = glow;
+        drawFn();
+        ctx.restore();
+    }
+    function fillWithGlow(drawFn, glow = 10) {
+        ctx.save();
+        ctx.shadowColor = glowColor;
+        ctx.shadowBlur = glow;
+        drawFn();
+        ctx.restore();
+    }
+
     function drawNeuronalWeb() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        // fade old lines for trails
+        ctx.fillStyle = bgFade;
         ctx.fillRect(0, 0, width, height);
 
+        // collect edges so we can spawn & animate pulses on them
+        const edges = [];
+
+        // draw connections
         for (let i = 0; i < points.length; i++) {
             const p1 = points[i];
             p1.update(points);
@@ -533,18 +576,58 @@ document.addEventListener('DOMContentLoaded', () => {
                     const alpha = 1 - (distance / lineLength);
                     const lineWidth = minLineWidth + (maxLineWidth - minLineWidth) * alpha;
 
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.lineWidth = lineWidth;
+                    strokeWithGlow(() => {
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.lineWidth = lineWidth;
+                        ctx.strokeStyle = lineColor(alpha);
+                        ctx.stroke();
+                    }, 8);
 
-                    if (p1.isWhite || p2.isWhite) {
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 1.0})`;
-                    } else {
-                        ctx.strokeStyle = `hsla(${hue}, 100%, 50%, ${alpha * 1.0})`;
-                    }
-                    ctx.stroke();
+                    edges.push({ x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y, a: alpha });
                 }
+            }
+        }
+
+        // draw nodes (neurons) on top
+        for (let k = 0; k < points.length; k++) {
+            const p = points[k];
+            fillWithGlow(() => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, nodeRadius, 0, Math.PI * 2);
+                ctx.fillStyle = nodeFill;
+                ctx.fill();
+            }, nodeGlow);
+        }
+
+        // spawn a few new pulses per frame
+        for (let s = 0; s < pulsesPerFrame && pulses.length < maxPulses; s++) {
+            if (edges.length === 0) break;
+            const e = edges[(Math.random() * edges.length) | 0];
+            pulses.push({
+                x1: e.x1, y1: e.y1, x2: e.x2, y2: e.y2,
+                t: 0,
+                speed: pulseMinSpeed + Math.random() * (pulseMaxSpeed - pulseMinSpeed)
+            });
+        }
+
+        // update & draw pulses
+        for (let i = pulses.length - 1; i >= 0; i--) {
+            const p = pulses[i];
+            p.t += p.speed;
+            const x = p.x1 + (p.x2 - p.x1) * p.t;
+            const y = p.y1 + (p.y2 - p.y1) * p.t;
+
+            fillWithGlow(() => {
+                ctx.beginPath();
+                ctx.arc(x, y, pulseRadius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(120, 230, 255, 0.95)';
+                ctx.fill();
+            }, 12);
+
+            if (p.t >= 1) {
+                pulses.splice(i, 1);
             }
         }
     }
@@ -564,9 +647,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+        sizeCanvas();
     });
 
     animate();
 });
+

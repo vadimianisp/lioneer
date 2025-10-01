@@ -218,8 +218,6 @@
         </div>
         <span class="media-player-close" id="mediaPlayerClose">&times;</span>
     </div>
-    <!-- ABOUT — title, then the SAME text split into two columns -->
-
 
     <section id="about" class="py-24">
         <div class="container mx-auto px-4">
@@ -278,14 +276,6 @@
             </div>
         </div>
     </section>
-
-
-
-
-
-
-
-
 
     <section id="operating-instructions" class="py-24">
         <div class="container mx-auto px-4">
@@ -387,21 +377,18 @@
 
     <section id="contact" class="py-20 glassmorphic">
         <div class="container text-center max-w-2xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 chrome-text">Contact Us</h2>
-
-            <!-- Accordion Toggle Button -->
-            <div class="flex justify-center">
-                <button id="contactToggle" class="cta-button inline-flex items-center gap-2">
-                    <span class="toggle-label">Open Contact Form</span>
-                    <svg class="w-4 h-4 transition-transform duration-300 ease-in-out toggle-arrow"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-            </div>
+            <!-- H2 is now the toggle -->
+            <h2 id="contactToggle"
+                class="text-4xl sm:text-5xl font-bold text-center chrome-text mb-12 cursor-pointer inline-flex items-center gap-2 justify-center select-none">
+                Contact Us
+                <svg class="w-6 h-6 transition-transform duration-300 ease-in-out toggle-arrow"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </h2>
 
             <!-- Accordion Content (Contact Form) -->
-            <div id="contactContent" class="overflow-hidden transition-all duration-500 max-h-0 mt-8">
+            <div id="contactContent" class="overflow-hidden transition-all duration-500 max-h-0">
                 <p class="text-lg mb-8 text-gray-200">
                     Get in touch to explore LIONEER solutions.
                 </p>
@@ -439,53 +426,7 @@
 
     <footer class="footer bg-black text-white py-16">
         <div class="container max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <h3 class="chrome-text">Purchase</h3>
-                <ul class="list-none p-0">
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Quantum Solutions" data-ru="Квантовые решения">Quantum Solutions</a></li>
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Accessories" data-ru="Аксессуары">Accessories</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="chrome-text">Services</h3>
-                <ul class="list-none p-0">
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Digital Extras" data-ru="Цифровые дополнения">Digital Extras</a></li>
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Service & Parts" data-ru="Сервис и запчасти">Service & Parts</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="chrome-text">Company</h3>
-                <ul class="list-none p-0">
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Overview" data-ru="Обзор">Overview</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="chrome-text">Knowledge</h3>
-                <ul class="list-none p-0">
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Dedicated to Detail" data-ru="Посвящено деталям">Dedicated to Detail</a></li>
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Our History" data-ru="Наша история">Our History</a></li>
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Quantum Innovations" data-ru="Квантовые инновации">Quantum Innovations</a></li>
-                    <li class="mb-2"><a href="#"
-                            class="text-gray-400 hover:text-white text-base transition-colors lang-text"
-                            data-en="Business Services" data-ru="Бизнес-услуги">Business Services</a></li>
-                </ul>
-            </div>
+
             <div class="col-span-1 md:col-span-4 legal-text">
                 <p class="lang-text"
                     data-en="The stated values were determined in accordance with the prescribed quantum performance standards. The efficiency and performance of a quantum system depend not only on the efficient use of resources by the system, but also on usage patterns and other non-technical factors."
@@ -510,6 +451,26 @@
         </div>
     </footer>
     <canvas id="canvas"></canvas>
+
+    <script>
+        // Accordion for Contact Form using H2 as toggle
+        const contactToggle = document.getElementById("contactToggle");
+        const contactContent = document.getElementById("contactContent");
+        const arrow = contactToggle.querySelector(".toggle-arrow");
+        let contactOpen = false;
+
+        contactToggle.addEventListener("click", () => {
+            contactOpen = !contactOpen;
+
+            if (contactOpen) {
+                contactContent.style.maxHeight = contactContent.scrollHeight + "px";
+                arrow.style.transform = "rotate(180deg)";
+            } else {
+                contactContent.style.maxHeight = "0px";
+                arrow.style.transform = "rotate(0deg)";
+            }
+        });
+    </script>
 </body>
 
 </html>

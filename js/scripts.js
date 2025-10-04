@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const langElements = document.querySelectorAll('.lang-text');
-    const lang = 'en'; // or 'ru'
+    const lang = 'en';
     langElements.forEach(el => {
         el.textContent = el.dataset[lang];
     });
@@ -27,10 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Logo toplogo.png încărcat cu succes.');
     });
 
-    // Make hero image accessible later too
     let heroImageEl = null;
 
-    // Debug Hero Image (works with <picture> or plain <img>)
+    // Debug Hero Image
     (() => {
         const heroImage =
             document.getElementById('heroFlag') ||
@@ -89,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupAccordion(contentId, toggleId) {
         const content = document.getElementById(contentId);
         const toggle = document.getElementById(toggleId);
+        if (!content || !toggle) return;
+        
         let expanded = false;
 
         toggle.textContent = toggle.dataset.en || 'Discover More';
@@ -100,19 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (expanded) {
                 content.style.maxHeight = 'none';
                 const fullHeight = content.scrollHeight + 'px';
-                void content.offsetHeight; // force reflow
+                void content.offsetHeight;
                 content.style.maxHeight = fullHeight;
                 toggle.textContent = toggle.dataset.enClose || 'Close';
+                
+                const arrow = toggle.querySelector('.toggle-arrow');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
             } else {
-                content.style.maxHeight = '0px';
+                content.style.maxHeight = '100px';
                 toggle.textContent = toggle.dataset.en || 'Discover More';
+                
+                const arrow = toggle.querySelector('.toggle-arrow');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
             }
         });
     }
 
     setupAccordion('aboutContent', 'aboutToggle');
     setupAccordion('instructionsContent', 'instructionsToggle');
-
 
     // Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
@@ -122,29 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.textContent = topbarNav.classList.contains('active') ? '×' : '☰';
     });
 
-    function scrollToCenter(element) {
-        const offset = element.getBoundingClientRect().top + window.scrollY;
-        const viewportHeight = window.innerHeight;
-        const elementHeight = element.offsetHeight;
-        const scrollTarget = offset - (viewportHeight / 2) + (elementHeight / 2);
-        window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
-    }
-
-    // Parallax Effect for Gallery
-    function updateParallax() {
-        galleryItems.forEach(item => {
-            const rect = item.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                const image = item.querySelector('.image');
-                const info = item.querySelector('.info');
-                const offset = (window.innerHeight - rect.top) / window.innerHeight;
-                const parallaxOffset = offset * 0.4 * 100;
-                image.style.transform = `translateY(${(parallaxOffset - 70) / 2}px)`;
-                info.style.transform = `translateY(${(1 - offset) * 3}px)`;
-            }
-        });
-    }
-    window.addEventListener('scroll', updateParallax);
+    // REMOVED: Parallax Effect - This was causing the image drift
+    // The updateParallax function and window scroll listener have been removed
 
     // Intersection Observer for Fade In Animation
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
@@ -154,11 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('visible');
                 console.log(`Secțiunea ${entry.target.id || entry.target.className} este vizibilă.`);
                 observer.unobserve(entry.target);
-            } else {
-                console.log(`Secțiunea ${entry.target.id || entry.target.className} nu este vizibilă.`);
             }
         });
     }, observerOptions);
+    
     galleryItems.forEach(item => observer.observe(item));
     document.querySelectorAll('.tech-card').forEach(card => observer.observe(card));
     document.querySelectorAll('.glassmorphic, .technologies, .more-information, #contact, .footer').forEach(section => observer.observe(section));
@@ -166,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Topbar Scroll Behavior
     let lastScrollTop = 0;
     const topbar = document.querySelector('.topbar');
-    topbar.classList.add('visible'); // Show topbar on load
+    topbar.classList.add('visible');
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop && scrollTop > 56) {
@@ -227,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 
-    // Media Player
+    // Media Player (kept as is)
     const mediaPlayer = document.getElementById('mediaPlayer');
     const mediaPlayerImage = document.getElementById('mediaPlayerImage');
     const mediaPlayerTitle = document.getElementById('mediaPlayerTitle');
@@ -236,30 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
 
     function updateMediaPlayer(index) {
-        return null; // left intact as in your current status
-        try {
-            const item = galleryItems[index];
-            const imageUrl = item.querySelector('.image').style.backgroundImage.slice(5, -2);
-            const title = item.querySelector('.info h3').textContent;
-            const description = item.querySelector('.info p');
-            mediaPlayerImage.style.backgroundImage = `url('${imageUrl}')`;
-            mediaPlayerTitle.textContent = title;
-            mediaPlayerDescription.setAttribute('data-en', description.getAttribute('data-en'));
-            mediaPlayerDescription.setAttribute('data-ru', description.getAttribute('data-ru'));
-            mediaPlayerDescription.innerHTML = description.innerHTML;
-            setLanguage(document.querySelector('.language-button.active')?.getAttribute('data-lang') || 'en');
-            currentImageIndex = index;
-        } catch (e) {
-            console.error('Eroare la actualizarea media player:', e);
-            showError('Eroare la actualizarea media player.');
-        }
+        return null;
     }
 
     galleryItems.forEach((item, index) => {
         const image = item.querySelector('.image');
         image.addEventListener('click', () => {
             updateMediaPlayer(index);
-            // mediaPlayer.classList.add('active');
         });
     });
 
@@ -305,9 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // =========================
-    // Canvas Animation (Neuronal Net)
-    // =========================
+    // Canvas Animation (Neuronal Net) - kept intact
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     if (!ctx) {
@@ -316,7 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Retina-friendly sizing
     function sizeCanvas() {
         const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
         const w = window.innerWidth;
@@ -329,7 +293,6 @@ document.addEventListener('DOMContentLoaded', () => {
         width = w;
         height = h;
 
-        // repaint background once so first frame isn't black
         ctx.fillStyle = '#111';
         ctx.fillRect(0, 0, width, height);
     }
@@ -342,37 +305,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let points = [];
     const maxPoints = 150;
-    const lineLength = 120; // a bit longer for a stronger net
-    let hue = 210; // not used for color now, but kept intact
+    const lineLength = 120;
+    let hue = 210;
     const minLineWidth = 0.2;
     const maxLineWidth = 1.4;
     let frameCounter = 0;
-    const framesPerPoint = 1; // spawn faster to keep the net lively
+    const framesPerPoint = 1;
 
-    // Boids params (tuned for faster motion)
     const separationDistance = 30;
     const alignmentDistance = 60;
     const cohesionDistance = 60;
-    const maxForce = 0.09; // more agile
-    const maxSpeed = 3.8;  // faster movement
-    const friction = 0.993; // less damping than 0.98
+    const maxForce = 0.09;
+    const maxSpeed = 3.8;
+    const friction = 0.993;
 
-    // Visuals
-    const bgFade = 'rgba(10, 10, 10, 0.08)'; // smoother trails
-    const lineColor = (a) => `hsla(210, 100%, 60%, ${a})`; // neon blue
+    const bgFade = 'rgba(10, 10, 10, 0.08)';
+    const lineColor = (a) => `hsla(210, 100%, 60%, ${a})`;
     const glowColor = 'rgba(0, 200, 255, 0.9)';
 
-    // Node (neuron) visuals
     const nodeRadius = 1.2;
     const nodeGlow = 6;
     const nodeFill = 'rgba(150, 230, 255, 0.35)';
 
-    // Pulses (“action potentials”) traveling along edges
     let pulses = [];
     const maxPulses = 120;
     const pulseMinSpeed = 0.02;
     const pulseMaxSpeed = 0.06;
-    const pulsesPerFrame = 3; // how many new pulses we try to spawn per frame
+    const pulsesPerFrame = 3;
     const pulseRadius = 1.6;
 
     class Point {
@@ -385,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.ay = 0;
             this.age = 0;
             this.maxAge = Math.random() * 300 + 200;
-            this.isWhite = Math.random() < 0.1; // kept for compatibility
+            this.isWhite = Math.random() < 0.1;
         }
 
         update(points) {
@@ -526,7 +485,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Helpers for drawing with glow, without leaking shadows across draws
     function strokeWithGlow(drawFn, glow = 8) {
         ctx.save();
         ctx.shadowColor = glowColor;
@@ -534,6 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
         drawFn();
         ctx.restore();
     }
+    
     function fillWithGlow(drawFn, glow = 10) {
         ctx.save();
         ctx.shadowColor = glowColor;
@@ -543,14 +502,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function drawNeuronalWeb() {
-        // fade old lines for trails
         ctx.fillStyle = bgFade;
         ctx.fillRect(0, 0, width, height);
 
-        // collect edges so we can spawn & animate pulses on them
         const edges = [];
 
-        // draw connections
         for (let i = 0; i < points.length; i++) {
             const p1 = points[i];
             p1.update(points);
@@ -591,7 +547,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // draw nodes (neurons) on top
         for (let k = 0; k < points.length; k++) {
             const p = points[k];
             fillWithGlow(() => {
@@ -602,7 +557,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, nodeGlow);
         }
 
-        // spawn a few new pulses per frame
         for (let s = 0; s < pulsesPerFrame && pulses.length < maxPulses; s++) {
             if (edges.length === 0) break;
             const e = edges[(Math.random() * edges.length) | 0];
@@ -613,7 +567,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // update & draw pulses
         for (let i = pulses.length - 1; i >= 0; i--) {
             const p = pulses[i];
             p.t += p.speed;
@@ -653,4 +606,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animate();
 });
-

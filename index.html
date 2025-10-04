@@ -89,7 +89,7 @@
     <section id="gallery" class="pt-12 pb-24 bg-black/40 backdrop-blur-sm relative">
         <div class="container mx-auto px-4">
             <div class="gallery-grid flex flex-col gap-20">
-                <div class="gallery-item flex flex-col lg:flex-row-reverse items-center gap-10">
+                <div class="gallery-item flex flex-col lg:flex-row-reverse items-center gap-0">
                     <div class="image w-full lg:w-1/2 h-[320px] sm:h-[400px] lg:h-[500px] rounded-xl shadow-lg bg-cover bg-center"
                         style="background-image: url('images/product2.jpg');"></div>
                     <div class="info w-full lg:w-1/2 text-center lg:text-left space-y-4 px-2 sm:px-6">
@@ -375,26 +375,46 @@
 
 
 
-    <section id="contact" class="py-20 glassmorphic">
-        <div class="container text-center max-w-2xl mx-auto">
-            <!-- H2 is now the toggle -->
-            <h2 id="contactToggle"
-                class="text-4xl sm:text-5xl font-bold text-center chrome-text mb-12 cursor-pointer inline-flex items-center gap-2 justify-center select-none">
-                Contact Us
+    <section id="contact" class="glassmorphic flex flex-col justify-center items-center py-20">
+        <div class="container text-center max-w-xl mx-auto">
 
+            <!-- Toggle Heading -->
+            <h2 id="contactToggle"
+                class="text-4xl sm:text-5xl font-bold chrome-text mb-8 cursor-pointer inline-flex items-center gap-3 select-none group">
+                <span>Contact Us</span>
+                <svg class="w-6 h-6 transition-transform duration-300 group-[.open]:rotate-180" fill="none"
+                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
             </h2>
 
-            <!-- Accordion Content (Contact Form) -->
-            <div id="contactContent" class="overflow-hidden transition-all duration-500 max-h-0">
-                <p class="text-4xl mb-8 text-gray-200">
-                    exclusive@lioneer.de
+            <!-- Accordion -->
+            <div id="contactContent" class="overflow-hidden transition-all duration-500 max-h-0 opacity-0">
+                <p class="text-3xl sm:text-4xl mb-6 text-gray-100 hover:text-white transition-colors">
+                    <a href="mailto:exclusive@lioneer.de" class="underline underline-offset-4 decoration-chrome">
+                        exclusive@lioneer.de
+                    </a>
                 </p>
 
-                <!-- Status message -->
-                <div id="formStatus" class="mt-6 text-sm"></div>
+                <!-- Social links (optional) -->
+                <div class="flex justify-center gap-6 text-gray-300">
+                    <a href="#" class="hover:text-white transition-colors" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors" aria-label="Twitter">
+                        <i class="fa-brands fa-x-twitter text-2xl"></i>
+                    </a>
+                </div>
+
+                <div id="formStatus" class="mt-6 text-sm text-gray-300"></div>
             </div>
         </div>
     </section>
+
+
 
     <footer class="footer bg-black text-white py-16">
         <div class="container max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -443,6 +463,16 @@
             }
         });
     </script>
+    <script>
+  const toggle = document.getElementById('contactToggle');
+  const content = document.getElementById('contactContent');
+
+  toggle.addEventListener('click', () => {
+    content.classList.toggle('open');
+    toggle.parentElement.classList.toggle('open');
+  });
+</script>
+
 </body>
 
 </html>

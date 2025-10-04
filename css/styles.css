@@ -572,6 +572,17 @@ p {
     opacity: 1;
 }
 
+/* Adds chrome underline for links */
+.decoration-chrome {
+  text-decoration-color: #C0C0C0;
+}
+
+/* Smooth expand */
+#contactContent.open {
+  max-height: 300px;       /* Enough to fit content */
+  opacity: 1;
+}
+
 .footer {
     background: linear-gradient(180deg, rgba(20, 20, 20, 0.7), rgba(40, 40, 40, 0.6));
     padding: 6rem 0;

@@ -1,38 +1,27 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-
-
 
     // Debug Font Loading
     const testFont = new FontFace('Girassol', "url('fonts/Girassol-Regular.ttf')");
     testFont.load().then(() => {
-        console.log('Fontul Girassol s-a încărcat cu succes.');
+        console.log('Girassol font loaded successfully.');
         document.fonts.add(testFont);
     }).catch((e) => {
-        console.error('Eroare la încărcarea fontului Girassol:', e);
-        showError('Eroare: Fontul Girassol nu s-a încărcat.');
+        console.error('Error loading Girassol font:', e);
+        showError('Error: Girassol font failed to load.');
     });
-
-    const langElements = document.querySelectorAll('.lang-text');
-    const lang = 'en'; // or 'ru'
-
-    langElements.forEach(el => {
-        el.textContent = el.dataset[lang];
-    });
-
 
     // Debug Logo
     const toplogo = document.querySelector('.toplogo-container img');
     toplogo.addEventListener('error', () => {
-        console.error('Eroare la încărcarea toplogo.png. Verifică calea: images/toplogo.png');
+        console.error('Error loading toplogo.png. Check path: images/toplogo.png');
         toplogo.src = 'https://picsum.photos/200/48?random=1';
-        showError('Eroare: Logo toplogo.png nu s-a încărcat.');
+        showError('Error: Logo toplogo.png failed to load.');
     });
     toplogo.addEventListener('load', () => {
-        console.log('Logo toplogo.png încărcat cu succes.');
+        console.log('Logo toplogo.png loaded successfully.');
     });
 
-    // Debug Hero Image (works with <picture> or plain <img>)
+    // Debug Hero Image
     (() => {
         const heroImage =
             document.getElementById('heroFlag') ||
@@ -57,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Handle cached or already-attempted loads
         if (heroImage.complete) {
             heroImage.naturalWidth > 0 ? onLoad() : onError();
         } else {
@@ -66,12 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })();
 
-
     // Debug Gallery Images
     const galleryItems = document.querySelectorAll('.gallery-item');
     if (galleryItems.length === 0) {
-        console.error('Secțiunea gallery nu conține elemente. Verifică dacă .gallery-grid există și este populată.');
-        showError('Eroare: Galeria nu conține elemente.');
+        console.error('Gallery section contains no items. Check if .gallery-grid exists and is populated.');
+        showError('Error: Gallery contains no items.');
     }
     galleryItems.forEach((item, index) => {
         const img = item.querySelector('.image');
@@ -79,37 +66,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const tempImg = new Image();
         tempImg.src = bgImage;
         tempImg.onerror = () => {
-            console.error(`Imaginea product${index + 1}.jpg nu s-a încărcat. Verifică calea: ${bgImage}`);
+            console.error(`Image product${index + 1}.jpg failed to load. Check path: ${bgImage}`);
             img.style.backgroundImage = 'url(https://picsum.photos/600/500?random=' + (index + 1) + ')';
-            showError(`Eroare: Imaginea product${index + 1}.jpg nu s-a încărcat.`);
+            showError(`Error: Image product${index + 1}.jpg failed to load.`);
         };
         tempImg.onload = () => {
-            console.log(`Imaginea product${index + 1}.jpg încărcată cu succes: ${bgImage}`);
+            console.log(`Image product${index + 1}.jpg loaded successfully: ${bgImage}`);
         };
     });
 
+    // Accordion Setup
     function setupAccordion(contentId, toggleId) {
         const content = document.getElementById(contentId);
         const toggle = document.getElementById(toggleId);
+        const arrow = toggle ? toggle.querySelector('.toggle-arrow') : null;
         let expanded = false;
 
-        toggle.textContent = toggle.dataset.en || 'Discover More';
+        if (!content || !toggle) return;
 
         toggle.addEventListener('click', e => {
             e.preventDefault();
             expanded = !expanded;
 
             if (expanded) {
-                // remove old inline height to get a fresh scrollHeight
-                content.style.maxHeight = 'none';
-                const fullHeight = content.scrollHeight + 'px';
-                // force reflow so the next assignment animates
-                void content.offsetHeight;
-                content.style.maxHeight = fullHeight;
-                toggle.textContent = toggle.dataset.enClose || 'Close';
+                content.style.maxHeight = content.scrollHeight + 'px';
+                if (arrow) arrow.classList.add('rotated');
+                const label = toggle.querySelector('.toggle-label');
+                if (label) label.textContent = 'Show Less';
             } else {
-                content.style.maxHeight = '0px';
-                toggle.textContent = toggle.dataset.en || 'Discover More';
+                content.style.maxHeight = '100px';
+                if (arrow) arrow.classList.remove('rotated');
+                const label = toggle.querySelector('.toggle-label');
+                if (label) label.textContent = 'Discover More';
             }
         });
     }
@@ -117,112 +105,94 @@ document.addEventListener('DOMContentLoaded', () => {
     setupAccordion('aboutContent', 'aboutToggle');
     setupAccordion('instructionsContent', 'instructionsToggle');
 
+    // Contact accordion
+    const contactToggle = document.getElementById('contactToggle');
+    const contactContent = document.getElementById('contactContent');
+    const contactArrow = document.querySelector('.contact-arrow');
+
+    if (contactToggle && contactContent) {
+        let isOpen = false;
+
+        contactToggle.addEventListener('click', () => {
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                contactContent.style.maxHeight = contactContent.scrollHeight + 'px';
+                if (contactArrow) contactArrow.style.transform = 'rotate(180deg)';
+            } else {
+                contactContent.style.maxHeight = '0px';
+                if (contactArrow) contactArrow.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
 
     // Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
     const topbarNav = document.querySelector('.topbar-nav');
-    hamburger.addEventListener('click', () => {
-        topbarNav.classList.toggle('active');
-        hamburger.textContent = topbarNav.classList.contains('active') ? '×' : '☰';
-    });
-
-    function scrollToCenter(element) {
-        const offset = element.getBoundingClientRect().top + window.scrollY;
-        const viewportHeight = window.innerHeight;
-        const elementHeight = element.offsetHeight;
-        const scrollTarget = offset - (viewportHeight / 2) + (elementHeight / 2);
-
-        window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
-    }
-
-    // Parallax Effect for Gallery
-    function updateParallax() {
-        galleryItems.forEach(item => {
-            const rect = item.getBoundingClientRect();
-            const scrollY = window.pageYOffset;
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                const image = item.querySelector('.image');
-                const info = item.querySelector('.info');
-                const offset = (window.innerHeight - rect.top) / window.innerHeight;
-                const parallaxOffset = offset * 0.4 * 100;
-                image.style.transform = `translateY(${(parallaxOffset - 70) / 2}px)`;
-                info.style.transform = `translateY(${(1 - offset) * 3}px)`;
-            }
+    if (hamburger && topbarNav) {
+        hamburger.addEventListener('click', () => {
+            topbarNav.classList.toggle('active');
+            hamburger.textContent = topbarNav.classList.contains('active') ? '×' : '☰';
         });
     }
-    window.addEventListener('scroll', updateParallax);
+
+    // // Parallax Effect for Gallery
+    // function updateParallax() {
+    //     galleryItems.forEach(item => {
+    //         const rect = item.getBoundingClientRect();
+    //         if (rect.top < window.innerHeight && rect.bottom > 0) {
+    //             const image = item.querySelector('.image');
+    //             const info = item.querySelector('.info');
+    //             const offset = (window.innerHeight - rect.top) / window.innerHeight;
+    //             const parallaxOffset = offset * 0.4 * 100;
+    //             if (image) image.style.transform = `translateY(${(parallaxOffset - 70) / 2}px)`;
+    //             if (info) info.style.transform = `translateY(${(1 - offset) * 3}px)`;
+    //         }
+    //     });
+    // }
+    // window.addEventListener('scroll', updateParallax);
+
 
     // Intersection Observer for Fade In Animation
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-    };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                console.log(`Secțiunea ${entry.target.id || entry.target.className} este vizibilă.`);
-                observer.unobserve(entry.target);
-            } else {
-                console.log(`Secțiunea ${entry.target.id || entry.target.className} nu este vizibilă.`);
-            }
-        });
-    }, observerOptions);
-    galleryItems.forEach(item => observer.observe(item));
-    document.querySelectorAll('.tech-card').forEach(card => observer.observe(card));
-    document.querySelectorAll('.glassmorphic, .technologies, .more-information, #contact, .footer').forEach(section => observer.observe(section));
+    // const observerOptions = {
+    //     root: null,
+    //     rootMargin: '0px',
+    //     threshold: 0.2
+    // };
+    // const observer = new IntersectionObserver((entries) => {
+    //     entries.forEach(entry => {
+    //         if (entry.isIntersecting) {
+    //             entry.target.classList.add('visible');
+    //             console.log(`Section ${entry.target.id || entry.target.className} is visible.`);
+    //             observer.unobserve(entry.target);
+    //         }
+    //     });
+    // }, observerOptions);
 
+    // galleryItems.forEach(item => observer.observe(item));
+    // document.querySelectorAll('.tech-card').forEach(card => observer.observe(card));
+    // document.querySelectorAll('.glassmorphic, .technologies, .more-information, #contact, .footer').forEach(section => observer.observe(section));
+
+
+    
     // Topbar Scroll Behavior
     let lastScrollTop = 0;
     const topbar = document.querySelector('.topbar');
-    topbar.classList.add('visible'); // Show topbar on load
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop && scrollTop > 56) {
-            topbar.classList.remove('visible');
-            topbar.classList.add('hidden');
-            topbarNav.classList.remove('active');
-            hamburger.textContent = '☰';
-        } else if (scrollTop < lastScrollTop || scrollTop <= 56) {
-            topbar.classList.remove('hidden');
-            topbar.classList.add('visible');
-        }
-        lastScrollTop = scrollTop;
-    });
-
-    // Language Switcher
-    const languageButtons = document.querySelectorAll('.language-button');
-    languageButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            languageButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            const lang = button.getAttribute('data-lang');
-            setLanguage(lang);
-            if (heroImage) {
-                heroImage.classList.toggle('lang-ru', lang === 'ru');
+    if (topbar) {
+        topbar.classList.add('visible');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 56) {
+                topbar.classList.remove('visible');
+                topbar.classList.add('hidden');
+                if (topbarNav) topbarNav.classList.remove('active');
+                if (hamburger) hamburger.textContent = '☰';
+            } else if (scrollTop < lastScrollTop || scrollTop <= 56) {
+                topbar.classList.remove('hidden');
+                topbar.classList.add('visible');
             }
+            lastScrollTop = scrollTop;
         });
-    });
-
-    function setLanguage(lang) {
-        try {
-            document.querySelectorAll('.lang-text').forEach(element => {
-                const text = element.getAttribute(`data-${lang}`);
-                if (text) {
-                    element.innerHTML = text;
-                } else {
-                    console.warn(`Atributul data-${lang} lipsește pentru element:`, element);
-                }
-            });
-            document.querySelectorAll('.language-button').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-        } catch (e) {
-            console.error('Eroare în setLanguage:', e);
-            showError('Eroare la schimbarea limbii.');
-        }
     }
 
     // Error Message Display
@@ -246,58 +216,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
 
     function updateMediaPlayer(index) {
-
         return null;
-        try {
-            const item = galleryItems[index];
-            const imageUrl = item.querySelector('.image').style.backgroundImage.slice(5, -2);
-            const title = item.querySelector('.info h3').textContent;
-            const description = item.querySelector('.info p');
-            mediaPlayerImage.style.backgroundImage = `url('${imageUrl}')`;
-            mediaPlayerTitle.textContent = title;
-            mediaPlayerDescription.setAttribute('data-en', description.getAttribute('data-en'));
-            mediaPlayerDescription.setAttribute('data-ru', description.getAttribute('data-ru'));
-            mediaPlayerDescription.innerHTML = description.innerHTML;
-            setLanguage(document.querySelector('.language-button.active')?.getAttribute('data-lang') || 'en');
-            currentImageIndex = index;
-            // console.log(`Media player actualizat cu imaginea ${imageUrl}`);
-        } catch (e) {
-            console.error('Eroare la actualizarea media player:', e);
-            showError('Eroare la actualizarea media player.');
-        }
     }
 
-    galleryItems.forEach((item, index) => {
-        const image = item.querySelector('.image');
-        image.addEventListener('click', () => {
-            updateMediaPlayer(index);
-            // mediaPlayer.classList.add('active');
+    if (mediaPlayerClose) {
+        mediaPlayerClose.addEventListener('click', () => {
+            if (mediaPlayer) mediaPlayer.classList.remove('active');
         });
-    });
+    }
 
-    document.addEventListener('keydown', (e) => {
-        if (mediaPlayer.classList.contains('active')) {
-            if (e.key === 'ArrowLeft') {
-                currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
-                updateMediaPlayer(currentImageIndex);
-            } else if (e.key === 'ArrowRight') {
-                currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
-                updateMediaPlayer(currentImageIndex);
-            } else if (e.key === 'Escape') {
+    if (mediaPlayer) {
+        mediaPlayer.addEventListener('click', (e) => {
+            if (e.target === mediaPlayer) {
                 mediaPlayer.classList.remove('active');
             }
-        }
-    });
-
-    mediaPlayerClose.addEventListener('click', () => {
-        mediaPlayer.classList.remove('active');
-    });
-
-    mediaPlayer.addEventListener('click', (e) => {
-        if (e.target === mediaPlayer) {
-            mediaPlayer.classList.remove('active');
-        }
-    });
+        });
+    }
 
     // Smooth Scroll
     document.querySelectorAll('.topbar-nav a').forEach(anchor => {
@@ -307,44 +241,81 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth' });
                 if (window.innerWidth <= 768) {
-                    topbarNav.classList.remove('active');
-                    hamburger.textContent = '☰';
+                    if (topbarNav) topbarNav.classList.remove('active');
+                    if (hamburger) hamburger.textContent = '☰';
                 }
             } else {
-                console.error(`Secțiunea ${this.getAttribute('href')} nu a fost găsită.`);
-                showError(`Secțiunea ${this.getAttribute('href')} nu a fost găsită.`);
+                console.error(`Section ${this.getAttribute('href')} not found.`);
+                showError(`Section ${this.getAttribute('href')} not found.`);
             }
         });
     });
 
     // Canvas Animation
+    // ========================================
+    // CANVAS ANIMATION - NEURONAL NETWORK
+    // ========================================
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
+
     if (!ctx) {
-        console.error('Canvas context nu este disponibil.');
-        showError('Eroare: Canvas-ul neuronal nu este disponibil.');
+        console.error('Canvas context not available.');
         return;
     }
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
 
-    let mouseX = width / 2;
-    let mouseY = height / 2;
+    let width = 0;
+    let height = 0;
 
+    function sizeCanvas() {
+        const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        width = w;
+        height = h;
+
+        ctx.fillStyle = '#0a0a0a';
+        ctx.fillRect(0, 0, width, height);
+    }
+
+    sizeCanvas();
+
+    // Animation variables
     let points = [];
     const maxPoints = 150;
-    const lineLength = 100;
-    let hue = 51;
-    const minLineWidth = 0.2;
-    const maxLineWidth = 1.2;
+    const lineLength = 120;
     let frameCounter = 0;
-    const framesPerPoint = 2;
-    const separationDistance = 30;
-    const alignmentDistance = 50;
-    const cohesionDistance = 50;
-    const maxForce = 0.05;
-    const maxSpeed = 2;
+    const framesPerPoint = 1;
 
+    const separationDistance = 30;
+    const alignmentDistance = 60;
+    const cohesionDistance = 60;
+    const maxForce = 0.09;
+    const maxSpeed = 3.8;
+    const friction = 0.993;
+
+    const bgFade = 'rgba(10, 10, 10, 0.08)';
+    const lineColor = (a) => `hsla(210, 100%, 60%, ${a})`;
+    const glowColor = 'rgba(0, 200, 255, 0.7)';
+
+    const nodeRadius = 1.2;
+    const nodeGlow = 6;
+    const nodeFill = 'rgba(150, 230, 255, 0.35)';
+
+    let pulses = [];
+    const maxPulses = 120;
+    const pulseMinSpeed = 0.02;
+    const pulseMaxSpeed = 0.06;
+    const pulsesPerFrame = 3;
+    const pulseRadius = 1.6;
+
+    // Point class for network nodes
     class Point {
         constructor(x, y) {
             this.x = x;
@@ -355,7 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.ay = 0;
             this.age = 0;
             this.maxAge = Math.random() * 300 + 200;
-            this.isWhite = Math.random() < 0.1;
         }
 
         update(points) {
@@ -441,8 +411,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         applyFriction() {
-            this.vx *= 0.98;
-            this.vy *= 0.98;
+            this.vx *= friction;
+            this.vy *= friction;
         }
 
         move() {
@@ -481,10 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
         limitForce(force, max) {
             let mag = Math.sqrt(force.x * force.x + force.y * force.y);
             if (mag > max) {
-                return {
-                    x: (force.x / mag) * max,
-                    y: (force.y / mag) * max
-                };
+                return { x: (force.x / mag) * max, y: (force.y / mag) * max };
             }
             return force;
         }
@@ -503,10 +470,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function strokeWithGlow(drawFn, glow = 8) {
+        ctx.save();
+        ctx.shadowColor = glowColor;
+        ctx.shadowBlur = glow;
+        drawFn();
+        ctx.restore();
+    }
+
+    function fillWithGlow(drawFn, glow = 10) {
+        ctx.save();
+        ctx.shadowColor = glowColor;
+        ctx.shadowBlur = glow;
+        drawFn();
+        ctx.restore();
+    }
+
     function drawNeuronalWeb() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillStyle = bgFade;
         ctx.fillRect(0, 0, width, height);
 
+        const edges = [];
+
+        // Update and draw points with connections
         for (let i = 0; i < points.length; i++) {
             const p1 = points[i];
             p1.update(points);
@@ -531,20 +517,62 @@ document.addEventListener('DOMContentLoaded', () => {
                     connections++;
 
                     const alpha = 1 - (distance / lineLength);
-                    const lineWidth = minLineWidth + (maxLineWidth - minLineWidth) * alpha;
+                    const lineWidth = 0.2 + (1.4 - 0.2) * alpha;
 
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.lineWidth = lineWidth;
+                    strokeWithGlow(() => {
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.lineWidth = lineWidth;
+                        ctx.strokeStyle = lineColor(alpha);
+                        ctx.stroke();
+                    }, 8);
 
-                    if (p1.isWhite || p2.isWhite) {
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 1.0})`;
-                    } else {
-                        ctx.strokeStyle = `hsla(${hue}, 100%, 50%, ${alpha * 1.0})`;
-                    }
-                    ctx.stroke();
+                    edges.push({ x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y, a: alpha });
                 }
+            }
+        }
+
+        // Draw nodes
+        for (let k = 0; k < points.length; k++) {
+            const p = points[k];
+            fillWithGlow(() => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, nodeRadius, 0, Math.PI * 2);
+                ctx.fillStyle = nodeFill;
+                ctx.fill();
+            }, nodeGlow);
+        }
+
+        // Create and animate pulses
+        for (let s = 0; s < pulsesPerFrame && pulses.length < maxPulses; s++) {
+            if (edges.length === 0) break;
+            const e = edges[(Math.random() * edges.length) | 0];
+            pulses.push({
+                x1: e.x1,
+                y1: e.y1,
+                x2: e.x2,
+                y2: e.y2,
+                t: 0,
+                speed: pulseMinSpeed + Math.random() * (pulseMaxSpeed - pulseMinSpeed)
+            });
+        }
+
+        for (let i = pulses.length - 1; i >= 0; i--) {
+            const p = pulses[i];
+            p.t += p.speed;
+            const x = p.x1 + (p.x2 - p.x1) * p.t;
+            const y = p.y1 + (p.y2 - p.y1) * p.t;
+
+            fillWithGlow(() => {
+                ctx.beginPath();
+                ctx.arc(x, y, pulseRadius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(120, 230, 255, 0.95)';
+                ctx.fill();
+            }, 12);
+
+            if (p.t >= 1) {
+                pulses.splice(i, 1);
             }
         }
     }
@@ -558,15 +586,11 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
     }
 
-    canvas.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
+    // Handle window resize
     window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+        sizeCanvas();
     });
 
+    // Start animation
     animate();
 });

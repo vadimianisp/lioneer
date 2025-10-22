@@ -136,45 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // // Parallax Effect for Gallery
-    // function updateParallax() {
-    //     galleryItems.forEach(item => {
-    //         const rect = item.getBoundingClientRect();
-    //         if (rect.top < window.innerHeight && rect.bottom > 0) {
-    //             const image = item.querySelector('.image');
-    //             const info = item.querySelector('.info');
-    //             const offset = (window.innerHeight - rect.top) / window.innerHeight;
-    //             const parallaxOffset = offset * 0.4 * 100;
-    //             if (image) image.style.transform = `translateY(${(parallaxOffset - 70) / 2}px)`;
-    //             if (info) info.style.transform = `translateY(${(1 - offset) * 3}px)`;
-    //         }
-    //     });
-    // }
-    // window.addEventListener('scroll', updateParallax);
-
-
-    // Intersection Observer for Fade In Animation
-    // const observerOptions = {
-    //     root: null,
-    //     rootMargin: '0px',
-    //     threshold: 0.2
-    // };
-    // const observer = new IntersectionObserver((entries) => {
-    //     entries.forEach(entry => {
-    //         if (entry.isIntersecting) {
-    //             entry.target.classList.add('visible');
-    //             console.log(`Section ${entry.target.id || entry.target.className} is visible.`);
-    //             observer.unobserve(entry.target);
-    //         }
-    //     });
-    // }, observerOptions);
-
-    // galleryItems.forEach(item => observer.observe(item));
-    // document.querySelectorAll('.tech-card').forEach(card => observer.observe(card));
-    // document.querySelectorAll('.glassmorphic, .technologies, .more-information, #contact, .footer').forEach(section => observer.observe(section));
-
-
-    
     // Topbar Scroll Behavior
     let lastScrollTop = 0;
     const topbar = document.querySelector('.topbar');
@@ -233,110 +194,144 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Smooth Scroll
-    document.querySelectorAll('.topbar-nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-                if (window.innerWidth <= 768) {
-                    if (topbarNav) topbarNav.classList.remove('active');
-                    if (hamburger) hamburger.textContent = '☰';
-                }
-            } else {
-                console.error(`Section ${this.getAttribute('href')} not found.`);
-                showError(`Section ${this.getAttribute('href')} not found.`);
-            }
-        });
-    });
+    // =============================================================================
+    // OPTIMIZED CANVAS ANIMATION - NEURONAL NETWORK WITH FLOCKING BEHAVIOR
+    // =============================================================================
 
-    // Canvas Animation
-    // ========================================
-    // CANVAS ANIMATION - NEURONAL NETWORK
-    // ========================================
+    // Performance and device detection
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isLowEnd = isMobile || navigator.hardwareConcurrency <= 2;
+
+    // Canvas Setup
     const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-
-    if (!ctx) {
-        console.error('Canvas context not available.');
-        return;
-    }
-
-    let width = 0;
-    let height = 0;
+    const ctx = canvas.getContext('2d', { alpha: false, desynchronized: true });
+    let width, height;
+    let gridSize = 100;
+    let grid = [];
 
     function sizeCanvas() {
-        const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-        const w = window.innerWidth;
-        const h = window.innerHeight;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.scale(dpr, dpr);
 
-        canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
-        canvas.width = Math.floor(w * dpr);
-        canvas.height = Math.floor(h * dpr);
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-        width = w;
-        height = h;
-
-        ctx.fillStyle = '#0a0a0a';
-        ctx.fillRect(0, 0, width, height);
+        gridSize = Math.max(80, Math.min(width, height) / 8);
+        initGrid();
     }
-
     sizeCanvas();
 
-    // Animation variables
-    let points = [];
-    const maxPoints = 150;
-    const lineLength = 120;
+    // Adaptive configuration based on device
+    const config = {
+        bgFade: isLowEnd ? 'rgba(0,0,0,0.08)' : 'rgba(0,0,0,0.05)',
+        glowColor: 'rgba(120, 230, 255, 0.8)',
+        nodeFill: 'rgba(180, 230, 255, 0.7)',
+        nodeRadius: isLowEnd ? 2.5 : 3,
+        nodeGlow: isLowEnd ? 6 : 10,
+
+        maxSpeed: isLowEnd ? 1.8 : 2.5,
+        maxForce: 0.04,
+        separationRadius: isLowEnd ? 35 : 40,
+        alignmentRadius: isLowEnd ? 45 : 50,
+        cohesionRadius: isLowEnd ? 45 : 50,
+        separationWeight: 1.5,
+        alignmentWeight: 1.0,
+        cohesionWeight: 1.0,
+        friction: 0.99,
+        lineLength: isLowEnd ? 100 : 120,
+
+        maxPoints: (() => {
+            const area = width * height;
+            if (isLowEnd) return Math.min(40, Math.floor(area / 25000));
+            if (area < 1000000) return Math.min(60, Math.floor(area / 15000));
+            return Math.min(100, Math.floor(area / 12000));
+        })(),
+
+        framesPerPoint: isLowEnd ? 15 : 12,
+
+        pulseRadius: isLowEnd ? 3 : 4,
+        pulsesPerFrame: isLowEnd ? 1 : 2,
+        maxPulses: isLowEnd ? 20 : 40,
+        pulseMinSpeed: 0.015,
+        pulseMaxSpeed: 0.045,
+
+        useGlow: !isLowEnd,
+        maxConnections: isLowEnd ? 2 : 3
+    };
+
+    function lineColor(alpha) {
+        return `rgba(100, 200, 255, ${alpha * 0.6})`;
+    }
+
+    // Spatial grid for optimization
+    function initGrid() {
+        const cols = Math.ceil(width / gridSize);
+        const rows = Math.ceil(height / gridSize);
+        grid = Array.from({ length: cols }, () => Array(rows).fill(null).map(() => []));
+    }
+
+    function clearGrid() {
+        for (let i = 0; i < grid.length; i++) {
+            for (let j = 0; j < grid[i].length; j++) {
+                grid[i][j].length = 0;
+            }
+        }
+    }
+
+    function addToGrid(point) {
+        const col = Math.floor(point.x / gridSize);
+        const row = Math.floor(point.y / gridSize);
+        if (col >= 0 && col < grid.length && row >= 0 && row < grid[0].length) {
+            grid[col][row].push(point);
+        }
+    }
+
+    function getNearbyPoints(point, radius) {
+        const col = Math.floor(point.x / gridSize);
+        const row = Math.floor(point.y / gridSize);
+        const nearby = [];
+        const cellRadius = Math.ceil(radius / gridSize);
+
+        for (let i = Math.max(0, col - cellRadius); i <= Math.min(grid.length - 1, col + cellRadius); i++) {
+            for (let j = Math.max(0, row - cellRadius); j <= Math.min(grid[0].length - 1, row + cellRadius); j++) {
+                nearby.push(...grid[i][j]);
+            }
+        }
+        return nearby;
+    }
+
+    // Arrays
+    const points = [];
+    const pulses = [];
     let frameCounter = 0;
-    const framesPerPoint = 1;
 
-    const separationDistance = 30;
-    const alignmentDistance = 60;
-    const cohesionDistance = 60;
-    const maxForce = 0.09;
-    const maxSpeed = 3.8;
-    const friction = 0.993;
-
-    const bgFade = 'rgba(10, 10, 10, 0.08)';
-    const lineColor = (a) => `hsla(210, 100%, 60%, ${a})`;
-    const glowColor = 'rgba(0, 200, 255, 0.7)';
-
-    const nodeRadius = 1.2;
-    const nodeGlow = 6;
-    const nodeFill = 'rgba(150, 230, 255, 0.35)';
-
-    let pulses = [];
-    const maxPulses = 120;
-    const pulseMinSpeed = 0.02;
-    const pulseMaxSpeed = 0.06;
-    const pulsesPerFrame = 3;
-    const pulseRadius = 1.6;
-
-    // Point class for network nodes
+    // Optimized Point Class
     class Point {
         constructor(x, y) {
             this.x = x;
             this.y = y;
-            this.vx = (Math.random() - 0.5) * 2;
-            this.vy = (Math.random() - 0.5) * 2;
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 1.2 + 0.5;
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed;
             this.ax = 0;
             this.ay = 0;
             this.age = 0;
-            this.maxAge = Math.random() * 300 + 200;
+            this.maxAge = 800 + Math.random() * 1500;
         }
 
-        update(points) {
-            this.flock(points);
+        update() {
+            this.age++;
+            this.flock();
             this.applyFriction();
             this.move();
             this.bounce();
-            this.age++;
         }
 
-        flock(points) {
+        flock() {
             let separation = { x: 0, y: 0 };
             let alignment = { x: 0, y: 0 };
             let cohesion = { x: 0, y: 0 };
@@ -344,25 +339,30 @@ document.addEventListener('DOMContentLoaded', () => {
             let totalAlignment = 0;
             let totalCohesion = 0;
 
-            for (let other of points) {
-                if (other === this) continue;
-                let dx = other.x - this.x;
-                let dy = other.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
+            const maxRadius = Math.max(config.separationRadius, config.alignmentRadius, config.cohesionRadius);
+            const nearbyPoints = getNearbyPoints(this, maxRadius);
 
-                if (distance < separationDistance && distance > 0) {
-                    separation.x -= (dx / distance);
-                    separation.y -= (dy / distance);
+            for (let other of nearbyPoints) {
+                if (other === this) continue;
+
+                const dx = other.x - this.x;
+                const dy = other.y - this.y;
+                const distSq = dx * dx + dy * dy;
+                const distance = Math.sqrt(distSq);
+
+                if (distance > 0 && distance < config.separationRadius) {
+                    separation.x -= dx / distance;
+                    separation.y -= dy / distance;
                     totalSeparation++;
                 }
 
-                if (distance < alignmentDistance) {
+                if (distance > 0 && distance < config.alignmentRadius) {
                     alignment.x += other.vx;
                     alignment.y += other.vy;
                     totalAlignment++;
                 }
 
-                if (distance < cohesionDistance) {
+                if (distance > 0 && distance < config.cohesionRadius) {
                     cohesion.x += other.x;
                     cohesion.y += other.y;
                     totalCohesion++;
@@ -372,9 +372,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (totalSeparation > 0) {
                 separation.x /= totalSeparation;
                 separation.y /= totalSeparation;
-                separation = this.limitForce(separation, maxForce);
-                this.ax += separation.x;
-                this.ay += separation.y;
+                separation = this.limitForce(separation, config.maxForce);
+                this.ax += separation.x * config.separationWeight;
+                this.ay += separation.y * config.separationWeight;
             }
 
             if (totalAlignment > 0) {
@@ -382,14 +382,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 alignment.y /= totalAlignment;
                 let alignmentMag = Math.sqrt(alignment.x * alignment.x + alignment.y * alignment.y);
                 if (alignmentMag > 0) {
-                    alignment.x = (alignment.x / alignmentMag) * maxSpeed;
-                    alignment.y = (alignment.y / alignmentMag) * maxSpeed;
+                    alignment.x = (alignment.x / alignmentMag) * config.maxSpeed;
+                    alignment.y = (alignment.y / alignmentMag) * config.maxSpeed;
                 }
                 alignment.x -= this.vx;
                 alignment.y -= this.vy;
-                alignment = this.limitForce(alignment, maxForce);
-                this.ax += alignment.x;
-                this.ay += alignment.y;
+                alignment = this.limitForce(alignment, config.maxForce);
+                this.ax += alignment.x * config.alignmentWeight;
+                this.ay += alignment.y * config.alignmentWeight;
             }
 
             if (totalCohesion > 0) {
@@ -399,29 +399,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 cohesion.y -= this.y;
                 let cohesionMag = Math.sqrt(cohesion.x * cohesion.x + cohesion.y * cohesion.y);
                 if (cohesionMag > 0) {
-                    cohesion.x = (cohesion.x / cohesionMag) * maxSpeed;
-                    cohesion.y = (cohesion.y / cohesionMag) * maxSpeed;
+                    cohesion.x = (cohesion.x / cohesionMag) * config.maxSpeed;
+                    cohesion.y = (cohesion.y / cohesionMag) * config.maxSpeed;
                 }
                 cohesion.x -= this.vx;
                 cohesion.y -= this.vy;
-                cohesion = this.limitForce(cohesion, maxForce);
-                this.ax += cohesion.x;
-                this.ay += cohesion.y;
+                cohesion = this.limitForce(cohesion, config.maxForce);
+                this.ax += cohesion.x * config.cohesionWeight;
+                this.ay += cohesion.y * config.cohesionWeight;
             }
         }
 
         applyFriction() {
-            this.vx *= friction;
-            this.vy *= friction;
+            this.vx *= config.friction;
+            this.vy *= config.friction;
         }
 
         move() {
             this.vx += this.ax;
             this.vy += this.ay;
             let speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-            if (speed > maxSpeed) {
-                this.vx = (this.vx / speed) * maxSpeed;
-                this.vy = (this.vy / speed) * maxSpeed;
+            if (speed > config.maxSpeed) {
+                this.vx = (this.vx / speed) * config.maxSpeed;
+                this.vy = (this.vy / speed) * config.maxSpeed;
             }
             this.x += this.vx;
             this.y += this.vy;
@@ -449,8 +449,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         limitForce(force, max) {
-            let mag = Math.sqrt(force.x * force.x + force.y * force.y);
-            if (mag > max) {
+            let magSq = force.x * force.x + force.y * force.y;
+            if (magSq > max * max) {
+                let mag = Math.sqrt(magSq);
                 return { x: (force.x / mag) * max, y: (force.y / mag) * max };
             }
             return force;
@@ -461,41 +462,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Helper functions
     function createPoint() {
         const x = Math.random() * width;
         const y = Math.random() * height;
         points.push(new Point(x, y));
-        if (points.length > maxPoints) {
+        if (points.length > config.maxPoints) {
             points.shift();
         }
     }
 
     function strokeWithGlow(drawFn, glow = 8) {
-        ctx.save();
-        ctx.shadowColor = glowColor;
-        ctx.shadowBlur = glow;
-        drawFn();
-        ctx.restore();
+        if (config.useGlow) {
+            ctx.save();
+            ctx.shadowColor = config.glowColor;
+            ctx.shadowBlur = glow;
+            drawFn();
+            ctx.restore();
+        } else {
+            drawFn();
+        }
     }
 
     function fillWithGlow(drawFn, glow = 10) {
-        ctx.save();
-        ctx.shadowColor = glowColor;
-        ctx.shadowBlur = glow;
-        drawFn();
-        ctx.restore();
+        if (config.useGlow) {
+            ctx.save();
+            ctx.shadowColor = config.glowColor;
+            ctx.shadowBlur = glow;
+            drawFn();
+            ctx.restore();
+        } else {
+            drawFn();
+        }
     }
 
+    // Optimized main drawing function
     function drawNeuronalWeb() {
-        ctx.fillStyle = bgFade;
+        ctx.fillStyle = config.bgFade;
         ctx.fillRect(0, 0, width, height);
+
+        clearGrid();
+        for (let point of points) {
+            addToGrid(point);
+        }
 
         const edges = [];
 
-        // Update and draw points with connections
         for (let i = 0; i < points.length; i++) {
             const p1 = points[i];
-            p1.update(points);
+            p1.update();
 
             if (p1.isDead()) {
                 points.splice(i, 1);
@@ -504,19 +519,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             let connections = 0;
-            const maxConnections = 3;
+            const nearbyPoints = getNearbyPoints(p1, config.lineLength);
 
-            for (let j = i + 1; j < points.length; j++) {
-                const p2 = points[j];
+            for (let p2 of nearbyPoints) {
+                if (p2 === p1 || points.indexOf(p2) <= i) continue;
+                if (connections >= config.maxConnections) break;
+
                 const dx = p2.x - p1.x;
                 const dy = p2.y - p1.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+                const distSq = dx * dx + dy * dy;
+                const lineLengthSq = config.lineLength * config.lineLength;
 
-                if (distance < lineLength) {
-                    if (connections >= maxConnections) break;
+                if (distSq < lineLengthSq) {
                     connections++;
 
-                    const alpha = 1 - (distance / lineLength);
+                    const distance = Math.sqrt(distSq);
+                    const alpha = 1 - (distance / config.lineLength);
                     const lineWidth = 0.2 + (1.4 - 0.2) * alpha;
 
                     strokeWithGlow(() => {
@@ -533,28 +551,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Draw nodes
         for (let k = 0; k < points.length; k++) {
             const p = points[k];
             fillWithGlow(() => {
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, nodeRadius, 0, Math.PI * 2);
-                ctx.fillStyle = nodeFill;
+                ctx.arc(p.x, p.y, config.nodeRadius, 0, Math.PI * 2);
+                ctx.fillStyle = config.nodeFill;
                 ctx.fill();
-            }, nodeGlow);
+            }, config.nodeGlow);
         }
 
-        // Create and animate pulses
-        for (let s = 0; s < pulsesPerFrame && pulses.length < maxPulses; s++) {
+        for (let s = 0; s < config.pulsesPerFrame && pulses.length < config.maxPulses; s++) {
             if (edges.length === 0) break;
-            const e = edges[(Math.random() * edges.length) | 0];
+            const e = edges[Math.floor(Math.random() * edges.length)];
             pulses.push({
                 x1: e.x1,
                 y1: e.y1,
                 x2: e.x2,
                 y2: e.y2,
                 t: 0,
-                speed: pulseMinSpeed + Math.random() * (pulseMaxSpeed - pulseMinSpeed)
+                speed: config.pulseMinSpeed + Math.random() * (config.pulseMaxSpeed - config.pulseMinSpeed)
             });
         }
 
@@ -566,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             fillWithGlow(() => {
                 ctx.beginPath();
-                ctx.arc(x, y, pulseRadius, 0, Math.PI * 2);
+                ctx.arc(x, y, config.pulseRadius, 0, Math.PI * 2);
                 ctx.fillStyle = 'rgba(120, 230, 255, 0.95)';
                 ctx.fill();
             }, 12);
@@ -577,18 +593,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Animation loop
     function animate() {
         frameCounter++;
-        if (frameCounter % framesPerPoint === 0) {
+        if (frameCounter % config.framesPerPoint === 0) {
             createPoint();
         }
         drawNeuronalWeb();
         requestAnimationFrame(animate);
     }
 
-    // Handle window resize
+    // Debounced resize handler
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-        sizeCanvas();
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            sizeCanvas();
+            const area = width * height;
+            if (isLowEnd) {
+                config.maxPoints = Math.min(40, Math.floor(area / 25000));
+            } else if (area < 1000000) {
+                config.maxPoints = Math.min(60, Math.floor(area / 15000));
+            } else {
+                config.maxPoints = Math.min(100, Math.floor(area / 12000));
+            }
+        }, 250);
     });
 
     // Start animation

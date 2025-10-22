@@ -231,7 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nodeFill: 'rgba(180, 230, 255, 0.7)',
         nodeRadius: isLowEnd ? 2.5 : 3,
         nodeGlow: isLowEnd ? 6 : 10,
-
+        pulseMinSpeed: 0.015,
+        pulseMaxSpeed: 0.045,
         maxSpeed: isLowEnd ? 1.8 : 2.5,
         maxForce: 0.04,
         separationRadius: isLowEnd ? 35 : 40,

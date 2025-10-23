@@ -309,10 +309,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nodeFill = 'rgba(150, 230, 255, 0.35)';
 
     let pulses = [];
-    const maxPulses = 120;
-    const pulseMinSpeed = 0.02;
-    const pulseMaxSpeed = 0.06;
-    const pulsesPerFrame = 3;
+    const maxPulses = 80;
+    const pulseMinSpeed = 0.03;
+    const pulseMaxSpeed = 0.026;
+    const pulsesPerFrame = 2;
     const pulseRadius = 1.6;
 
     // Point class for network nodes

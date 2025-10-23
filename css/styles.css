@@ -396,13 +396,6 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
-    justify-items: center;
-}
-
-@media (min-width: 640px) {
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media (min-width: 1024px) {
@@ -415,13 +408,26 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
-    padding: 2rem;
     text-align: center;
     backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     opacity: 1;
+    
+    /* 4:3 aspect ratio - STRICT */
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    
+    /* Content container with padding */
+    padding: 2rem;
+    overflow: hidden; /* Prevent content from breaking ratio */
+    
+    /* Flexbox for content alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .tech-card:hover {
@@ -434,16 +440,24 @@ body {
     font-size: 1.8rem;
     font-weight: normal;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    max-width: 100%;
 }
 
-/* INCREASED: Tech card description font sizes */
 .tech-card p {
     font-family: 'Girassol', Helvetica, sans-serif;
-    font-size: 1.2rem; /* Increased from 1rem */
+    font-size: 1.2rem;
     color: #E0E0E0;
     font-weight: normal;
     line-height: 1.5;
+    margin: 0;
+    flex-grow: 0; /* Don't let text push boundaries */
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis;
 }
 
 .more-information {

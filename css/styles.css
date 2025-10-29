@@ -939,7 +939,7 @@ a.chrome-text:hover {
     .gallery-item .info {
         width: 100%;
         text-align: center;
-        padding: 1.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
     .gallery-item .info h3 {
@@ -1063,7 +1063,7 @@ a.chrome-text:hover {
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .hero-content .cta-button {

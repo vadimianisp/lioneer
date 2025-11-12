@@ -370,10 +370,10 @@ body {
     margin-bottom: 1rem;
 }
 
-/* INCREASED: Description font sizes */
+
 .gallery-item .info p {
     font-family: 'Girassol', Helvetica, sans-serif;
-    font-size: 1.8rem; /* Increased from 1.5rem */
+    font-size: 1.5rem;
     color: #E0E0E0;
     font-weight: normal;
     line-height: 1.5;
@@ -946,7 +946,6 @@ a.chrome-text:hover {
         font-size: 1.8rem;
     }
 
-    /* INCREASED: Gallery descriptions on mobile */
     .gallery-item .info p {
         font-size: 1.2rem; /* Increased from 0.95rem */
         line-height: 1.6;
@@ -962,11 +961,6 @@ a.chrome-text:hover {
 
     .tech-card h3 {
         font-size: 1.5rem;
-    }
-
-    /* INCREASED: Tech card descriptions on mobile */
-    .tech-card p {
-        font-size: 1.1rem; /* Increased from 0.9rem */
     }
 
     .media-player-content {

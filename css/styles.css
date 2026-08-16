@@ -359,7 +359,7 @@ body {
 .gallery-item .info {
     width: 50%;
     padding: 3rem;
-    text-align: left;
+    text-align: center;
 }
 
 .gallery-item .info h3 {
